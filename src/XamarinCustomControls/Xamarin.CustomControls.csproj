@@ -47,9 +47,6 @@
     <Compile Include="CoolProgressBar.xaml.cs">
      <DependentUpon>CoolProgressBar.xaml</DependentUpon>
       </Compile>
-    <Compile Include="TestView.xaml.cs">
-      <DependentUpon>TestView.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
@@ -69,10 +66,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="TestView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-
      <EmbeddedResource Include="RefreshableRepeaterView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
