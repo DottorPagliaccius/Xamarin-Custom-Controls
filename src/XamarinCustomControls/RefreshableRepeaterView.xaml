@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	 x:Class="Xamarin.CustomControls.RefreshableRepeaterView"
+	 xmlns:controls="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh">
+	<ContentView.Content>
+		<controls:PullToRefreshLayout x:Name="PullToRefreshPanel">
+			<ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+				<StackLayout x:Name="ItemsPanel" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+				</StackLayout>
+			</ScrollView>
+		</controls:PullToRefreshLayout>
+	</ContentView.Content>
+</ContentView>

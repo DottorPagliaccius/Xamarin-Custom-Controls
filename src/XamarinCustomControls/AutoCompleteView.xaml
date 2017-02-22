@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+	 xmlns:local="clr-namespace:Xamarin.CustomControls;assembly=Xamarin.CustomControls"
+	 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Xamarin.CustomControls.AutoCompleteView">
+	<ContentView.Content>
+		<StackLayout Spacing="0">
+			<Entry x:Name="MainEntry" TextChanged="SearchText_TextChanged" Focused="SearchText_Focused"
+				 Unfocused="SearchText_Unfocused" />
+			<StackLayout x:Name="SuggestedItemsContainer" IsVisible="false" Spacing="0" Margin="4,0">
+				<StackLayout x:Name="SuggestedItemsInnerContainer">
+					<local:RepeaterView x:Name="SuggestedItemsRepeaterView" />
+				</StackLayout>
+			</StackLayout>
+		</StackLayout>
+	</ContentView.Content>
+</ContentView>
