@@ -1,12 +1,11 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Xamarin.CustomControls
 {
-     public partial class RefreshableRepeaterView : RepeaterView
+    public partial class RefreshableRepeaterView : RepeaterView
     {
         public static readonly BindableProperty IsRefreshingProperty = BindableProperty.Create(nameof(IsRefreshing), typeof(bool), typeof(RefreshableRepeaterView), false);
         public static readonly BindableProperty RefreshBackgroundColorProperty = BindableProperty.Create(nameof(RefreshBackgroundColor), typeof(Color), typeof(RefreshableRepeaterView), Color.Default);
