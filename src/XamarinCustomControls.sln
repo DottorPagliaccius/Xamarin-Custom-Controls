@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomControlsSamples.Droid
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.CustomControls.Droid", "XamarincCustomControls.Droid\Xamarin.CustomControls.Droid.csproj", "{49A0ABE8-75E4-47FD-B19E-5F4EE257DE85}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.CustomControls.Repeater", "Xamarin.CustomControls.Repeater\Xamarin.CustomControls.Repeater.csproj", "{73C8625C-82B0-484D-8EC0-32C984D73DB0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,5 +83,17 @@ Global
 		{49A0ABE8-75E4-47FD-B19E-5F4EE257DE85}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{49A0ABE8-75E4-47FD-B19E-5F4EE257DE85}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{49A0ABE8-75E4-47FD-B19E-5F4EE257DE85}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{73C8625C-82B0-484D-8EC0-32C984D73DB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73C8625C-82B0-484D-8EC0-32C984D73DB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73C8625C-82B0-484D-8EC0-32C984D73DB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73C8625C-82B0-484D-8EC0-32C984D73DB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73C8625C-82B0-484D-8EC0-32C984D73DB0}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{73C8625C-82B0-484D-8EC0-32C984D73DB0}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{73C8625C-82B0-484D-8EC0-32C984D73DB0}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{73C8625C-82B0-484D-8EC0-32C984D73DB0}.Release|iPhone.Build.0 = Release|Any CPU
+		{73C8625C-82B0-484D-8EC0-32C984D73DB0}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{73C8625C-82B0-484D-8EC0-32C984D73DB0}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{73C8625C-82B0-484D-8EC0-32C984D73DB0}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{73C8625C-82B0-484D-8EC0-32C984D73DB0}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Windows.Input;
@@ -8,17 +9,32 @@ namespace Xamarin.CustomControls
 {
     public partial class RepeaterView : ContentView
     {
-        public static readonly BindableProperty ItemTemplateProperty = BindableProperty.Create(nameof(ItemTemplate), typeof(DataTemplate), typeof(RefreshableRepeaterView), default(DataTemplate));
-        public static readonly BindableProperty SeparatorTemplateProperty = BindableProperty.Create(nameof(SeparatorTemplate), typeof(DataTemplate), typeof(RefreshableRepeaterView), default(DataTemplate), propertyChanged: (bindable, oldValue, newValue) => { SeparatorTemplateChanged(bindable); });
-        public static readonly BindableProperty EmptyTextTemplateProperty = BindableProperty.Create(nameof(EmptyTextTemplate), typeof(DataTemplate), typeof(RefreshableRepeaterView), default(DataTemplate));
+        public class InvalidViewException : Exception
+        {
+            public InvalidViewException()
+            {
+            }
 
-        public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create(nameof(ItemsSource), typeof(ICollection), typeof(RefreshableRepeaterView), new List<object>(), BindingMode.TwoWay, null, propertyChanged: (bindable, oldValue, newValue) => { ItemsChanged(bindable, (ICollection)newValue); });
+            public InvalidViewException(string message) : base(message)
+            {
+            }
 
-        public static readonly BindableProperty EmptyTextProperty = BindableProperty.Create(nameof(EmptyText), typeof(string), typeof(RefreshableRepeaterView), string.Empty);
+            public InvalidViewException(string message, Exception innerException) : base(message, innerException)
+            {
+            }
+        }
 
-        public static readonly BindableProperty SelectedItemCommandProperty = BindableProperty.Create(nameof(SelectedItemCommand), typeof(ICommand), typeof(RefreshableRepeaterView), default(ICommand));
-        public static readonly BindableProperty SeparatorColorProperty = BindableProperty.Create(nameof(SeparatorColor), typeof(Color), typeof(RefreshableRepeaterView), Color.Default);
-        public static readonly BindableProperty SeparatorHeightProperty = BindableProperty.Create(nameof(SeparatorHeight), typeof(double), typeof(RefreshableRepeaterView), 1.5d);
+        public static readonly BindableProperty ItemTemplateProperty = BindableProperty.Create(nameof(ItemTemplate), typeof(DataTemplate), typeof(RepeaterView), default(DataTemplate));
+        public static readonly BindableProperty SeparatorTemplateProperty = BindableProperty.Create(nameof(SeparatorTemplate), typeof(DataTemplate), typeof(RepeaterView), default(DataTemplate), propertyChanged: (bindable, oldValue, newValue) => { SeparatorTemplateChanged(bindable); });
+        public static readonly BindableProperty EmptyTextTemplateProperty = BindableProperty.Create(nameof(EmptyTextTemplate), typeof(DataTemplate), typeof(RepeaterView), default(DataTemplate));
+
+        public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create(nameof(ItemsSource), typeof(ICollection), typeof(RepeaterView), new List<object>(), BindingMode.TwoWay, null, propertyChanged: (bindable, oldValue, newValue) => { ItemsChanged(bindable, (ICollection)newValue); });
+
+        public static readonly BindableProperty EmptyTextProperty = BindableProperty.Create(nameof(EmptyText), typeof(string), typeof(RepeaterView), string.Empty);
+
+        public static readonly BindableProperty SelectedItemCommandProperty = BindableProperty.Create(nameof(SelectedItemCommand), typeof(ICommand), typeof(RepeaterView), default(ICommand));
+        public static readonly BindableProperty SeparatorColorProperty = BindableProperty.Create(nameof(SeparatorColor), typeof(Color), typeof(RepeaterView), Color.Default);
+        public static readonly BindableProperty SeparatorHeightProperty = BindableProperty.Create(nameof(SeparatorHeight), typeof(double), typeof(RepeaterView), 1.5d);
 
         public ICollection ItemsSource
         {
@@ -96,7 +112,7 @@ namespace Xamarin.CustomControls
 
         private static void SeparatorTemplateChanged(BindableObject bindable)
         {
-            var repeater = (RefreshableRepeaterView)bindable;
+            var repeater = (RepeaterView)bindable;
 
             repeater.UpdateItems();
         }
@@ -106,7 +122,7 @@ namespace Xamarin.CustomControls
             if (newValue == null)
                 return;
 
-            var repeater = (RefreshableRepeaterView)bindable;
+            var repeater = (RepeaterView)bindable;
 
             repeater.UpdateItems();
 
