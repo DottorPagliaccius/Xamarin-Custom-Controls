@@ -7,6 +7,8 @@ namespace CustomControlsSamples
         public CustomControlsSamplesPage()
         {
             InitializeComponent();
+
+            BindingContext = new CustomSampleViewModel();
         }
     }
 }

@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomControlsSamples.Droid
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.CustomControls.Droid", "XamarincCustomControls.Droid\Xamarin.CustomControls.Droid.csproj", "{49A0ABE8-75E4-47FD-B19E-5F4EE257DE85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.CustomControls.Repeater", "Xamarin.CustomControls.Repeater\Xamarin.CustomControls.Repeater.csproj", "{73C8625C-82B0-484D-8EC0-32C984D73DB0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.CustomControls.RepeaterView", "Xamarin.CustomControls.Repeater\Xamarin.CustomControls.RepeaterView.csproj", "{73C8625C-82B0-484D-8EC0-32C984D73DB0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.CustomControls.RefreshableRepeaterView", "Xamarin.CustomControls.RefreshableRepeaterView\Xamarin.CustomControls.RefreshableRepeaterView.csproj", "{E190C04D-E37F-4D76-ACA2-75B2709BC48C}"
 EndProject

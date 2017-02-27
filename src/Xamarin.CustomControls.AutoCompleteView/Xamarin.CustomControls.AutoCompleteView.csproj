@@ -54,7 +54,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Xamarin.CustomControls.Repeater\Xamarin.CustomControls.Repeater.csproj">
       <Project>{73C8625C-82B0-484D-8EC0-32C984D73DB0}</Project>
-      <Name>Xamarin.CustomControls.Repeater</Name>
+      <Name>Xamarin.CustomControls.RepeaterView</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

@@ -2,8 +2,8 @@
 <package >
   <metadata>
     <id>Xamarin.CustomControls.RepeaterView</id>
-    <version>0.1.0-beta</version>
-    <title>GoogleAnalytics Plugin for Xamarin</title>
+    <version>1.0.2</version>
+    <title>RepeaterView control for Xamarin.Forms</title>
     <authors>DottorPagliaccius</authors>
     <owners>DottorPagliaccius</owners>
     <licenseUrl>https://github.com/DottorPagliaccius/Xamarin-Custom-Controls/blob/master/LICENSE</licenseUrl>
@@ -11,12 +11,12 @@
     <iconUrl>https://raw.githubusercontent.com/DottorPagliaccius/Xamarin-Custom-Controls/master/art/RepeaterViewIcon.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>RepeaterView custom control for Xamarin.Forms</description>
-	  <summary>Cross platform settings for Xamarin.iOS, Xamarin.Android and Xamarin.Forms</summary>
+	  <summary>RepeaterView custom control for Xamarin.Forms</summary>
     <releaseNotes>See Changelog: ~</releaseNotes>
     <tags>xamarin, pcl, xam.pcl, control, customcontrol, repeater, repeaterview, listview, android, xamarin.forms, ios, monoandroid, monodroid, monotouch</tags>    
   </metadata>
   <files> 
-    <file src="src/Xamarin.CustomControls.Repeater/bin/Release/Xamarin.CustomControls.Repeater.dll" target="lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Xamarin.CustomControls.Repeater.dll" />
-    <file src="src/Xamarin.CustomControls.Repeater/bin/Debug/Xamarin.CustomControls.Repeater.dll.mdb" target="lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Xamarin.CustomControls.Repeater.dll.mdb" />       
+    <file src="src/Xamarin.CustomControls.Repeater/bin/Release/Xamarin.CustomControls.RepeaterView.dll" target="lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Xamarin.CustomControls.RepeaterView.dll" />
+    <file src="src/Xamarin.CustomControls.Repeater/bin/Debug/Xamarin.CustomControls.RepeaterView.dll.mdb" target="lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Xamarin.CustomControls.RepeaterView.dll.mdb" />       
   </files>
 </package>
