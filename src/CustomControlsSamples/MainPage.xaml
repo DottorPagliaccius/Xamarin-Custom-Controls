@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CustomControlsSamples.MainPage">
+	<ContentPage.Content>
+		<ScrollView>
+			<StackLayout Spacing="10" Margin="0,50">
+				<Button x:Name="RepeaterView" Text="RepeaterView" Clicked="RepeaterViewClick"/>
+				<Button x:Name="RefreshableRepeaterView" Text="RefreshableRepeaterView" Clicked="RefreshableRepeaterViewClick"/>
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using MvvmHelpers;
 using Xamarin.Forms;
@@ -15,9 +16,13 @@ namespace CustomControlsSamples
 
     public class CustomSampleViewModel : BaseViewModel
     {
+        private int _loadingCount = 1;
+
         private ICommand _selectedItemCommand;
+        private ICommand _reloadItemCommand;
 
         public ICommand SelectedItemCommand => _selectedItemCommand ?? (_selectedItemCommand = new Command((selectedItem) => Select((RandomObject)selectedItem)));
+        public ICommand ReloadItemCommand => _reloadItemCommand ?? (_reloadItemCommand = new Command(async () => await LoadData(true)));
 
         public ObservableRangeCollection<RandomObject> Items { get; } = new ObservableRangeCollection<RandomObject>();
 
@@ -25,20 +30,34 @@ namespace CustomControlsSamples
 
         public CustomSampleViewModel()
         {
-            LoadData();
+
         }
 
-        private void LoadData()
+        public async Task LoadData(bool isReloading = false)
         {
-            var items = new List<RandomObject>
+            IsBusy = true;
+
+            if (isReloading)
+                _loadingCount++;
+
+            try
             {
-                new RandomObject{ RandomProperty1="randomValue11", RandomProperty2="randomValue12", RandomProperty3 = "randomValue13",  RandomProperty4 = "randomValue14"},
-                new RandomObject{ RandomProperty1="randomValue21", RandomProperty2="randomValue22", RandomProperty3 = "randomValue23",  RandomProperty4 = "randomValue24"},
-                new RandomObject{ RandomProperty1="randomValue31", RandomProperty2="randomValue32", RandomProperty3 = "randomValue33",  RandomProperty4 = "randomValue34"},
-                new RandomObject{ RandomProperty1="randomValue41", RandomProperty2="randomValue42", RandomProperty3 = "randomValue43",  RandomProperty4 = "randomValue44"},
+                var items = new List<RandomObject>
+            {
+                new RandomObject{ RandomProperty1=$"randomValue{_loadingCount}1", RandomProperty2="randomValue12", RandomProperty3 = "randomValue13",  RandomProperty4 = "randomValue14"},
+                new RandomObject{ RandomProperty1=$"randomValue{_loadingCount+1}1", RandomProperty2="randomValue22", RandomProperty3 = "randomValue23",  RandomProperty4 = "randomValue24"},
+                new RandomObject{ RandomProperty1=$"randomValue{_loadingCount+2}1", RandomProperty2="randomValue32", RandomProperty3 = "randomValue33",  RandomProperty4 = "randomValue34"},
+                new RandomObject{ RandomProperty1=$"randomValue{_loadingCount+3}1", RandomProperty2="randomValue42", RandomProperty3 = "randomValue43",  RandomProperty4 = "randomValue44"},
             };
 
-            Items.AddRange(items);
+                await Task.Delay(5000);
+
+                Items.ReplaceRange(items);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
         private void Select(RandomObject selectedItem)
