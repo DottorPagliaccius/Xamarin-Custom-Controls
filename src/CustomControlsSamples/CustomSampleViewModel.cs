@@ -44,10 +44,10 @@ namespace CustomControlsSamples
             {
                 var items = new List<RandomObject>
             {
-                new RandomObject{ RandomProperty1=$"randomValue{_loadingCount}1", RandomProperty2="randomValue12", RandomProperty3 = "randomValue13",  RandomProperty4 = "randomValue14"},
-                new RandomObject{ RandomProperty1=$"randomValue{_loadingCount+1}1", RandomProperty2="randomValue22", RandomProperty3 = "randomValue23",  RandomProperty4 = "randomValue24"},
-                new RandomObject{ RandomProperty1=$"randomValue{_loadingCount+2}1", RandomProperty2="randomValue32", RandomProperty3 = "randomValue33",  RandomProperty4 = "randomValue34"},
-                new RandomObject{ RandomProperty1=$"randomValue{_loadingCount+3}1", RandomProperty2="randomValue42", RandomProperty3 = "randomValue43",  RandomProperty4 = "randomValue44"},
+                new RandomObject{ RandomProperty1=$"randomValue{_loadingCount}1", RandomProperty2="red", RandomProperty3 = "cat",  RandomProperty4 = "apples"},
+                new RandomObject{ RandomProperty1=$"randomValue{_loadingCount+1}1", RandomProperty2="blue", RandomProperty3 = "dog",  RandomProperty4 = "oranges"},
+                new RandomObject{ RandomProperty1=$"randomValue{_loadingCount+2}1", RandomProperty2="green", RandomProperty3 = "fish",  RandomProperty4 = "kiwi"},
+                new RandomObject{ RandomProperty1=$"randomValue{_loadingCount+3}1", RandomProperty2="purple", RandomProperty3 = "platypus",  RandomProperty4 = "ananas"},
             };
 
                 await Task.Delay(5000);

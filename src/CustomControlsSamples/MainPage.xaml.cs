@@ -20,5 +20,10 @@ namespace CustomControlsSamples
         {
             await Navigation.PushAsync(new NavigationPage(new RefreshableRepeaterViewPage()));
         }
+
+        private async void AutoCompleteViewClick(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new NavigationPage(new AutoCompleteViewPage()));
+        }
     }
 }

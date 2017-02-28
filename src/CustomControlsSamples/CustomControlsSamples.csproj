@@ -34,6 +34,9 @@
     <EmbeddedResource Include="MainPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>    
+    <EmbeddedResource Include="AutoCompleteViewPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -49,6 +52,9 @@
     </Compile>
     <Compile Include="RefreshableRepeaterViewPage.cs">
       <DependentUpon>RefreshableRepeaterViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AutoCompleteViewPage.xaml.cs">
+      <DependentUpon>AutoCompleteViewPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +82,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Xamarin.CustomControls.AutoCompleteView\Xamarin.CustomControls.AutoCompleteView.csproj">
+      <Project>{89A36162-37C8-4FB4-85BA-518039CB6907}</Project>
+      <Name>Xamarin.CustomControls.AutoCompleteView</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

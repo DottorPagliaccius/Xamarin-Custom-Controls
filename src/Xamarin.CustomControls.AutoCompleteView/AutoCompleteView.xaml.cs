@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -31,6 +32,8 @@ namespace Xamarin.CustomControls
 
         public static readonly BindableProperty OpenOnFocusProperty = BindableProperty.Create(nameof(OpenOnFocus), typeof(bool), typeof(AutoCompleteView), false);
         public static readonly BindableProperty MaxResultsProperty = BindableProperty.Create(nameof(MaxResults), typeof(int), typeof(AutoCompleteView), 20);
+
+        public static readonly BindableProperty SearchMemberProperty = BindableProperty.Create(nameof(SearchMember), typeof(string), typeof(AutoCompleteView), string.Empty);
 
         public double SuggestionsHeightRequest
         {
@@ -107,7 +110,7 @@ namespace Xamarin.CustomControls
         public object SelectedItem
         {
             get { return GetValue(SelectedItemProperty); }
-            set { SetValue(SelectedItemProperty, value); }
+            private set { SetValue(SelectedItemProperty, value); }
         }
 
         public bool OpenOnFocus
@@ -122,6 +125,12 @@ namespace Xamarin.CustomControls
             set { SetValue(MaxResultsProperty, value); }
         }
 
+        public string SearchMember
+        {
+            get { return (string)GetValue(SearchMemberProperty); }
+            set { SetValue(SearchMemberProperty, value); }
+        }
+
         public AutoCompleteView()
         {
             InitializeComponent();
@@ -134,14 +143,6 @@ namespace Xamarin.CustomControls
         protected override void OnPropertyChanged(string propertyName = null)
         {
             base.OnPropertyChanged(propertyName);
-
-            if (propertyName == SelectedItemProperty.PropertyName)
-            {
-                MainEntry.Text = SelectedItem.ToString();
-                MainEntry.TextColor = TextColor;
-
-                ShowHideListbox(false);
-            }
 
             if (propertyName == PlaceholderProperty.PropertyName && SelectedItem == null)
             {
@@ -208,14 +209,16 @@ namespace Xamarin.CustomControls
                         MainEntry.TextColor = TextColor;
                     }
 
-                    if (OpenOnFocus || MainEntry.Text.Length > 0)
+                    if (OpenOnFocus)
                     {
                         FilterSuggestions(MainEntry.Text);
                     }
                 }
                 else
                 {
-                    if (MainEntry.Text.Length == 0 || !ItemsSource.Cast<object>().Any(x => string.Equals(x.ToString(), MainEntry.Text, StringComparison.Ordinal)))
+                    var items = ItemsSource.Cast<object>();
+
+                    if (MainEntry.Text.Length == 0 || (items.Any() && !items.Any(x => string.Equals(GetSearchMember(items.First().GetType()).GetValue(x).ToString(), MainEntry.Text, StringComparison.Ordinal))))
                     {
                         MainEntry.Text = Placeholder;
                         MainEntry.TextColor = PlaceholderTextColor;
@@ -251,33 +254,69 @@ namespace Xamarin.CustomControls
 
         private void FilterSuggestions(string text)
         {
-            var filteredSuggestions = text.Length == 0 ? ItemsSource.Cast<object>() : ItemsSource.Cast<object>().Where(x => x.ToString().IndexOf(text, StringComparison.OrdinalIgnoreCase) >= 0)
-                                                                                                                .OrderByDescending(x => x.ToString());
+            var filteredSuggestions = ItemsSource.Cast<object>();
+
+            if (text.Length > 0 && filteredSuggestions.Any())
+            {
+                var property = GetSearchMember(filteredSuggestions.First().GetType());
+
+                if (property == null)
+                    throw new MemberNotFoundException($"There's no corrisponding property the matches SearchMember value '{SearchMember}'");
+
+                if (property.PropertyType != typeof(string))
+                    throw new SearchMemberPropertyTypeException($"Property '{SearchMember}' must be of type string");
+
+                filteredSuggestions = filteredSuggestions.Where(x => property.GetValue(x).ToString().IndexOf(text, StringComparison.OrdinalIgnoreCase) >= 0).OrderByDescending(x => property.GetValue(x).ToString());
+            }
+
             _availableSuggestions = new ObservableCollection<object>(filteredSuggestions.Take(MaxResults));
 
             ShowHideListbox(true);
         }
 
+        private PropertyInfo GetSearchMember(Type type)
+        {
+            var property = type.GetRuntimeProperty(SearchMember);
+
+            if (property == null)
+                throw new MemberNotFoundException($"There's no corrisponding property the matches SearchMember value '{SearchMember}'");
+
+            if (property.PropertyType != typeof(string))
+                throw new SearchMemberPropertyTypeException($"Property '{SearchMember}' must be of type string");
+
+            return property;
+        }
+
         private void SuggestedRepeaterItemSelected(object selectedItem)
         {
-            MainEntry.Text = selectedItem.ToString();
+            MainEntry.Text = GetSelectedText(selectedItem);
             MainEntry.TextColor = TextColor;
 
-            _availableSuggestions.Clear();
-
             ShowHideListbox(false);
+
+            _availableSuggestions.Clear();
 
             SelectedItem = selectedItem;
 
             SelectedItemCommand?.Execute(selectedItem);
         }
 
+        private string GetSelectedText(object selectedItem)
+        {
+            var property = selectedItem.GetType().GetRuntimeProperty(SearchMember);
+
+            if (property == null)
+                throw new MemberNotFoundException($"There's no corrisponding property the matches DisplayMember value '{SearchMember}'");
+
+            return property.GetValue(selectedItem).ToString();
+        }
+
         private void ShowHideListbox(bool show)
         {
-            SuggestedItemsContainer.IsVisible = show;
-
             if (show)
                 SuggestedItemsRepeaterView.ItemsSource = _availableSuggestions;
+
+            SuggestedItemsContainer.IsVisible = show;
         }
     }
 }
