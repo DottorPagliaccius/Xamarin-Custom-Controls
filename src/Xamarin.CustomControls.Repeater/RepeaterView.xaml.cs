@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Linq;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -84,8 +85,7 @@ namespace Xamarin.CustomControls
             set { SetValue(SeparatorHeightProperty, value); }
         }
 
-        public bool ShowSeparator { get; set; } = true;
-
+        public bool ShowSeparator { get; set; }
 
         public RepeaterView()
         {
@@ -189,7 +189,9 @@ namespace Xamarin.CustomControls
         {
             ItemsPanel.Children.Clear();
 
-            foreach (object item in sourceItems)
+            var items = sourceItems.Cast<object>();
+
+            foreach (object item in items)
             {
                 var content = ItemTemplate.CreateContent();
                 if (!(content is View) && !(content is ViewCell))
@@ -206,7 +208,7 @@ namespace Xamarin.CustomControls
 
                 ItemsPanel.Children.Add(view);
 
-                if (ShowSeparator)
+                if (ShowSeparator && items.Last() != item)
                     ItemsPanel.Children.Add(BuildSeparator());
             }
         }

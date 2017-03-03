@@ -49,8 +49,8 @@ namespace CustomControlsSamples
                 new RandomObject{ RandomProperty1=$"randomValue{_loadingCount+2}1", RandomProperty2="green", RandomProperty3 = "fish",  RandomProperty4 = "kiwi"},
                 new RandomObject{ RandomProperty1=$"randomValue{_loadingCount+3}1", RandomProperty2="purple", RandomProperty3 = "platypus",  RandomProperty4 = "ananas"},
             };
-
-                await Task.Delay(5000);
+                if (isReloading)
+                    await Task.Delay(5000);
 
                 Items.ReplaceRange(items);
             }
@@ -62,7 +62,7 @@ namespace CustomControlsSamples
 
         private void Select(RandomObject selectedItem)
         {
-            SelectedValue = $"Selected item {Items.IndexOf(selectedItem)}: value1 = {selectedItem.RandomProperty1}, value2 = {selectedItem.RandomProperty2}, etc...";
+            SelectedValue = $"Selected item {Items.IndexOf(selectedItem)}: {selectedItem.RandomProperty1} =>  {selectedItem.RandomProperty2} {selectedItem.RandomProperty3} eats {selectedItem.RandomProperty4}";
 
             OnPropertyChanged(nameof(SelectedValue));
         }

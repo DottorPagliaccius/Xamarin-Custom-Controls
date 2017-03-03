@@ -3,9 +3,9 @@
 	<ContentPage.Content>
 		<ScrollView>
 			<StackLayout Spacing="10" Margin="0,50">
-				<Button x:Name="RepeaterView" Text="RepeaterView" Clicked="RepeaterViewClick"/>
-				<Button x:Name="RefreshableRepeaterView" Text="RefreshableRepeaterView" Clicked="RefreshableRepeaterViewClick"/>
-				<Button x:Name="AutoCompleteView" Text="AutoCompleteView" Clicked="AutoCompleteViewClick"/>
+				<Button Text="RepeaterView" Clicked="RepeaterViewClick"/>
+				<Button  Text="RefreshableRepeaterView" Clicked="RefreshableRepeaterViewClick"/>
+				<Button  Text="AutoCompleteView" Clicked="AutoCompleteViewClick"/>
 			</StackLayout>
 		</ScrollView>
 	</ContentPage.Content>

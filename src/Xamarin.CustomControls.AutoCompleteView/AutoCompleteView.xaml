@@ -5,10 +5,10 @@
 	<ContentView.Content>
 		<StackLayout Spacing="0">
 			<Entry x:Name="MainEntry" TextChanged="SearchText_TextChanged" Focused="SearchText_Focused"
-				 Unfocused="SearchText_Unfocused" />
-			<StackLayout x:Name="SuggestedItemsContainer" IsVisible="false" Spacing="0" Margin="4,0">
-				<StackLayout x:Name="SuggestedItemsInnerContainer">
-					<local:RepeaterView x:Name="SuggestedItemsRepeaterView" />
+				 Unfocused="SearchText_Unfocused" TextColor="Silver" />
+			<StackLayout x:Name="SuggestedItemsContainer" IsVisible="false" Spacing="0" Margin="4,0" Padding="1" BackgroundColor="Silver">
+				<StackLayout x:Name="SuggestedItemsInnerContainer" BackgroundColor="White">
+					<local:RepeaterView x:Name="SuggestedItemsRepeaterView" ShowSeparator="true" SeparatorColor="Silver" SeparatorHeight="1" />
 				</StackLayout>
 			</StackLayout>
 		</StackLayout>

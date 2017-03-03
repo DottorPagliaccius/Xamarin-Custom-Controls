@@ -21,9 +21,8 @@ namespace Xamarin.CustomControls
         public static readonly BindableProperty SelectedItemProperty = BindableProperty.Create(nameof(SelectedItem), typeof(object), typeof(AutoCompleteView), null, BindingMode.TwoWay);
         public static readonly BindableProperty SelectedItemCommandProperty = BindableProperty.Create(nameof(SelectedItemCommand), typeof(ICommand), typeof(AutoCompleteView), default(ICommand));
 
-        public static readonly BindableProperty SuggestionsHeightRequestProperty = BindableProperty.Create(nameof(SuggestionsHeightRequest), typeof(double), typeof(AutoCompleteView), 250d);
         public static readonly BindableProperty SuggestionBackgroundColorProperty = BindableProperty.Create(nameof(SuggestionBackgroundColor), typeof(Color), typeof(AutoCompleteView), Color.White);
-        public static readonly BindableProperty SuggestionBorderColorProperty = BindableProperty.Create(nameof(SuggestionBorderColor), typeof(Color), typeof(AutoCompleteView), Color.Black);
+        public static readonly BindableProperty SuggestionBorderColorProperty = BindableProperty.Create(nameof(SuggestionBorderColor), typeof(Color), typeof(AutoCompleteView), Color.Silver);
         public static readonly BindableProperty SuggestionBorderSizeProperty = BindableProperty.Create(nameof(SuggestionBorderSize), typeof(Thickness), typeof(AutoCompleteView), new Thickness(1));
 
         public static readonly BindableProperty TextColorProperty = BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(AutoCompleteView), Color.Black);
@@ -35,11 +34,8 @@ namespace Xamarin.CustomControls
 
         public static readonly BindableProperty SearchMemberProperty = BindableProperty.Create(nameof(SearchMember), typeof(string), typeof(AutoCompleteView), string.Empty);
 
-        public double SuggestionsHeightRequest
-        {
-            get { return (double)GetValue(SuggestionsHeightRequestProperty); }
-            set { SetValue(SuggestionsHeightRequestProperty, value); }
-        }
+        public static readonly BindableProperty SeparatorColorProperty = BindableProperty.Create(nameof(SeparatorColor), typeof(Color), typeof(AutoCompleteView), Color.Silver);
+        public static readonly BindableProperty SeparatorHeightProperty = BindableProperty.Create(nameof(SeparatorHeight), typeof(double), typeof(AutoCompleteView), 1.5d);
 
         public string Placeholder
         {
@@ -131,6 +127,24 @@ namespace Xamarin.CustomControls
             set { SetValue(SearchMemberProperty, value); }
         }
 
+        public Color SeparatorColor
+        {
+            get { return (Color)GetValue(SeparatorColorProperty); }
+            set { SetValue(SeparatorColorProperty, value); }
+        }
+
+        public double SeparatorHeight
+        {
+            get { return (double)GetValue(SeparatorHeightProperty); }
+            set { SetValue(SeparatorHeightProperty, value); }
+        }
+
+        public bool ShowSeparator
+        {
+            get { return SuggestedItemsRepeaterView.ShowSeparator; }
+            set { SuggestedItemsRepeaterView.ShowSeparator = value; }
+        }
+
         public AutoCompleteView()
         {
             InitializeComponent();
@@ -159,11 +173,6 @@ namespace Xamarin.CustomControls
                 SuggestedItemsRepeaterView.ItemTemplate = ItemTemplate;
             }
 
-            if (propertyName == SuggestionsHeightRequestProperty.PropertyName)
-            {
-                SuggestedItemsRepeaterView.HeightRequest = SuggestionsHeightRequest;
-            }
-
             if (propertyName == SuggestionBackgroundColorProperty.PropertyName)
             {
                 SuggestedItemsInnerContainer.BackgroundColor = SuggestionBackgroundColor;
@@ -182,6 +191,16 @@ namespace Xamarin.CustomControls
             if (propertyName == EmptyTextProperty.PropertyName)
             {
                 SuggestedItemsRepeaterView.EmptyText = EmptyText;
+            }
+
+            if (propertyName == SeparatorColorProperty.PropertyName)
+            {
+                SuggestedItemsRepeaterView.SeparatorColor = SeparatorColor;
+            }
+
+            if (propertyName == SeparatorHeightProperty.PropertyName)
+            {
+                SuggestedItemsRepeaterView.SeparatorHeight = SeparatorHeight;
             }
         }
 
