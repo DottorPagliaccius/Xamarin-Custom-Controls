@@ -4,12 +4,20 @@
         <ScrollView>
             <StackLayout Padding="10,20">
                 <Label Text="ProgressBar View" FontSize="20" HorizontalTextAlignment="Center" HorizontalOptions="Center" FontAttributes="Bold" />
-                <progressbar:ProgressBarView Color="Red" HeightRequest="20" Progress="30" />
-                <progressbar:ProgressBarView Color="Blue" HeightRequest="20" Progress="100" />
+                <progressbar:ProgressBarView Color="Purple" HeightRequest="20" Progress="30" LabelTextColor="White" />
+                <progressbar:ProgressBarView Color="Blue" HeightRequest="20" Progress="100" LabelTextColor="White" />
                 <progressbar:ProgressBarView Color="Red" HeightRequest="20" Progress="0" />
                 <progressbar:ProgressBarView Color="Green" HeightRequest="20" Progress="50" />
                 <Slider Minimum="0" Maximum="100" Value="0" ValueChanged="Slider_ValueChanged" />
-                <progressbar:ProgressBarView x:Name="ProgressBar" Color="Purple" HeightRequest="20" Progress="0" />
+                <progressbar:ProgressBarView x:Name="ProgressBar" Color="Red"  LabelShowIntValuesOnly="false" LabelStringFormat="{}{0:0.0} %" HeightRequest="20" Progress="0" />
+				<Entry Text="0" Keyboard="Numeric" TextChanged="Entry_TextChanged" />
+                <progressbar:ProgressBarView x:Name="ProgressBar2" Color="Lime" HeightRequest="20" Progress="0" LabelPosition="AfterBar" />
+                <Label Text="Label Position" />
+				<progressbar:ProgressBarView Color="Navy" HeightRequest="20" Progress="30" LabelPosition="Start" LabelTextColor="White" />
+                <progressbar:ProgressBarView Color="Navy" HeightRequest="20" Progress="100" LabelPosition="BeforeBar" LabelTextColor="White" />
+                <progressbar:ProgressBarView Color="Navy" HeightRequest="20" Progress="10" LabelPosition="Center" />
+                <progressbar:ProgressBarView Color="Navy" HeightRequest="20" Progress="60" LabelPosition="AfterBar" />
+                <progressbar:ProgressBarView Color="Navy" HeightRequest="20" Progress="50" LabelPosition="End"  />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

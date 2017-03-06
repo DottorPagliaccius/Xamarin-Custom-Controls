@@ -13,5 +13,13 @@ namespace CustomControlsSamples
         {
             ProgressBar.Progress = e.NewValue;
         }
+
+        private async void Entry_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            double number;
+
+            if (double.TryParse(e.NewTextValue, out number))
+                await ProgressBar2.ProgressTo(number, 500, Easing.Linear);
+        }
     }
 }

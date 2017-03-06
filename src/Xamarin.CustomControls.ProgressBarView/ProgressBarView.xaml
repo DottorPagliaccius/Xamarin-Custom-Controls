@@ -3,6 +3,7 @@
 	 x:Class="Xamarin.CustomControls.ProgressBarView">
 	<ContentView.Content>
 		<Grid x:Name="Container" HeightRequest="10" HorizontalOptions="Fill" VerticalOptions="Fill" ColumnSpacing="0">
+			
 		</Grid>
 	</ContentView.Content>
 </ContentView>
