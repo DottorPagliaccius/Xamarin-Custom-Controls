@@ -46,6 +46,9 @@ namespace Xamarin.CustomControls
             set
             {
                 _label.IsVisible = value;
+
+                if (value)
+                    SetupLabel();
             }
         }
 
@@ -113,10 +116,15 @@ namespace Xamarin.CustomControls
         {
             InitializeComponent();
 
-            _label = new Label { Margin = new Thickness(5, 1) };
+            _label = new Label { Margin = new Thickness(5, 1), VerticalOptions = LayoutOptions.Center, VerticalTextAlignment = TextAlignment.Center };
 
             LabelFontSize = 16;
             LabelTextColor = Color.Black;
+
+            SetupBar();
+
+            if (ShowLabel)
+                SetupLabel();
         }
 
         protected override void OnPropertyChanged(string propertyName = null)
@@ -130,45 +138,48 @@ namespace Xamarin.CustomControls
 
             if (propertyName == ProgressProperty.PropertyName)
             {
-                Container.ColumnDefinitions.Clear();
+                SetupBar();
 
-                var progress = NormalizeValue(Progress);
+                if (ShowLabel)
+                    SetupLabel();
+            }
+        }
 
-                Container.ColumnDefinitions = new ColumnDefinitionCollection();
+        private void SetupBar()
+        {
+            Container.ColumnDefinitions.Clear();
 
-                Container.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(progress, GridUnitType.Star) });
+            var progress = NormalizeValue(Progress);
 
-                if (_coloredBoxView == null)
-                    _coloredBoxView = new BoxView
+            Container.ColumnDefinitions = new ColumnDefinitionCollection();
+
+            Container.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(progress, GridUnitType.Star) });
+
+            if (_coloredBoxView == null)
+                _coloredBoxView = new BoxView
+                {
+                    Color = Color,
+                    HorizontalOptions = new LayoutOptions(LayoutAlignment.Fill, false),
+                    VerticalOptions = new LayoutOptions(LayoutAlignment.Fill, false)
+                };
+
+            if (progress != 100)
+            {
+                Container.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(100 - progress, GridUnitType.Star) });
+
+                if (_otherBox == null)
+                    _otherBox = new BoxView
                     {
-                        Color = Color,
+                        Color = Color.Transparent,
                         HorizontalOptions = new LayoutOptions(LayoutAlignment.Fill, false),
                         VerticalOptions = new LayoutOptions(LayoutAlignment.Fill, false)
                     };
 
-                if (progress != 100)
-                {
-                    Container.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(100 - progress, GridUnitType.Star) });
-
-                    if (_otherBox == null)
-                        _otherBox = new BoxView
-                        {
-                            Color = Color.Transparent,
-                            HorizontalOptions = new LayoutOptions(LayoutAlignment.Fill, false),
-                            VerticalOptions = new LayoutOptions(LayoutAlignment.Fill, false)
-                        };
-
-                    Container.Children.Add(_coloredBoxView, 0, 0);
-                    Container.Children.Add(_otherBox, 1, 0);
-                }
-                else
-                    Container.Children.Add(_coloredBoxView, 0, 0);
-
-                if (ShowLabel)
-                {
-                    SetupLabel();
-                }
+                Container.Children.Add(_coloredBoxView, 0, 0);
+                Container.Children.Add(_otherBox, 1, 0);
             }
+            else
+                Container.Children.Add(_coloredBoxView, 0, 0);
         }
 
         private void SetupLabel()
