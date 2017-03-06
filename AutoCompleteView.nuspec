@@ -13,14 +13,14 @@
     <description>AutoCompleteView custom control for Xamarin.Forms</description>
 	<summary>AutoCompleteView custom control for Xamarin.Forms</summary>
     <releaseNotes>See Changelog: ~</releaseNotes>
-    <tags>xamarin, pcl, xam.pcl, control, customcontrol, repeater, repeaterview, refreshablerepeaterview, listview, android, xamarin.forms, ios, monoandroid, monodroid, monotouch</tags>    
+    <tags>xamarin, pcl, xam.pcl, control, customcontrol, autocomplete, autocompleteview, listview, android, xamarin.forms, ios, monoandroid, monodroid, monotouch</tags>    
     <dependencies>
         <dependency id="Xamarin.Forms" version="2.3.2.127" />
         <dependency id="Xamarin.CustomControls.RepeaterView" version="1.0.4" />
     </dependencies>
   </metadata>
   <files> 
-    <file src="src/Xamarin.CustomControls.AutoCompleteView/bin/Release/Xamarin.CustomControls.AutoCompleteView.dll" target="lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Xamarin.CustomControls.AutoCompleteViewRefreshableRepeaterView.dll" />
+    <file src="src/Xamarin.CustomControls.AutoCompleteView/bin/Release/Xamarin.CustomControls.AutoCompleteView.dll" target="lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Xamarin.CustomControls.AutoCompleteView.dll" />
     <file src="src/Xamarin.CustomControls.AutoCompleteView/bin/Debug/Xamarin.CustomControls.AutoCompleteView.dll.mdb" target="lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Xamarin.CustomControls.AutoCompleteView.dll.mdb" />       
   </files>
 </package>

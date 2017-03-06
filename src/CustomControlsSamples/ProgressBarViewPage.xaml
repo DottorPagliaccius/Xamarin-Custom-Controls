@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CustomControlsSamples.ProgressBarViewPage" xmlns:progressbar="clr-namespace:Xamarin.CustomControls;assembly=Xamarin.CustomControls.ProgressBarView">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10,20">
+                <Label Text="ProgressBar View" FontSize="20" HorizontalTextAlignment="Center" HorizontalOptions="Center" FontAttributes="Bold" />
+                <progressbar:ProgressBarView Color="Red" HeightRequest="20" Progress="30" />
+                <progressbar:ProgressBarView Color="Blue" HeightRequest="20" Progress="100" />
+                <progressbar:ProgressBarView Color="Red" HeightRequest="20" Progress="0" />
+                <progressbar:ProgressBarView Color="Green" HeightRequest="20" Progress="50" />
+                <Slider Minimum="0" Maximum="100" Value="0" ValueChanged="Slider_ValueChanged" />
+                <progressbar:ProgressBarView x:Name="ProgressBar" Color="Purple" HeightRequest="20" Progress="0" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

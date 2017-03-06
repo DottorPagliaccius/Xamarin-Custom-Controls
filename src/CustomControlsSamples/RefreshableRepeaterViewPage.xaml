@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	 xmlns:local="clr-namespace:CustomControlsSamples" x:Class="CustomControlsSamples.RefreshableRepeaterViewPage"
-	 xmlns:repeater="clr-namespace:Xamarin.CustomControls;assembly=Xamarin.CustomControls.RefreshableRepeaterView" >	  
+	 xmlns:repeater="clr-namespace:Xamarin.CustomControls;assembly=Xamarin.CustomControls.RefreshableRepeaterView">	  
 	<ContentPage.Content>
 			<StackLayout Padding="10,20">
 				<Label Text="Repeater View" FontSize="20" HorizontalTextAlignment="Center" HorizontalOptions="Center" FontAttributes="Bold" />		

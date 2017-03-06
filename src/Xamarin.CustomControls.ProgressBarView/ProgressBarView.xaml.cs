@@ -2,17 +2,17 @@
 
 namespace Xamarin.CustomControls
 {
-    public partial class CoolProgressBar : ContentView
+    public partial class ProgressBarView : ContentView
     {
-        BoxView _coloredBoxView;
+        private BoxView _coloredBoxView;
 
-        public CoolProgressBar()
+        public ProgressBarView()
         {
             InitializeComponent();
         }
 
-        public static readonly BindableProperty ColorProperty = BindableProperty.Create(nameof(Color), typeof(Color), typeof(CoolProgressBar), Color.Blue);
-        public static readonly BindableProperty ProgressProperty = BindableProperty.Create(nameof(Progress), typeof(double), typeof(CoolProgressBar), default(double));
+        public static readonly BindableProperty ColorProperty = BindableProperty.Create(nameof(Color), typeof(Color), typeof(ProgressBarView), Color.Blue);
+        public static readonly BindableProperty ProgressProperty = BindableProperty.Create(nameof(Progress), typeof(double), typeof(ProgressBarView), default(double));
 
         public Color Color
         {
@@ -25,15 +25,7 @@ namespace Xamarin.CustomControls
             get { return (double)GetValue(ProgressProperty); }
             set
             {
-                var progress = value;
-
-                if (value < 0)
-                    progress = 0;
-
-                if (value > 1)
-                    progress = 1;
-
-                SetValue(ProgressProperty, progress);
+                SetValue(ProgressProperty, value);
             }
         }
 
@@ -48,14 +40,20 @@ namespace Xamarin.CustomControls
 
             if (propertyName == ProgressProperty.PropertyName)
             {
-                var percent = Progress * 100;
+                var progress = Progress;
+
+                if (progress < 0)
+                    progress = 0;
+
+                if (progress > 100)
+                    progress = 100;
 
                 Container.ColumnDefinitions = new ColumnDefinitionCollection();
 
-                Container.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(percent, GridUnitType.Star) });
+                Container.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(progress, GridUnitType.Star) });
 
-                if (percent != 100)
-                    Container.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(100 - percent, GridUnitType.Star) });
+                if (progress != 100)
+                    Container.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(100 - progress, GridUnitType.Star) });
 
                 _coloredBoxView = new BoxView
                 {
@@ -66,7 +64,7 @@ namespace Xamarin.CustomControls
 
                 Container.Children.Add(_coloredBoxView, 0, 0);
 
-                if (percent != 100)
+                if (progress != 100)
                 {
                     var otherBox = new BoxView
                     {

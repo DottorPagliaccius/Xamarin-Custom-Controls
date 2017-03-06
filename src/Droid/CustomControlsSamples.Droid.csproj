@@ -121,6 +121,10 @@
       <Project>{E88F99D0-05B9-4485-8387-B8B9DF39C3D3}</Project>
       <Name>CustomControlsSamples</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Xamarin.CustomControls.ProgressBarView\Xamarin.CustomControls.ProgressBarView.csproj">
+      <Project>{F9C385C3-9CE7-43F8-A0DD-CAA6336C1A3D}</Project>
+      <Name>Xamarin.CustomControls.ProgressBarView</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />

@@ -25,5 +25,10 @@ namespace CustomControlsSamples
         {
             await Navigation.PushAsync(new NavigationPage(new AutoCompleteViewPage()));
         }
+
+        private async void ProgressBarViewClick(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new NavigationPage(new ProgressBarViewPage()));
+        }
     }
 }
