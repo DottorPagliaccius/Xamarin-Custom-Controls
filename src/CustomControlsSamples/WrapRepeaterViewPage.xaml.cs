@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows.Input;
 using MvvmHelpers;
 using Xamarin.Forms;
 
@@ -6,6 +8,10 @@ namespace CustomControlsSamples
 {
     public partial class WrapRepeaterViewPage : ContentPage
     {
+        private ICommand _selectedItemCommand;
+
+        public ICommand SelectedItemCommand => _selectedItemCommand ?? (_selectedItemCommand = new Command((imageUrl) => OpenImage((string)imageUrl)));
+
         public ObservableRangeCollection<string> Items { get; } = new ObservableRangeCollection<string>();
 
         public WrapRepeaterViewPage()
@@ -34,6 +40,11 @@ namespace CustomControlsSamples
             };
 
             Items.AddRange(items);
+        }
+
+        private void OpenImage(string imageUrl)
+        {
+            Device.OpenUri(new Uri(imageUrl));
         }
     }
 }
