@@ -83,17 +83,14 @@
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\packages\Xamarin.Forms.2.3.3.193\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
+    <Reference Include="MvvmHelpers">
+      <HintPath>..\packages\Refractored.MvvmHelpers.1.2.2\lib\portable-net45+wp80+win8+wpa81\MvvmHelpers.dll</HintPath>
+    </Reference>
     <Reference Include="Refractored.XamForms.PullToRefresh">
       <HintPath>..\packages\Refractored.XamForms.PullToRefresh.1.1.0\lib\MonoAndroid10\Refractored.XamForms.PullToRefresh.dll</HintPath>
     </Reference>
     <Reference Include="Refractored.XamForms.PullToRefresh.Droid">
       <HintPath>..\packages\Refractored.XamForms.PullToRefresh.1.1.0\lib\MonoAndroid10\Refractored.XamForms.PullToRefresh.Droid.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.CustomControls.RepeaterView">
-      <HintPath>..\packages\Xamarin.CustomControls.RepeaterView.1.0.4\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Xamarin.CustomControls.RepeaterView.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.CustomControls.RefreshableRepeaterView">
-      <HintPath>..\packages\Xamarin.CustomControls.RefreshableRepeaterView.1.0.3\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Xamarin.CustomControls.RefreshableRepeaterView.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -124,6 +121,22 @@
     <ProjectReference Include="..\Xamarin.CustomControls.ProgressBarView\Xamarin.CustomControls.ProgressBarView.csproj">
       <Project>{F9C385C3-9CE7-43F8-A0DD-CAA6336C1A3D}</Project>
       <Name>Xamarin.CustomControls.ProgressBarView</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xamarin.CustomControls.RefreshableRepeaterView\Xamarin.CustomControls.RefreshableRepeaterView.csproj">
+      <Project>{E190C04D-E37F-4D76-ACA2-75B2709BC48C}</Project>
+      <Name>Xamarin.CustomControls.RefreshableRepeaterView</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xamarin.CustomControls.Repeater\Xamarin.CustomControls.RepeaterView.csproj">
+      <Project>{73C8625C-82B0-484D-8EC0-32C984D73DB0}</Project>
+      <Name>Xamarin.CustomControls.RepeaterView</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xamarin.CustomControls.AutoCompleteView\Xamarin.CustomControls.AutoCompleteView.csproj">
+      <Project>{89A36162-37C8-4FB4-85BA-518039CB6907}</Project>
+      <Name>Xamarin.CustomControls.AutoCompleteView</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XamarinCustomControls.WrapRepeaterView\Xamarin.CustomControls.WrapRepeaterView.csproj">
+      <Project>{5DCDB5EF-94A2-4D0A-BBE9-52FFB2D72D8E}</Project>
+      <Name>Xamarin.CustomControls.WrapRepeaterView</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

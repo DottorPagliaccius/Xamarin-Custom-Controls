@@ -7,6 +7,7 @@
 				<Button  Text="RefreshableRepeaterView" Clicked="RefreshableRepeaterViewClick"/>
 				<Button  Text="AutoCompleteView" Clicked="AutoCompleteViewClick"/>
 				<Button  Text="ProgressBarView" Clicked="ProgressBarViewClick"/>
+				<Button  Text="WrapRepeaterView" Clicked="WrapRepeaterViewClick"/>
 			</StackLayout>
 		</ScrollView>
 	</ContentPage.Content>

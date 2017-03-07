@@ -10,17 +10,31 @@ namespace Xamarin.CustomControls
 {
     public class WrapRepeaterView : Grid
     {
+        public class InvalidViewException : Exception
+        {
+            public InvalidViewException()
+            {
+            }
+
+            public InvalidViewException(string message) : base(message)
+            {
+            }
+
+            public InvalidViewException(string message, Exception innerException) : base(message, innerException)
+            {
+            }
+        }
+
         private readonly Dictionary<View, SizeRequest> _layoutCache = new Dictionary<View, SizeRequest>();
 
-        public static readonly BindableProperty SpacingProperty = BindableProperty.Create(nameof(Spacing), typeof(double), typeof(WrapRepeaterView), 5d, propertyChanged: (bindable, oldValue, newValue) => ((WrapRepeaterView)bindable)._layoutCache.Clear());
-
+        public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create(nameof(ItemsSource), typeof(ICollection), typeof(WrapRepeaterView), new List<object>(), BindingMode.TwoWay, null, propertyChanged: (bindable, oldValue, newValue) => { ItemsChanged(bindable, (ICollection)newValue); });
         public static readonly BindableProperty ItemTemplateProperty = BindableProperty.Create(nameof(ItemTemplate), typeof(DataTemplate), typeof(WrapRepeaterView), default(DataTemplate));
         public static readonly BindableProperty EmptyTextTemplateProperty = BindableProperty.Create(nameof(EmptyTextTemplate), typeof(DataTemplate), typeof(WrapRepeaterView), default(DataTemplate));
-        public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create(nameof(ItemsSource), typeof(ICollection), typeof(WrapRepeaterView), new List<object>(), BindingMode.TwoWay, null, propertyChanged: (bindable, oldValue, newValue) => { ItemsChanged(bindable, (ICollection)newValue); });
-
         public static readonly BindableProperty EmptyTextProperty = BindableProperty.Create(nameof(EmptyText), typeof(string), typeof(WrapRepeaterView), string.Empty);
 
         public static readonly BindableProperty SelectedItemCommandProperty = BindableProperty.Create(nameof(SelectedItemCommand), typeof(ICommand), typeof(WrapRepeaterView), default(ICommand));
+
+        public static readonly BindableProperty SpacingProperty = BindableProperty.Create(nameof(Spacing), typeof(double), typeof(WrapRepeaterView), 5d, propertyChanged: (bindable, oldValue, newValue) => ((WrapRepeaterView)bindable)._layoutCache.Clear());
 
         public ICollection ItemsSource
         {
@@ -90,14 +104,11 @@ namespace Xamarin.CustomControls
             if (sourceItems.Count == 0 && (repeater.EmptyTextTemplate != null || !string.IsNullOrEmpty(repeater.EmptyText)))
             {
                 repeater.BuildEmptyText();
-
                 return;
             }
 
             if (repeater.RowDefinitions.Any())
-            {
                 repeater.RowDefinitions.Clear();
-            }
 
             var numberOfRows = Math.Ceiling(sourceItems.Count / (float)repeater.MaxColumns);
             for (var i = 0; i < numberOfRows; i++)

@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.CustomControls.Auto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.CustomControls.ProgressBarView", "Xamarin.CustomControls.ProgressBarView\Xamarin.CustomControls.ProgressBarView.csproj", "{F9C385C3-9CE7-43F8-A0DD-CAA6336C1A3D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.CustomControls.WrapRepeaterView", "XamarinCustomControls.WrapRepeaterView\Xamarin.CustomControls.WrapRepeaterView.csproj", "{5DCDB5EF-94A2-4D0A-BBE9-52FFB2D72D8E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -137,5 +139,17 @@ Global
 		{F9C385C3-9CE7-43F8-A0DD-CAA6336C1A3D}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{F9C385C3-9CE7-43F8-A0DD-CAA6336C1A3D}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{F9C385C3-9CE7-43F8-A0DD-CAA6336C1A3D}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{5DCDB5EF-94A2-4D0A-BBE9-52FFB2D72D8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DCDB5EF-94A2-4D0A-BBE9-52FFB2D72D8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DCDB5EF-94A2-4D0A-BBE9-52FFB2D72D8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DCDB5EF-94A2-4D0A-BBE9-52FFB2D72D8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DCDB5EF-94A2-4D0A-BBE9-52FFB2D72D8E}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{5DCDB5EF-94A2-4D0A-BBE9-52FFB2D72D8E}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{5DCDB5EF-94A2-4D0A-BBE9-52FFB2D72D8E}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{5DCDB5EF-94A2-4D0A-BBE9-52FFB2D72D8E}.Release|iPhone.Build.0 = Release|Any CPU
+		{5DCDB5EF-94A2-4D0A-BBE9-52FFB2D72D8E}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{5DCDB5EF-94A2-4D0A-BBE9-52FFB2D72D8E}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{5DCDB5EF-94A2-4D0A-BBE9-52FFB2D72D8E}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{5DCDB5EF-94A2-4D0A-BBE9-52FFB2D72D8E}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal

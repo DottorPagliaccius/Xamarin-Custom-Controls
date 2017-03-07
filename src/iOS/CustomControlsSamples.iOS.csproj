@@ -150,6 +150,10 @@
       <Project>{F9C385C3-9CE7-43F8-A0DD-CAA6336C1A3D}</Project>
       <Name>Xamarin.CustomControls.ProgressBarView</Name>
     </ProjectReference>
+    <ProjectReference Include="..\XamarinCustomControls.WrapRepeaterView\Xamarin.CustomControls.WrapRepeaterView.csproj">
+      <Project>{5DCDB5EF-94A2-4D0A-BBE9-52FFB2D72D8E}</Project>
+      <Name>Xamarin.CustomControls.WrapRepeaterView</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

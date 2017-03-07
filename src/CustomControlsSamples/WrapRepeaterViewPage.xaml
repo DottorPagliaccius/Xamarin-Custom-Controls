@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:repeater="clr-namespace:Xamarin.CustomControls;assembly=Xamarin.CustomControls.WrapRepeaterView" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CustomControlsSamples.WrapRepeaterViewPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10,20">
+                <Label Text="WrapRepeater View" FontSize="20" HorizontalTextAlignment="Center" HorizontalOptions="Center" FontAttributes="Bold" />
+                <repeater:WrapRepeaterView MaxColumns="2" ItemsSource="{Binding Items}">
+                    <repeater:WrapRepeaterView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Image Source="{Binding .}" HeightRequest="100" WidthRequest="100" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </repeater:WrapRepeaterView.ItemTemplate>
+                </repeater:WrapRepeaterView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

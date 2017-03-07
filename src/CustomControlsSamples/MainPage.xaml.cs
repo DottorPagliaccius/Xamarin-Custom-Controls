@@ -30,5 +30,10 @@ namespace CustomControlsSamples
         {
             await Navigation.PushAsync(new NavigationPage(new ProgressBarViewPage()));
         }
+
+        private async void WrapRepeaterViewClick(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new NavigationPage(new WrapRepeaterViewPage()));
+        }
     }
 }

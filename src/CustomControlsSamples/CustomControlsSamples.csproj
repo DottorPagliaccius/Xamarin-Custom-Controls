@@ -40,6 +40,9 @@
     <EmbeddedResource Include="ProgressBarViewPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="WrapRepeaterViewPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -61,6 +64,9 @@
     </Compile>
     <Compile Include="ProgressBarViewPage.xaml.cs">
       <DependentUpon>ProgressBarViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WrapRepeaterViewPage.xaml.cs">
+      <DependentUpon>WrapRepeaterViewPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -99,6 +105,10 @@
     <ProjectReference Include="..\Xamarin.CustomControls.ProgressBarView\Xamarin.CustomControls.ProgressBarView.csproj">
       <Project>{F9C385C3-9CE7-43F8-A0DD-CAA6336C1A3D}</Project>
       <Name>Xamarin.CustomControls.ProgressBarView</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XamarinCustomControls.WrapRepeaterView\Xamarin.CustomControls.WrapRepeaterView.csproj">
+      <Project>{5DCDB5EF-94A2-4D0A-BBE9-52FFB2D72D8E}</Project>
+      <Name>Xamarin.CustomControls.WrapRepeaterView</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
