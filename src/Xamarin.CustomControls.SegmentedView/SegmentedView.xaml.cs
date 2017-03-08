@@ -19,6 +19,8 @@ namespace Xamarin.CustomControls
 
     public partial class SegmentedView : ContentView
     {
+        private DisplayMode _displayMode = DisplayMode.Tab;
+
         public SegmentedView()
         {
             InitializeComponent();
@@ -35,12 +37,15 @@ namespace Xamarin.CustomControls
 
         public static readonly BindableProperty HeaderHeightProperty = BindableProperty.Create(nameof(HeaderHeight), typeof(int), typeof(SegmentedView), 50);
 
-        public static readonly BindableProperty DisplayModeProperty = BindableProperty.Create(nameof(DisplayMode), typeof(DisplayMode), typeof(SegmentedView), DisplayMode.Tab);
-
         public DisplayMode DisplayMode
         {
-            get { return (DisplayMode)GetValue(DisplayModeProperty); }
-            set { SetValue(DisplayModeProperty, value); }
+            get { return _displayMode; }
+            set
+            {
+                _displayMode = value;
+
+                MainPanel.Orientation = value == DisplayMode.Accordion ? StackOrientation.Vertical : StackOrientation.Horizontal;
+            }
         }
 
         public IEnumerable<ISegmentedViewItem> ItemsSource
@@ -89,11 +94,6 @@ namespace Xamarin.CustomControls
         {
             base.OnPropertyChanged(propertyName);
 
-            if (propertyName == DisplayModeProperty.PropertyName)
-            {
-                MainPanel.Orientation = DisplayMode == DisplayMode.Accordion ? StackOrientation.Vertical : StackOrientation.Horizontal;
-            }
-
             if (propertyName == ItemsSourceProperty.PropertyName)
             {
                 MainPanel.Children.Clear();
@@ -109,8 +109,6 @@ namespace Xamarin.CustomControls
                     {
                         PressedTextColor = PressedTextColor,
                         PressedBackgroundColor = PressedBackgroundColor,
-                        UnpressedTextColor = UnpressedTextColor,
-                        UnpressedBackgroundColor = UnpressedBackgroundColor,
                         BackgroundColor = PressedBackgroundColor,
                         TextColor = PressedTextColor,
                         Command = SelectedCommand,

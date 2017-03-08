@@ -138,6 +138,14 @@
       <Project>{5DCDB5EF-94A2-4D0A-BBE9-52FFB2D72D8E}</Project>
       <Name>Xamarin.CustomControls.WrapRepeaterView</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Xamarin.CustomControls.SegmentedView\Xamarin.CustomControls.SegmentedView.csproj">
+      <Project>{18C12359-CFA1-4789-90EA-4E469E6790F6}</Project>
+      <Name>Xamarin.CustomControls.SegmentedView</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xamarin.CustomControls.StateButton\Xamarin.CustomControls.StateButton.csproj">
+      <Project>{5DFBDD88-6C72-4A4D-A7E6-882246DD5B88}</Project>
+      <Name>Xamarin.CustomControls.StateButton</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />

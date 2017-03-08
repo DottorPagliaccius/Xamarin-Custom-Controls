@@ -35,5 +35,15 @@ namespace CustomControlsSamples
         {
             await Navigation.PushAsync(new NavigationPage(new WrapRepeaterViewPage()));
         }
+
+        private async void StateButtonClick(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new NavigationPage(new StateButtonPage()));
+        }
+
+        private async void SegmentedViewClick(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new NavigationPage(new SegmentedViewPage()));
+        }
     }
 }
