@@ -80,6 +80,7 @@
     <Compile Include="SegmentedViewPage.xaml.cs">
       <DependentUpon>SegmentedViewPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SegmentedViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

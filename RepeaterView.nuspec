@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Xamarin.CustomControls.RepeaterView</id>
-    <version>1.0.4</version>
+    <version>1.0.9</version>
     <title>RepeaterView control for Xamarin.Forms</title>
     <authors>DottorPagliaccius</authors>
     <owners>DottorPagliaccius</owners>

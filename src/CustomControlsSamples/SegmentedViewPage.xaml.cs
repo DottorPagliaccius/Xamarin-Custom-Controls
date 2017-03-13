@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace CustomControlsSamples
 {
@@ -10,6 +7,8 @@ namespace CustomControlsSamples
         public SegmentedViewPage()
         {
             InitializeComponent();
+
+            BindingContext = new SegmentedViewModel();
         }
     }
 }

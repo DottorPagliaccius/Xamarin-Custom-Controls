@@ -13,6 +13,11 @@ namespace CustomControlsSamples
             _viewModel = new CustomSampleViewModel();
 
             BindingContext = _viewModel;
+
+            MainRepeater.OnDataUpdate += (sender, e) =>
+            {
+
+            };
         }
 
         protected override async void OnAppearing()

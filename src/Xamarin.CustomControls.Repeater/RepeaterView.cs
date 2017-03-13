@@ -8,7 +8,9 @@ using Xamarin.Forms;
 
 namespace Xamarin.CustomControls
 {
-    public partial class RepeaterView : ContentView
+    public delegate void DataUpdateEventHandler(object sender, EventArgs e);
+
+    public partial class RepeaterView : StackLayout
     {
         public class InvalidViewException : Exception
         {
@@ -25,13 +27,14 @@ namespace Xamarin.CustomControls
             }
         }
 
+        public event DataUpdateEventHandler OnDataUpdate;
+
         public static readonly BindableProperty ItemTemplateProperty = BindableProperty.Create(nameof(ItemTemplate), typeof(DataTemplate), typeof(RepeaterView), default(DataTemplate));
-        public static readonly BindableProperty SeparatorTemplateProperty = BindableProperty.Create(nameof(SeparatorTemplate), typeof(DataTemplate), typeof(RepeaterView), default(DataTemplate), propertyChanged: (bindable, oldValue, newValue) => { SeparatorTemplateChanged(bindable); });
+        public static readonly BindableProperty SeparatorTemplateProperty = BindableProperty.Create(nameof(SeparatorTemplate), typeof(DataTemplate), typeof(RepeaterView), default(DataTemplate));
         public static readonly BindableProperty EmptyTextTemplateProperty = BindableProperty.Create(nameof(EmptyTextTemplate), typeof(DataTemplate), typeof(RepeaterView), default(DataTemplate));
-
-        public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create(nameof(ItemsSource), typeof(ICollection), typeof(RepeaterView), new List<object>(), BindingMode.TwoWay, null, propertyChanged: (bindable, oldValue, newValue) => { ItemsChanged(bindable, (ICollection)newValue); });
-
         public static readonly BindableProperty EmptyTextProperty = BindableProperty.Create(nameof(EmptyText), typeof(string), typeof(RepeaterView), string.Empty);
+
+        public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create(nameof(ItemsSource), typeof(ICollection), typeof(RepeaterView), new List<object>(), BindingMode.TwoWay, null, propertyChanged: (bindable, oldValue, newValue) => { ItemsChanged(bindable, (ICollection)oldValue, (ICollection)newValue); });
 
         public static readonly BindableProperty SelectedItemCommandProperty = BindableProperty.Create(nameof(SelectedItemCommand), typeof(ICommand), typeof(RepeaterView), default(ICommand));
         public static readonly BindableProperty SeparatorColorProperty = BindableProperty.Create(nameof(SeparatorColor), typeof(Color), typeof(RepeaterView), Color.Default);
@@ -40,7 +43,7 @@ namespace Xamarin.CustomControls
         public ICollection ItemsSource
         {
             get { return (ICollection)GetValue(ItemsSourceProperty); }
-            set { SetValue(ItemsSourceProperty, value); OnPropertyChanged(); }
+            set { SetValue(ItemsSourceProperty, value); }
         }
 
         public DataTemplate ItemTemplate
@@ -89,9 +92,7 @@ namespace Xamarin.CustomControls
 
         public RepeaterView()
         {
-            InitializeComponent();
-
-            ItemsPanel.Spacing = 0;
+            Spacing = 0;
         }
 
         protected override void OnPropertyChanged(string propertyName = null)
@@ -103,41 +104,46 @@ namespace Xamarin.CustomControls
                 if (SelectedItemCommand == null)
                     return;
 
-                foreach (var view in ItemsPanel.Children)
+                foreach (var view in Children)
                 {
                     BindSelectedItemCommand(view);
                 }
             }
-        }
 
-        private static void SeparatorTemplateChanged(BindableObject bindable)
-        {
-            var repeater = (RepeaterView)bindable;
-
-            repeater.UpdateItems();
-        }
-
-        private static void ItemsChanged(BindableObject bindable, ICollection newValue)
-        {
-            if (newValue == null)
-                return;
-
-            var repeater = (RepeaterView)bindable;
-
-            repeater.UpdateItems();
-
-            var observable = repeater.ItemsSource as INotifyCollectionChanged;
-
-            if (observable != null)
+            if (propertyName == SeparatorTemplateProperty.PropertyName)
             {
-                observable.CollectionChanged += (sender, e) =>
-                {
-                    repeater.UpdateItems();
-                };
+                UpdateItems();
             }
         }
 
-        protected void UpdateItems()
+        private static void ItemsChanged(BindableObject bindable, ICollection oldValue, ICollection newValue)
+        {
+            var repeater = (RepeaterView)bindable;
+
+            if (oldValue != null)
+            {
+                var observable = oldValue as INotifyCollectionChanged;
+
+                if (observable != null)
+                {
+                    observable.CollectionChanged -= repeater.CollectionChanged;
+                }
+            }
+
+            if (newValue != null)
+            {
+                repeater.UpdateItems();
+
+                var observable = repeater.ItemsSource as INotifyCollectionChanged;
+
+                if (observable != null)
+                {
+                    observable.CollectionChanged += repeater.CollectionChanged;
+                }
+            }
+        }
+
+        private void UpdateItems()
         {
             if (ItemsSource.Count == 0 && (EmptyTextTemplate != null || !string.IsNullOrEmpty(EmptyText)))
             {
@@ -145,9 +151,11 @@ namespace Xamarin.CustomControls
             }
             else
                 BuildItems(ItemsSource);
+
+            OnDataUpdate?.Invoke(this, new EventArgs());
         }
 
-        protected View BuildSeparator()
+        private View BuildSeparator()
         {
             if (SeparatorTemplate != null)
             {
@@ -165,12 +173,12 @@ namespace Xamarin.CustomControls
             }
         }
 
-        protected void BuildEmptyText()
+        private void BuildEmptyText()
         {
-            ItemsPanel.Children.Clear();
+            Children.Clear();
 
             if (EmptyTextTemplate == null)
-                ItemsPanel.Children.Add(new Label { Text = EmptyText });
+                Children.Add(new Label { Text = EmptyText });
             else
             {
                 var content = EmptyTextTemplate.CreateContent();
@@ -181,47 +189,103 @@ namespace Xamarin.CustomControls
 
                 var view = (content is View) ? content as View : ((ViewCell)content).View;
 
-                ItemsPanel.Children.Add(view);
+                Children.Add(view);
             }
         }
 
-        protected virtual void BuildItems(ICollection sourceItems)
+        public void BuildItems(ICollection sourceItems)
         {
-            ItemsPanel.Children.Clear();
+            Children.Clear();
 
-            var items = sourceItems.Cast<object>();
-
-            foreach (object item in items)
+            foreach (object item in sourceItems)
             {
-                var content = ItemTemplate.CreateContent();
-                if (!(content is View) && !(content is ViewCell))
-                {
-                    throw new InvalidViewException("Templated control must be a View or a ViewCell");
-                }
-
-                var view = (content is View) ? content as View : ((ViewCell)content).View;
-
-                view.BindingContext = item;
-
-                if (SelectedItemCommand != null && SelectedItemCommand.CanExecute(item))
-                    BindSelectedItemCommand(view);
-
-                ItemsPanel.Children.Add(view);
-
-                if (ShowSeparator && items.Last() != item)
-                    ItemsPanel.Children.Add(BuildSeparator());
+                Children.Add(GetItemView(item));
             }
         }
 
-        protected void BindSelectedItemCommand(View view)
+        private View GetItemView(object item)
+        {
+            var content = ItemTemplate.CreateContent();
+            if (!(content is View) && !(content is ViewCell))
+            {
+                throw new InvalidViewException("Templated control must be a View or a ViewCell");
+            }
+
+            var view = content is View ? content as View : ((ViewCell)content).View;
+
+            view.BindingContext = item;
+
+            if (SelectedItemCommand != null && SelectedItemCommand.CanExecute(item))
+                BindSelectedItemCommand(view);
+
+            if (ShowSeparator && ItemsSource.Cast<object>().Last() != item)
+            {
+                var container = new StackLayout { Spacing = 0 };
+
+                container.Children.Add(view);
+                container.Children.Add(BuildSeparator());
+
+                return container;
+            }
+
+            return view;
+        }
+
+        private void BindSelectedItemCommand(View view)
         {
             if (!SelectedItemCommand.CanExecute(view.BindingContext))
                 return;
 
             var tapGestureRecognizer = new TapGestureRecognizer { Command = SelectedItemCommand, CommandParameter = view.BindingContext };
 
-            view.GestureRecognizers.Clear();
+            if (view.GestureRecognizers.Any())
+                view.GestureRecognizers.Clear();
+
             view.GestureRecognizers.Add(tapGestureRecognizer);
+        }
+
+        private void CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            var items = ItemsSource.Cast<object>().ToList();
+
+            switch (e.Action)
+            {
+                case NotifyCollectionChangedAction.Add:
+
+                    var index = e.NewStartingIndex;
+
+                    foreach (var newItem in e.NewItems)
+                    {
+                        Children.Insert(index++, GetItemView(newItem));
+                    }
+                    break;
+
+                case NotifyCollectionChangedAction.Move:
+
+                    var moveItem = items[e.OldStartingIndex];
+
+                    Children.RemoveAt(e.OldStartingIndex);
+                    Children.Insert(e.NewStartingIndex, GetItemView(moveItem));
+                    break;
+
+                case NotifyCollectionChangedAction.Remove:
+
+                    Children.RemoveAt(e.OldStartingIndex);
+                    break;
+
+                case NotifyCollectionChangedAction.Replace:
+
+                    Children.RemoveAt(e.OldStartingIndex);
+                    Children.Insert(e.NewStartingIndex, GetItemView(items[e.NewStartingIndex]));
+                    break;
+
+                case NotifyCollectionChangedAction.Reset:
+
+                    BuildItems(ItemsSource);
+                    break;
+            }
+
+            OnDataUpdate?.Invoke(this, new EventArgs());
         }
     }
 }

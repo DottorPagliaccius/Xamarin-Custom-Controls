@@ -1,25 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	 xmlns:local="clr-namespace:CustomControlsSamples" x:Class="CustomControlsSamples.RefreshableRepeaterViewPage"
-	 xmlns:repeater="clr-namespace:Xamarin.CustomControls;assembly=Xamarin.CustomControls.RefreshableRepeaterView">	  
-	<ContentPage.Content>
-			<StackLayout Padding="10,20">
-				<Label Text="Repeater View" FontSize="20" HorizontalTextAlignment="Center" HorizontalOptions="Center" FontAttributes="Bold" />		
-				<Label Text="{Binding SelectedValue}" TextColor="Red" FontAttributes="Bold" Margin="0,15,0,20" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
-				<repeater:RefreshableRepeaterView RefreshCommand="{Binding ReloadItemCommand}" IsRefreshing="{Binding IsBusy}" RefreshColor="Fuchsia" ShowSeparator="true" SeparatorHeight="2" SeparatorColor="Silver" SelectedItemCommand="{Binding SelectedItemCommand}" ItemsSource="{Binding Items}" >
-					<repeater:RefreshableRepeaterView.ItemTemplate>
-					<DataTemplate>
-							 <ViewCell>
-								<StackLayout>
-									<Label Margin="0" Text="{Binding RandomProperty1}" TextColor="Blue" />
-									<Label Margin="10,0" Text="{Binding RandomProperty2}" TextColor="Red" />
-									<Label Margin="20,0" Text="{Binding RandomProperty3}" TextColor="Green" />
-									<Label Margin="30,0" Text="{Binding RandomProperty4}" TextColor="Purple" />
-								</StackLayout>
-							</ViewCell>
-					</DataTemplate>
-					</repeater:RefreshableRepeaterView.ItemTemplate>
-				</repeater:RefreshableRepeaterView>
-			</StackLayout>
-	</ContentPage.Content>
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:CustomControlsSamples" x:Class="CustomControlsSamples.RefreshableRepeaterViewPage" xmlns:repeater="clr-namespace:Xamarin.CustomControls;assembly=Xamarin.CustomControls.RefreshableRepeaterView">
+    <ContentPage.Content>
+        <StackLayout Padding="10,20">
+            <Label Text="Refreshable Repeater View" FontSize="20" HorizontalTextAlignment="Center" HorizontalOptions="Center" FontAttributes="Bold" />
+            <Label Text="{Binding SelectedValue}" TextColor="Red" FontAttributes="Bold" Margin="0,15,0,20" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
+            <repeater:RefreshableRepeaterView RefreshCommand="{Binding ReloadItemCommand}" IsRefreshing="{Binding IsBusy}" RefreshColor="Fuchsia" ShowSeparator="true" SeparatorHeight="2" SeparatorColor="Silver" SelectedItemCommand="{Binding SelectedItemCommand}" ItemsSource="{Binding Items}" VerticalOptions="FillAndExpand">
+                <repeater:RefreshableRepeaterView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding RandomProperty1}" TextColor="Blue" />
+                                <Label Text="{Binding RandomProperty2}" TextColor="Red" />
+                                <Label Text="{Binding RandomProperty3}" TextColor="Green" />
+                                <Label Text="{Binding RandomProperty4}" TextColor="Purple" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </repeater:RefreshableRepeaterView.ItemTemplate>
+            </repeater:RefreshableRepeaterView>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

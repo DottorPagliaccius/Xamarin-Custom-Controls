@@ -142,10 +142,6 @@
       <Project>{E190C04D-E37F-4D76-ACA2-75B2709BC48C}</Project>
       <Name>Xamarin.CustomControls.RefreshableRepeaterView</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Xamarin.CustomControls.Repeater\Xamarin.CustomControls.RepeaterView.csproj">
-      <Project>{73C8625C-82B0-484D-8EC0-32C984D73DB0}</Project>
-      <Name>Xamarin.CustomControls.RepeaterView</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Xamarin.CustomControls.ProgressBarView\Xamarin.CustomControls.ProgressBarView.csproj">
       <Project>{F9C385C3-9CE7-43F8-A0DD-CAA6336C1A3D}</Project>
       <Name>Xamarin.CustomControls.ProgressBarView</Name>
@@ -161,6 +157,10 @@
     <ProjectReference Include="..\Xamarin.CustomControls.StateButton\Xamarin.CustomControls.StateButton.csproj">
       <Project>{5DFBDD88-6C72-4A4D-A7E6-882246DD5B88}</Project>
       <Name>Xamarin.CustomControls.StateButton</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xamarin.CustomControls.Repeater\Xamarin.CustomControls.RepeaterView.csproj">
+      <Project>{73C8625C-82B0-484D-8EC0-32C984D73DB0}</Project>
+      <Name>Xamarin.CustomControls.RepeaterView</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

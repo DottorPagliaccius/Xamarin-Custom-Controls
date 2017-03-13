@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Xamarin.CustomControls.RefreshableRepeaterView</id>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <title>RefreshableRepeaterView control for Xamarin.Forms</title>
     <authors>DottorPagliaccius</authors>
     <owners>DottorPagliaccius</owners>
@@ -12,11 +12,11 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>RefreshableRepeaterView custom control for Xamarin.Forms</description>
 	<summary>RefreshableRepeaterView custom control for Xamarin.Forms</summary>
-    <releaseNotes>See Changelog: ~</releaseNotes>
+    <releaseNotes></releaseNotes>
     <tags>xamarin, pcl, xam.pcl, control, customcontrol, repeater, repeaterview, refreshablerepeaterview, listview, android, xamarin.forms, ios, monoandroid, monodroid, monotouch</tags>    
     <dependencies>
         <dependency id="Xamarin.Forms" version="2.3.2.127" />
-        <dependency id="Xamarin.CustomControls.RepeaterView" version="1.0.4" />
+        <dependency id="Xamarin.CustomControls.RepeaterView" version="1.0.9" />
         <dependency id="Refractored.XamForms.PullToRefresh" version="1.1.0" /> 
     </dependencies>
   </metadata>
