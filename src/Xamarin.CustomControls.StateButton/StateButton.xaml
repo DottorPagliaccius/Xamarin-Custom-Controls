@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Xamarin.CustomControls.StateButton" HeightRequest="48">
+    <ContentView.Content>
+        <StackLayout x:Name="MainPanel" Padding="1" BackgroundColor="Black" VerticalOptions="FillAndExpand"  InputTransparent="true">
+            <Grid x:Name="MainGrid" BackgroundColor="Silver" VerticalOptions="FillAndExpand" ColumnSpacing="0"  InputTransparent="true">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <RelativeLayout x:Name="LeftImageControlContainer" Grid.Column="0" IsVisible="false"  InputTransparent="true">
+                    <Image x:Name="LeftImageControl" Margin="5" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center" RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}" />
+                </RelativeLayout>
+                <StackLayout Grid.Column="1" HorizontalOptions="FillAndExpand"  InputTransparent="true">
+                    <Label x:Name="TextLabel" Margin="5" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" />
+                </StackLayout>
+                <RelativeLayout x:Name="RightImageControlContainer" Grid.Column="2" IsVisible="false"  InputTransparent="true">
+                    <Image x:Name="RightImageControl" Margin="5" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center" RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height}" />
+                </RelativeLayout>
+            </Grid>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

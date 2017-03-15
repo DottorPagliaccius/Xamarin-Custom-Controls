@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:statebutton="clr-namespace:Xamarin.CustomControls;assembly=Xamarin.CustomControls.StateButton" x:Class="CustomControlsSamples.StateButtonPage">
     <ContentPage.Content>
-        <StackLayout>
-            <statebutton:StateButton Text="Button" PressedTextColor="White" PressedBackgroundColor="Black" TextColor="Black" BackgroundColor="Silver" />
+        <StackLayout Padding="15">
+            <Label x:Name="TopLabel" Text="No button pressed" Margin="0,10" HorizontalOptions="Center" TextColor="Red" FontAttributes="Bold" />
+            <statebutton:StateButton Text="Button1" ActiveTextColor="White" ActiveBackgroundColor="Black" TextColor="Black" BackgroundColor="Silver" Command="{Binding SelectCommand}" CommandParameter="1" />
+            <statebutton:StateButton Text="Button2" ActiveTextColor="Red" ActiveBackgroundColor="Black" TextColor="Black" BackgroundColor="Red" BorderColor="Red" ActiveBorderColor="Red" Border="0,0,0,5" Command="{Binding SelectCommand}" CommandParameter="2" />
+            <statebutton:StateButton Text="Button3" ActiveTextColor="White" ActiveBackgroundColor="Gray" TextColor="Black" BackgroundColor="Silver" ActiveBorderColor="Black" LeftImage="star1" ActiveLeftImage="star2" RightImage="star1" ActiveRightImage="star2" Command="{Binding SelectCommand}" CommandParameter="3" />
+            <statebutton:StateButton Text="Button4" ActiveTextColor="White" ActiveBackgroundColor="Gray" TextColor="Black" BackgroundColor="Silver" ActiveBorderColor="Black" RightImage="arrowLeft" ActiveRightImage="arrowDown" HeightRequest="60" Command="{Binding SelectCommand}" CommandParameter="4" TextPosition="Left" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
