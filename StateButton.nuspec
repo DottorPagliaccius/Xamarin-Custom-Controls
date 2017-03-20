@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Xamarin.CustomControls.StateButton</id>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <title>StateButton control for Xamarin.Forms</title>
     <authors>DottorPagliaccius</authors>
     <owners>DottorPagliaccius</owners>
@@ -12,7 +12,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>StateButton custom control for Xamarin.Forms</description>
 	  <summary>StateButton custom control for Xamarin.Forms</summary>
-    <releaseNotes>See Changelog: ~</releaseNotes>
+    <releaseNotes>Fixed bug that prevented item to be selected by code</releaseNotes>
     <tags>xamarin, pcl, xam.pcl, control, customcontrol, button, statebutton, state, android, xamarin.forms, ios, monoandroid, monodroid, monotouch</tags>    
      <dependencies>
         <dependency id="Xamarin.Forms" version="2.3.2.127" />

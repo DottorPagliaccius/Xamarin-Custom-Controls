@@ -4,24 +4,24 @@
         <ScrollView>
             <StackLayout Padding="10,20">
                 <Label Text="Repeater View" FontSize="20" HorizontalTextAlignment="Center" HorizontalOptions="Center" FontAttributes="Bold" />
-                <Label Text="{Binding SelectedValue}"
-                       TextColor="Red" FontAttributes="Bold" Margin="0,15,0,20" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
-                <autocomplete:AutoCompleteView OpenOnFocus="true" SearchMember="RandomProperty4" SuggestionBorderColor="Silver" ShowSeparator="false" SuggestionBorderSize="1"  MaxResults="3" EmptyText="No element found" SuggestionBackgroundColor="#f7f7f7"  Placeholder="Write something..." PlaceholderTextColor="Silver"
-                                               SelectedItemCommand="{Binding SelectedItemCommand}"
-                                               ItemsSource="{Binding Items}">
+                <Label Text="{Binding SelectedValue}" TextColor="Red" FontAttributes="Bold" Margin="0,15,0,20" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
+                <autocomplete:AutoCompleteView OpenOnFocus="true" SearchMember="RandomProperty4" SuggestionBorderColor="Silver" ShowSeparator="false" SelectedItem="{Binding SelectedItem}" SuggestionBorderSize="1" MaxResults="3" EmptyText="No element found" SuggestionBackgroundColor="#f7f7f7" Placeholder="Write something..." PlaceholderTextColor="Silver" SelectedItemCommand="{Binding SelectedItemCommand}" ItemsSource="{Binding Items}">
                     <autocomplete:AutoCompleteView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Orientation="Horizontal" Padding="3">
                                     <Label Text="{Binding RandomProperty3}" TextColor="Blue" FontAttributes="Bold" />
-									<Label Text="eats" />
-									<Label Text="{Binding RandomProperty2}" FontSize="8" />
-                                    <Label Text="{Binding RandomProperty4}" TextColor="Red" />                                  
+                                    <Label Text="eats" />
+                                    <Label Text="{Binding RandomProperty2}" FontSize="8" />
+                                    <Label Text="{Binding RandomProperty4}" TextColor="Red" />
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
                     </autocomplete:AutoCompleteView.ItemTemplate>
                 </autocomplete:AutoCompleteView>
+                <StackLayout Margin="0,10,0,0" Orientation="Horizontal">
+                    <Button Text="Set random selectedItem" Command="{Binding SetRandomSelectedItemCommand}" />
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

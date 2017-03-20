@@ -11,6 +11,8 @@ namespace Xamarin.CustomControls
 {
     public partial class AutoCompleteView : ContentView
     {
+        private PropertyInfo _searchMemberCachePropertyInfo;
+
         private ObservableCollection<object> _availableSuggestions;
 
         public static readonly BindableProperty PlaceholderProperty = BindableProperty.Create(nameof(Placeholder), typeof(string), typeof(AutoCompleteView), string.Empty);
@@ -28,9 +30,6 @@ namespace Xamarin.CustomControls
         public static readonly BindableProperty TextColorProperty = BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(AutoCompleteView), Color.Black);
         public static readonly BindableProperty PlaceholderTextColorProperty = BindableProperty.Create(nameof(PlaceholderTextColor), typeof(Color), typeof(AutoCompleteView), Color.Silver);
         public static readonly BindableProperty FontSizeProperty = BindableProperty.Create(nameof(FontSize), typeof(double), typeof(AutoCompleteView), Font.Default.FontSize);
-
-        public static readonly BindableProperty OpenOnFocusProperty = BindableProperty.Create(nameof(OpenOnFocus), typeof(bool), typeof(AutoCompleteView), false);
-        public static readonly BindableProperty MaxResultsProperty = BindableProperty.Create(nameof(MaxResults), typeof(int), typeof(AutoCompleteView), 20);
 
         public static readonly BindableProperty SearchMemberProperty = BindableProperty.Create(nameof(SearchMember), typeof(string), typeof(AutoCompleteView), string.Empty);
 
@@ -109,18 +108,6 @@ namespace Xamarin.CustomControls
             private set { SetValue(SelectedItemProperty, value); }
         }
 
-        public bool OpenOnFocus
-        {
-            get { return (bool)GetValue(OpenOnFocusProperty); }
-            set { SetValue(OpenOnFocusProperty, value); }
-        }
-
-        public int MaxResults
-        {
-            get { return (int)GetValue(MaxResultsProperty); }
-            set { SetValue(MaxResultsProperty, value); }
-        }
-
         public string SearchMember
         {
             get { return (string)GetValue(SearchMemberProperty); }
@@ -145,6 +132,9 @@ namespace Xamarin.CustomControls
             set { SuggestedItemsRepeaterView.ShowSeparator = value; }
         }
 
+        public bool OpenOnFocus { get; set; }
+        public int MaxResults { get; set; }
+
         public AutoCompleteView()
         {
             InitializeComponent();
@@ -161,6 +151,49 @@ namespace Xamarin.CustomControls
             if (propertyName == PlaceholderProperty.PropertyName && SelectedItem == null)
             {
                 MainEntry.Text = Placeholder;
+            }
+
+            if (propertyName == SelectedItemProperty.PropertyName)
+            {
+                if (SelectedItem != null)
+                {
+                    var propertyInfo = GetSearchMember(SelectedItem.GetType());
+
+                    var selectedItem = ItemsSource.Cast<object>().SingleOrDefault(x => propertyInfo.GetValue(x).ToString() == propertyInfo.GetValue(SelectedItem).ToString());
+
+                    if (selectedItem != null)
+                    {
+                        try
+                        {
+                            MainEntry.TextChanged -= SearchText_TextChanged;
+
+                            MainEntry.Text = propertyInfo.GetValue(SelectedItem).ToString();
+                        }
+                        finally
+                        {
+                            MainEntry.TextChanged -= SearchText_TextChanged;
+                        }
+
+                        FilterSuggestions(MainEntry.Text, false);
+
+                        MainEntry.TextColor = TextColor;
+                    }
+                    else
+                    {
+                        MainEntry.Text = Placeholder;
+                        MainEntry.TextColor = PlaceholderTextColor;
+                    }
+                }
+                else
+                {
+                    MainEntry.Text = Placeholder;
+                    MainEntry.TextColor = PlaceholderTextColor;
+                }
+            }
+
+            if (propertyName == SearchMemberProperty.PropertyName)
+            {
+                _searchMemberCachePropertyInfo = null;
             }
 
             if (propertyName == PlaceholderTextColorProperty.PropertyName)
@@ -271,7 +304,7 @@ namespace Xamarin.CustomControls
             FilterSuggestions(MainEntry.Text);
         }
 
-        private void FilterSuggestions(string text)
+        private void FilterSuggestions(string text, bool openSuggestionPanel = true)
         {
             var filteredSuggestions = ItemsSource.Cast<object>();
 
@@ -290,20 +323,26 @@ namespace Xamarin.CustomControls
 
             _availableSuggestions = new ObservableCollection<object>(filteredSuggestions.Take(MaxResults));
 
-            ShowHideListbox(true);
+            ShowHideListbox(openSuggestionPanel);
         }
 
         private PropertyInfo GetSearchMember(Type type)
         {
-            var property = type.GetRuntimeProperty(SearchMember);
+            if (_searchMemberCachePropertyInfo != null)
+                return _searchMemberCachePropertyInfo;
 
-            if (property == null)
+            if (string.IsNullOrEmpty(SearchMember))
+                throw new MemberNotFoundException("You must specify SearchMember property");
+
+            _searchMemberCachePropertyInfo = type.GetRuntimeProperty(SearchMember);
+
+            if (_searchMemberCachePropertyInfo == null)
                 throw new MemberNotFoundException($"There's no corrisponding property the matches SearchMember value '{SearchMember}'");
 
-            if (property.PropertyType != typeof(string))
+            if (_searchMemberCachePropertyInfo.PropertyType != typeof(string))
                 throw new SearchMemberPropertyTypeException($"Property '{SearchMember}' must be of type string");
 
-            return property;
+            return _searchMemberCachePropertyInfo;
         }
 
         private void SuggestedRepeaterItemSelected(object selectedItem)
