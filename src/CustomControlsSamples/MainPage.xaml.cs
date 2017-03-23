@@ -45,5 +45,10 @@ namespace CustomControlsSamples
         {
             await Navigation.PushAsync(new NavigationPage(new SegmentedViewPage()));
         }
+
+        private async void AccordionViewClick(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new NavigationPage(new AccordionViewPage()));
+        }
     }
 }

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Xamarin.CustomControls.AccordionView</id>
+    <version>1.0.0</version>
+    <title>Accordion control for Xamarin.Forms</title>
+    <authors>DottorPagliaccius</authors>
+    <owners>DottorPagliaccius</owners>
+    <licenseUrl>https://github.com/DottorPagliaccius/Xamarin-Custom-Controls/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/DottorPagliaccius/Xamarin-Custom-Controls</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/DottorPagliaccius/Xamarin-Custom-Controls/master/art/AccordionViewIcon.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Accordion custom control for Xamarin.Forms</description>
+	<summary>Accordion custom control for Xamarin.Forms</summary>
+    <releaseNotes></releaseNotes>
+    <tags>xamarin, pcl, xam.pcl, control, customcontrol, accordion, listview, android, xamarin.forms, ios, monoandroid, monodroid, monotouch</tags>    
+    <dependencies>
+        <dependency id="Xamarin.Forms" version="2.3.2.127" />
+        <dependency id="Xamarin.CustomControls.StateButton" version="1.0.1" />
+    </dependencies>
+  </metadata>
+  <files> 
+    <file src="src/Xamarin.CustomControls.AccordionView/bin/Release/Xamarin.CustomControls.AccordionView.dll" target="lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Xamarin.CustomControls.AccordionView.dll" />
+    <file src="src/Xamarin.CustomControls.AccordionView/bin/Debug/Xamarin.CustomControls.AccordionView.dll.mdb" target="lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Xamarin.CustomControls.AccordionView.dll.mdb" />       
+  </files>
+</package>

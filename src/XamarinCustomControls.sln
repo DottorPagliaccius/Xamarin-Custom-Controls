@@ -23,7 +23,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.CustomControls.Segm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.CustomControls.StateButton", "Xamarin.CustomControls.StateButton\Xamarin.CustomControls.StateButton.csproj", "{5DFBDD88-6C72-4A4D-A7E6-882246DD5B88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.CustomControls.Accordion", "Xamarin.CustomControls.Accordion\Xamarin.CustomControls.Accordion.csproj", "{26F3E1BB-FA1E-462A-9FC2-40766401568C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.CustomControls.AccordionView", "Xamarin.CustomControls.Accordion\Xamarin.CustomControls.AccordionView.csproj", "{26F3E1BB-FA1E-462A-9FC2-40766401568C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

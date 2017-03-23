@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -19,8 +21,8 @@ namespace Xamarin.CustomControls
 
         private Color _inactiveBackgroundColor;
 
-        public static readonly BindableProperty IsPressedProperty = BindableProperty.Create(nameof(IsPressed), typeof(bool), typeof(StateButton), false, propertyChanged: (bindable, oldValue, newValue) => IsPressedChanged(bindable, newValue));
-        public static readonly BindableProperty TextColorProperty = BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(StateButton), Color.White);
+        public static readonly BindableProperty IsPressedProperty = BindableProperty.Create(nameof(IsPressed), typeof(bool), typeof(StateButton), false, propertyChanged: async (bindable, oldValue, newValue) => await IsPressedChanged(bindable, newValue));
+        public static readonly BindableProperty TextColorProperty = BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(StateButton), Color.Black);
         public static readonly BindableProperty ActiveBackgroundColorProperty = BindableProperty.Create(nameof(ActiveBackgroundColor), typeof(Color), typeof(StateButton), Color.White);
         public static readonly BindableProperty ActiveTextColorProperty = BindableProperty.Create(nameof(ActiveTextColor), typeof(Color), typeof(StateButton), Color.Black);
         public static readonly BindableProperty CommandProperty = BindableProperty.Create(nameof(Command), typeof(ICommand), typeof(StateButton));
@@ -152,6 +154,8 @@ namespace Xamarin.CustomControls
             set { SetValue(TextProperty, value); }
         }
 
+        public bool RotateImages { get; set; } = false;
+
         public StateButton()
         {
             InitializeComponent();
@@ -239,21 +243,9 @@ namespace Xamarin.CustomControls
                         MainPanel.BackgroundColor = BorderColor;
                 }
 
-                if (propertyName == BorderColorProperty.PropertyName)
-                {
-                    if (!IsPressed)
-                        MainPanel.BackgroundColor = BorderColor;
-                }
-
                 if (propertyName == BorderProperty.PropertyName)
                 {
                     MainPanel.Padding = Border;
-                }
-
-                if (propertyName == ActiveBorderColorProperty.PropertyName)
-                {
-                    if (IsPressed)
-                        MainPanel.BackgroundColor = ActiveBorderColor;
                 }
 
                 if (propertyName == ActiveBorderColorProperty.PropertyName)
@@ -296,7 +288,7 @@ namespace Xamarin.CustomControls
             }
         }
 
-        private static void IsPressedChanged(BindableObject bindable, object newValue)
+        private static async Task IsPressedChanged(BindableObject bindable, object newValue)
         {
             var button = (StateButton)bindable;
             var value = (bool)newValue;
@@ -312,35 +304,71 @@ namespace Xamarin.CustomControls
                 {
                     button.TextLabel.TextColor = button.ActiveTextColor;
                     button.MainGrid.BackgroundColor = button.ActiveBackgroundColor;
-
-                    if (button.ActiveLeftImage != null)
-                    {
-                        button.LeftImageControl.Source = button.ActiveLeftImage;
-                    }
-
-                    if (button.ActiveRightImage != null)
-                        button.RightImageControl.Source = button.ActiveRightImage;
-
-                    button.LeftImageControlContainer.IsVisible = button.ActiveLeftImage != null;
-                    button.RightImageControlContainer.IsVisible = button.ActiveRightImage != null;
-
                     button.MainPanel.BackgroundColor = button.ActiveBorderColor;
+
+                    if (button.RotateImages)
+                    {
+                        var tasks = new List<Task>();
+
+                        if (button.LeftImage != null)
+                        {
+                            tasks.Add(button.LeftImageControl.RotateTo(90, 500, Easing.SpringOut));
+                        }
+
+                        if (button.RightImage != null)
+                        {
+                            tasks.Add(button.RightImageControl.RotateTo(90, 500, Easing.SpringOut));
+                        }
+
+                        await Task.WhenAll(tasks.ToArray());
+                    }
+                    else
+                    {
+                        if (button.ActiveLeftImage != null)
+                        {
+                            button.LeftImageControl.Source = button.ActiveLeftImage;
+                        }
+
+                        if (button.ActiveRightImage != null)
+                            button.RightImageControl.Source = button.ActiveRightImage;
+
+                        button.LeftImageControlContainer.IsVisible = button.ActiveLeftImage != null;
+                        button.RightImageControlContainer.IsVisible = button.ActiveRightImage != null;
+                    }
                 }
                 else
                 {
                     button.TextLabel.TextColor = button.TextColor;
                     button.MainGrid.BackgroundColor = button._inactiveBackgroundColor;
-
-                    if (button.LeftImage != null)
-                        button.LeftImageControl.Source = button.LeftImage;
-
-                    if (button.RightImage != null)
-                        button.RightImageControl.Source = button.RightImage;
-
-                    button.LeftImageControlContainer.IsVisible = button.LeftImage != null;
-                    button.RightImageControlContainer.IsVisible = button.RightImage != null;
-
                     button.MainPanel.BackgroundColor = button.BorderColor;
+
+                    if (button.RotateImages)
+                    {
+                        var tasks = new List<Task>();
+
+                        if (button.LeftImage != null)
+                        {
+                            tasks.Add(button.LeftImageControl.RotateTo(0, 500, Easing.SpringOut));
+                        }
+
+                        if (button.RightImage != null)
+                        {
+                            tasks.Add(button.RightImageControl.RotateTo(0, 500, Easing.SpringOut));
+                        }
+
+                        await Task.WhenAll(tasks.ToArray());
+                    }
+                    else
+                    {
+                        if (button.LeftImage != null)
+                            button.LeftImageControl.Source = button.LeftImage;
+
+                        if (button.RightImage != null)
+                            button.RightImageControl.Source = button.RightImage;
+
+                        button.LeftImageControlContainer.IsVisible = button.LeftImage != null;
+                        button.RightImageControlContainer.IsVisible = button.RightImage != null;
+                    }
                 }
             }
             finally

@@ -9,7 +9,8 @@
                 <Button Text="ProgressBarView" Clicked="ProgressBarViewClick" />
                 <Button Text="WrapRepeaterView" Clicked="WrapRepeaterViewClick" />
                 <Button Text="StateButton" Clicked="StateButtonClick" />
-                <Button  Text="SegmentedView" Clicked="SegmentedViewClick"/>
+               	<!-- <Button  Text="SegmentedView" Clicked="SegmentedViewClick"/>-->
+                <Button  Text="AccordionView" Clicked="AccordionViewClick"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

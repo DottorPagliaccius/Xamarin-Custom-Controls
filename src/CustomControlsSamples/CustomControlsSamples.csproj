@@ -49,6 +49,9 @@
     <EmbeddedResource Include="SegmentedViewPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="AccordionViewPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -81,6 +84,9 @@
       <DependentUpon>SegmentedViewPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="SegmentedViewModel.cs" />
+    <Compile Include="AccordionViewPage.xaml.cs">
+      <DependentUpon>AccordionViewPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
@@ -127,9 +133,9 @@
       <Project>{5DFBDD88-6C72-4A4D-A7E6-882246DD5B88}</Project>
       <Name>Xamarin.CustomControls.StateButton</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Xamarin.CustomControls.Accordion\Xamarin.CustomControls.Accordion.csproj">
+    <ProjectReference Include="..\Xamarin.CustomControls.Accordion\Xamarin.CustomControls.AccordionView.csproj">
       <Project>{26F3E1BB-FA1E-462A-9FC2-40766401568C}</Project>
-      <Name>Xamarin.CustomControls.Accordion</Name>
+      <Name>Xamarin.CustomControls.AccordionView</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

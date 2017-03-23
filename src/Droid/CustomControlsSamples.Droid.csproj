@@ -113,7 +113,7 @@
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable\arrowDown.png" />
-    <AndroidResource Include="Resources\drawable\arrowLeft.png" />
+    <AndroidResource Include="Resources\drawable\arrowRight.png" />
     <AndroidResource Include="Resources\drawable\star1.png" />
     <AndroidResource Include="Resources\drawable\star2.png" />
   </ItemGroup>
@@ -145,6 +145,10 @@
     <ProjectReference Include="..\Xamarin.CustomControls.StateButton\Xamarin.CustomControls.StateButton.csproj">
       <Project>{5DFBDD88-6C72-4A4D-A7E6-882246DD5B88}</Project>
       <Name>Xamarin.CustomControls.StateButton</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xamarin.CustomControls.Accordion\Xamarin.CustomControls.AccordionView.csproj">
+      <Project>{26F3E1BB-FA1E-462A-9FC2-40766401568C}</Project>
+      <Name>Xamarin.CustomControls.AccordionView</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

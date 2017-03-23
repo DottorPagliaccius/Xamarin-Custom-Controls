@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CustomControlsSamples.AccordionViewPage" xmlns:accordion="clr-namespace:Xamarin.CustomControls;assembly=Xamarin.CustomControls.AccordionView">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10,20">
+                <Label Text="Accordion View" FontSize="20" HorizontalTextAlignment="Center" HorizontalOptions="Center" FontAttributes="Bold" />
+                <accordion:AccordionView KeepOnlyOneItemOpen="true" Spacing="0">
+                    <accordion:AccordionView.Children>
+                        <accordion:AccordionItemView Text="Element #1" ActiveTextColor="White" ButtonActiveBackgroundColor="#6FADDE" TextColor="White" ButtonBackgroundColor="#0067B7" ActiveBorderColor="White" RightImage="arrowRight" ActiveRightImage="arrowDown" TextPosition="Left">
+                            <accordion:AccordionItemView.ItemContent>
+                                <StackLayout Padding="0.5,0,0.5,0.5" BackgroundColor="Black">
+                                    <StackLayout Padding="5,15" BackgroundColor="Silver">
+                                        <Label Text="Content #1" HorizontalOptions="Center" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </accordion:AccordionItemView.ItemContent>
+                        </accordion:AccordionItemView>
+                        <accordion:AccordionItemView Text="Element #2" ActiveTextColor="White" ButtonActiveBackgroundColor="#6FADDE" TextColor="White" ButtonBackgroundColor="#0067B7" ActiveBorderColor="White" RightImage="arrowRight" ActiveRightImage="arrowDown" TextPosition="Left">
+                            <accordion:AccordionItemView.ItemContent>
+                                <StackLayout Padding="0.5,0,0.5,0.5" BackgroundColor="Black">
+                                    <StackLayout Padding="5,15" BackgroundColor="Red">
+                                        <Label Text="Content #2" HorizontalOptions="Center" TextColor="White" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </accordion:AccordionItemView.ItemContent>
+                        </accordion:AccordionItemView>
+                        <accordion:AccordionItemView Text="Element #3" ActiveTextColor="White" ButtonActiveBackgroundColor="#6FADDE" TextColor="White" ButtonBackgroundColor="#0067B7" ActiveBorderColor="White" RightImage="arrowRight" ActiveRightImage="arrowDown" TextPosition="Left">
+                            <accordion:AccordionItemView.ItemContent>
+                                <StackLayout Padding="0.5,0,0.5,0.5" BackgroundColor="Black">
+                                    <StackLayout Padding="5,15" BackgroundColor="Green">
+                                        <Label Text="Content #3" HorizontalOptions="Center" TextColor="White" FontSize="20" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </accordion:AccordionItemView.ItemContent>
+                        </accordion:AccordionItemView>
+                    </accordion:AccordionView.Children>
+                </accordion:AccordionView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

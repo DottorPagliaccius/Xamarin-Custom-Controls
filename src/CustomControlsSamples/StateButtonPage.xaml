@@ -6,7 +6,8 @@
             <statebutton:StateButton Text="Button1" ActiveTextColor="White" ActiveBackgroundColor="Black" TextColor="Black" BackgroundColor="Silver" Command="{Binding SelectCommand}" CommandParameter="1" />
             <statebutton:StateButton Text="Button2" ActiveTextColor="Red" ActiveBackgroundColor="Black" TextColor="Black" BackgroundColor="Red" BorderColor="Red" ActiveBorderColor="Red" Border="0,0,0,5" Command="{Binding SelectCommand}" CommandParameter="2" />
             <statebutton:StateButton Text="Button3" ActiveTextColor="White" ActiveBackgroundColor="Gray" TextColor="Black" BackgroundColor="Silver" ActiveBorderColor="Black" LeftImage="star1" ActiveLeftImage="star2" RightImage="star1" ActiveRightImage="star2" Command="{Binding SelectCommand}" CommandParameter="3" />
-            <statebutton:StateButton Text="Button4" ActiveTextColor="White" ActiveBackgroundColor="Gray" TextColor="Black" BackgroundColor="Silver" ActiveBorderColor="Black" RightImage="arrowLeft" ActiveRightImage="arrowDown" HeightRequest="60" Command="{Binding SelectCommand}" CommandParameter="4" TextPosition="Left" />
+            <statebutton:StateButton Text="Button4" ActiveTextColor="White" ActiveBackgroundColor="Teal" TextColor="Black" BackgroundColor="Green" ActiveBorderColor="Black" RightImage="arrowRight" ActiveRightImage="arrowDown" HeightRequest="60" Command="{Binding SelectCommand}" CommandParameter="4" TextPosition="Left" />
+            <statebutton:StateButton Text="Rotate" RotateImages="true" ActiveTextColor="White" ActiveBackgroundColor="Teal" TextColor="Black" BackgroundColor="Green" ActiveBorderColor="Black" LeftImage="arrowRight" ActiveLeftImage="arrowDown" RightImage="arrowRight" HeightRequest="60" Command="{Binding SelectCommand}" CommandParameter="4"  />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
