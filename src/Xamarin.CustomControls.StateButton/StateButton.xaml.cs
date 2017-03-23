@@ -170,7 +170,7 @@ namespace Xamarin.CustomControls
                 })
             });
 
-            MainGrid.BackgroundColor = _inactiveBackgroundColor = BackgroundColor;
+            MainGrid.BackgroundColor = _inactiveBackgroundColor = Color.White;
         }
 
         protected override void OnPropertyChanged(string propertyName = null)
@@ -182,6 +182,12 @@ namespace Xamarin.CustomControls
                 if (propertyName == BackgroundColorProperty.PropertyName)
                 {
                     MainGrid.BackgroundColor = _inactiveBackgroundColor = BackgroundColor;
+                }
+
+                if (propertyName == ActiveBackgroundColorProperty.PropertyName)
+                {
+                    if (IsPressed)
+                        MainGrid.BackgroundColor = ActiveBackgroundColor;
                 }
 
                 if (propertyName == TextColorProperty.PropertyName)

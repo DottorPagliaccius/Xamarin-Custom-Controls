@@ -1946,7 +1946,7 @@ namespace CustomControlsSamples.Droid
 			public const int arrowDown = 2130837579;
 			
 			// aapt resource value: 0x7f02004c
-			public const int arrowLeft = 2130837580;
+			public const int arrowRight = 2130837580;
 			
 			// aapt resource value: 0x7f02004d
 			public const int design_fab_background = 2130837581;

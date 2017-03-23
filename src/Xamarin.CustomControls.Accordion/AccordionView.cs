@@ -3,7 +3,6 @@ using Xamarin.Forms;
 
 namespace Xamarin.CustomControls
 {
-    [ContentProperty("Children")]
     public class AccordionView : StackLayout
     {
         public class InvalidViewException : Exception

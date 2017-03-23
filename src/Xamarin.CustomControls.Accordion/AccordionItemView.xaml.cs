@@ -34,7 +34,7 @@ namespace Xamarin.CustomControls
 
         public event ClickEventHandler OnClick;
 
-        public static readonly BindableProperty TextColorProperty = BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(AccordionItemView), Color.White);
+        public static readonly BindableProperty TextColorProperty = BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(AccordionItemView), Color.Black);
         public static readonly BindableProperty ButtonBackgroundColorProperty = BindableProperty.Create(nameof(ButtonBackgroundColor), typeof(Color), typeof(AccordionItemView), Color.White);
         public static readonly BindableProperty ButtonActiveBackgroundColorProperty = BindableProperty.Create(nameof(ButtonActiveBackgroundColor), typeof(Color), typeof(AccordionItemView), Color.White);
         public static readonly BindableProperty ActiveTextColorProperty = BindableProperty.Create(nameof(ActiveTextColor), typeof(Color), typeof(AccordionItemView), Color.Black);
@@ -174,6 +174,18 @@ namespace Xamarin.CustomControls
             }
         }
 
+        public bool RotateImages
+        {
+            get
+            {
+                return AccordionItemButton.RotateImages;
+            }
+            set
+            {
+                AccordionItemButton.RotateImages = value;
+            }
+        }
+
         public AccordionItemView()
         {
             InitializeComponent();
@@ -184,6 +196,10 @@ namespace Xamarin.CustomControls
 
                 OnClick?.Invoke(this, new AccordionItemClickEventArgs(this));
             });
+
+            AccordionItemButton.BorderColor = BorderColor;
+            AccordionItemButton.TextColor = TextColor;
+            AccordionItemButton.BackgroundColor = ButtonBackgroundColor;
         }
 
         protected override void OnPropertyChanged(string propertyName = null)
@@ -247,7 +263,7 @@ namespace Xamarin.CustomControls
 
             if (propertyName == ActiveBorderColorProperty.PropertyName)
             {
-                AccordionItemButton.BorderColor = ActiveBorderColor;
+                AccordionItemButton.ActiveBorderColor = ActiveBorderColor;
             }
 
             if (propertyName == LeftImageProperty.PropertyName)

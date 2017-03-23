@@ -6,7 +6,7 @@
                 <Label Text="Accordion View" FontSize="20" HorizontalTextAlignment="Center" HorizontalOptions="Center" FontAttributes="Bold" />
                 <accordion:AccordionView KeepOnlyOneItemOpen="true" Spacing="0">
                     <accordion:AccordionView.Children>
-                        <accordion:AccordionItemView Text="Element #1" ActiveTextColor="White" ButtonActiveBackgroundColor="#6FADDE" TextColor="White" ButtonBackgroundColor="#0067B7" ActiveBorderColor="White" RightImage="arrowRight" ActiveRightImage="arrowDown" TextPosition="Left">
+                        <accordion:AccordionItemView Text="Element #1" ActiveTextColor="White" TextColor="White" ButtonBackgroundColor="#0067B7" ButtonActiveBackgroundColor="#0067B7" TextPosition="Left" RightImage="arrowRight" RotateImages="true">
                             <accordion:AccordionItemView.ItemContent>
                                 <StackLayout Padding="0.5,0,0.5,0.5" BackgroundColor="Black">
                                     <StackLayout Padding="5,15" BackgroundColor="Silver">
@@ -15,7 +15,7 @@
                                 </StackLayout>
                             </accordion:AccordionItemView.ItemContent>
                         </accordion:AccordionItemView>
-                        <accordion:AccordionItemView Text="Element #2" ActiveTextColor="White" ButtonActiveBackgroundColor="#6FADDE" TextColor="White" ButtonBackgroundColor="#0067B7" ActiveBorderColor="White" RightImage="arrowRight" ActiveRightImage="arrowDown" TextPosition="Left">
+                        <accordion:AccordionItemView Text="Element #2" ActiveTextColor="White" TextColor="White" ButtonBackgroundColor="#0067B7" ButtonActiveBackgroundColor="#0067B7" TextPosition="Left" RightImage="arrowRight" RotateImages="true">
                             <accordion:AccordionItemView.ItemContent>
                                 <StackLayout Padding="0.5,0,0.5,0.5" BackgroundColor="Black">
                                     <StackLayout Padding="5,15" BackgroundColor="Red">
@@ -24,7 +24,7 @@
                                 </StackLayout>
                             </accordion:AccordionItemView.ItemContent>
                         </accordion:AccordionItemView>
-                        <accordion:AccordionItemView Text="Element #3" ActiveTextColor="White" ButtonActiveBackgroundColor="#6FADDE" TextColor="White" ButtonBackgroundColor="#0067B7" ActiveBorderColor="White" RightImage="arrowRight" ActiveRightImage="arrowDown" TextPosition="Left">
+                        <accordion:AccordionItemView Text="Element #3" ActiveTextColor="White" TextColor="White" ButtonBackgroundColor="#0067B7" ButtonActiveBackgroundColor="#0067B7" TextPosition="Left" RightImage="arrowRight" RotateImages="true">
                             <accordion:AccordionItemView.ItemContent>
                                 <StackLayout Padding="0.5,0,0.5,0.5" BackgroundColor="Black">
                                     <StackLayout Padding="5,15" BackgroundColor="Green">
