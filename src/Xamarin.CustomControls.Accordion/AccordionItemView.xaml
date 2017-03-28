@@ -7,7 +7,7 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <statebutton:StateButton x:Name="AccordionItemButton" Border="1" HeightRequest="50" Grid.Row="0" TextColor="Black" BackgroundColor="White" ActiveTextColor="Black" ActiveBackgroundColor="White" />
-            <ContentView x:Name="ContentPanel" IsVisible="false" Grid.Row="1" />
+            <ContentView x:Name="ContentPanel" IsVisible="false" Opacity="0" Grid.Row="1" />
         </Grid>
     </ContentView.Content>
 </ContentView>

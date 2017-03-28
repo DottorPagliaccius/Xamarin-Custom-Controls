@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using Xamarin.Forms;
 
 namespace Xamarin.CustomControls
@@ -151,15 +152,10 @@ namespace Xamarin.CustomControls
             set { SetValue(TextProperty, value); }
         }
 
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public bool IsOpen
         {
             get { return AccordionItemButton.IsPressed; }
-            set
-            {
-                AccordionItemButton.IsPressed = value;
-
-                ContentPanel.IsVisible = value;
-            }
         }
 
         public View ItemContent
@@ -191,15 +187,35 @@ namespace Xamarin.CustomControls
             InitializeComponent();
 
             AccordionItemButton.Command = new Command(() =>
-            {
-                ContentPanel.IsVisible = AccordionItemButton.IsPressed;
+          {
+              if (AccordionItemButton.IsPressed)
+                  OpenPanel();
+              else
+                  ClosePanel();
 
-                OnClick?.Invoke(this, new AccordionItemClickEventArgs(this));
-            });
+              OnClick?.Invoke(this, new AccordionItemClickEventArgs(this));
+          });
 
             AccordionItemButton.BorderColor = BorderColor;
             AccordionItemButton.TextColor = TextColor;
             AccordionItemButton.BackgroundColor = ButtonBackgroundColor;
+        }
+
+        public void OpenPanel()
+        {
+            AccordionItemButton.IsPressed = true;
+
+            ContentPanel.IsVisible = true;
+            ContentPanel.Animate("ClosePanel", o => ContentPanel.Opacity = o, 0, 1, length: 250, easing: Easing.CubicIn);
+        }
+
+        public void ClosePanel()
+        {
+            AccordionItemButton.IsPressed = false;
+
+            ContentPanel.IsVisible = false;
+            ContentPanel.Opacity = 0;
+
         }
 
         protected override void OnPropertyChanged(string propertyName = null)

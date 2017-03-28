@@ -57,7 +57,7 @@ namespace Xamarin.CustomControls
             if (accordionItemView == null)
                 throw new InvalidViewException($"Control's children must be of type {nameof(AccordionItemView)}");
 
-            accordionItemView.IsOpen = false;
+            accordionItemView.ClosePanel();
 
             accordionItemView.OnClick += AccordionItemView_OnClick;
         }
@@ -70,8 +70,8 @@ namespace Xamarin.CustomControls
                 {
                     var accordionItem = (AccordionItemView)child;
 
-                    if (accordionItem != e.Item)
-                        accordionItem.IsOpen = false;
+                    if (e.Item.IsOpen && accordionItem != e.Item)
+                        accordionItem.ClosePanel();
                 }
             }
         }
