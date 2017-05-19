@@ -1,16 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
-	 xmlns:local="clr-namespace:Xamarin.CustomControls;assembly=Xamarin.CustomControls.RepeaterView"
-	 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Xamarin.CustomControls.AutoCompleteView">
-	<ContentView.Content>
-		<StackLayout Spacing="0">
-			<Entry x:Name="MainEntry" TextChanged="SearchText_TextChanged" Focused="SearchText_Focused"
-				 Unfocused="SearchText_Unfocused" TextColor="Silver" />
-			<StackLayout x:Name="SuggestedItemsContainer" IsVisible="false" Spacing="0" Margin="4,0" Padding="1" BackgroundColor="Silver">
-				<StackLayout x:Name="SuggestedItemsInnerContainer" BackgroundColor="White">
-					<local:RepeaterView x:Name="SuggestedItemsRepeaterView" ShowSeparator="true" SeparatorColor="Silver" SeparatorHeight="1" />
-				</StackLayout>
-			</StackLayout>
-		</StackLayout>
-	</ContentView.Content>
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:local="clr-namespace:Xamarin.CustomControls;assembly=Xamarin.CustomControls.RepeaterView" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Xamarin.CustomControls.AutoCompleteView">
+    <ContentView.Content>
+        <StackLayout Spacing="0">
+            <Entry x:Name="MainEntry" TextChanged="SearchText_TextChanged" Focused="SearchText_Focused" Unfocused="SearchText_Unfocused" TextColor="Silver" />
+			<BoxView x:Name="EntryLine" HeightRequest="1" Color="Black" HorizontalOptions="Fill" IsVisible="false" />
+            <StackLayout x:Name="SuggestedItemsContainer" IsVisible="false" Spacing="0" Margin="4,0" Padding="1" BackgroundColor="Silver">
+                <StackLayout x:Name="SuggestedItemsInnerContainer" BackgroundColor="White">
+                    <local:RepeaterView x:Name="SuggestedItemsRepeaterView" ShowSeparator="true" SeparatorColor="Silver" SeparatorHeight="1" />
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
 </ContentView>

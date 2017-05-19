@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Xamarin.CustomControls.AutoCompleteView</id>
-    <version>1.0.3</version>
+    <version>1.0.5</version>
     <title>AutoCompleteView control for Xamarin.Forms</title>
     <authors>DottorPagliaccius</authors>
     <owners>DottorPagliaccius</owners>
@@ -12,11 +12,13 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>AutoCompleteView custom control for Xamarin.Forms</description>
 	<summary>AutoCompleteView custom control for Xamarin.Forms</summary>
-    <releaseNotes>Fixed bug that prevented item to be selected by code</releaseNotes>
+    <releaseNotes>1.0.5 - Added events on opening/closing of the suggestions panel
+    1.0.4 - add entry line feature
+    1.0.3 - Fixed bug that prevented item to be selected by code</releaseNotes>
     <tags>xamarin, pcl, xam.pcl, control, customcontrol, autocomplete, autocompleteview, listview, android, xamarin.forms, ios, monoandroid, monodroid, monotouch</tags>    
     <dependencies>
         <dependency id="Xamarin.Forms" version="2.3.2.127" />
-        <dependency id="Xamarin.CustomControls.RepeaterView" version="1.0.9" />
+        <dependency id="Xamarin.CustomControls.RepeaterView" version="1.0.10" />
     </dependencies>
   </metadata>
   <files> 

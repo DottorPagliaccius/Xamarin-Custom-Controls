@@ -5,7 +5,7 @@
             <StackLayout Padding="10,20">
                 <Label Text="Repeater View" FontSize="20" HorizontalTextAlignment="Center" HorizontalOptions="Center" FontAttributes="Bold" />
                 <Label Text="{Binding SelectedValue}" TextColor="Red" FontAttributes="Bold" Margin="0,15,0,20" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
-                <autocomplete:AutoCompleteView OpenOnFocus="true" SearchMember="RandomProperty4" SuggestionBorderColor="Silver" ShowSeparator="false" SelectedItem="{Binding SelectedItem}" SuggestionBorderSize="1" MaxResults="3" EmptyText="No element found" SuggestionBackgroundColor="#f7f7f7" Placeholder="Write something..." PlaceholderTextColor="Silver" SelectedItemCommand="{Binding SelectedItemCommand}" ItemsSource="{Binding Items}">
+                <autocomplete:AutoCompleteView OnSuggestionOpen="Handle_OnSuggestionOpen" OpenOnFocus="true" SearchMember="RandomProperty4" SuggestionBorderColor="Silver" ShowSeparator="false" SelectedItem="{Binding SelectedItem}" SuggestionBorderSize="1" MaxResults="3" EmptyText="No element found" SuggestionBackgroundColor="#f7f7f7" Placeholder="Write something..." PlaceholderTextColor="Silver" SelectedItemCommand="{Binding SelectedItemCommand}" ItemsSource="{Binding Items}">
                     <autocomplete:AutoCompleteView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>

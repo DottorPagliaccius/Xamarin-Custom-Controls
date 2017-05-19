@@ -112,6 +112,12 @@ namespace Xamarin.CustomControls
             set { MainRepeater.ShowSeparator = value; }
         }
 
+        public double Spacing
+        {
+            get { return MainRepeater.Spacing; }
+            set { MainRepeater.Spacing = value; }
+        }
+
         public RefreshableRepeaterView()
         {
             InitializeComponent();

@@ -15,6 +15,9 @@ namespace Xamarin.CustomControls
 
         private ObservableCollection<object> _availableSuggestions;
 
+        public event EventHandler OnSuggestionOpen;
+        public event EventHandler OnSuggestionClose;
+
         public static readonly BindableProperty PlaceholderProperty = BindableProperty.Create(nameof(Placeholder), typeof(string), typeof(AutoCompleteView), string.Empty);
         public static readonly BindableProperty ItemTemplateProperty = BindableProperty.Create(nameof(ItemTemplate), typeof(DataTemplate), typeof(AutoCompleteView), default(DataTemplate));
         public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create(nameof(ItemsSource), typeof(IEnumerable), typeof(AutoCompleteView), new List<object>());
@@ -35,6 +38,9 @@ namespace Xamarin.CustomControls
 
         public static readonly BindableProperty SeparatorColorProperty = BindableProperty.Create(nameof(SeparatorColor), typeof(Color), typeof(AutoCompleteView), Color.Silver);
         public static readonly BindableProperty SeparatorHeightProperty = BindableProperty.Create(nameof(SeparatorHeight), typeof(double), typeof(AutoCompleteView), 1.5d);
+
+        public static readonly BindableProperty EntryLineColorProperty = BindableProperty.Create(nameof(EntryLineColor), typeof(Color), typeof(AutoCompleteView), Color.Black);
+        public static readonly BindableProperty EntryLineHeightProperty = BindableProperty.Create(nameof(EntryLineHeight), typeof(double), typeof(AutoCompleteView), 1d);
 
         public string Placeholder
         {
@@ -135,6 +141,31 @@ namespace Xamarin.CustomControls
         public bool OpenOnFocus { get; set; }
         public int MaxResults { get; set; }
 
+        public bool ShowEntryLine
+        {
+            get
+            {
+                return EntryLine.IsVisible;
+            }
+
+            set
+            {
+                EntryLine.IsVisible = value;
+            }
+        }
+
+        public Color EntryLineColor
+        {
+            get { return (Color)GetValue(EntryLineColorProperty); }
+            set { SetValue(EntryLineColorProperty, value); }
+        }
+
+        public double EntryLineHeight
+        {
+            get { return (double)GetValue(EntryLineHeightProperty); }
+            set { SetValue(EntryLineHeightProperty, value); }
+        }
+
         public AutoCompleteView()
         {
             InitializeComponent();
@@ -234,6 +265,16 @@ namespace Xamarin.CustomControls
             if (propertyName == SeparatorHeightProperty.PropertyName)
             {
                 SuggestedItemsRepeaterView.SeparatorHeight = SeparatorHeight;
+            }
+
+            if (propertyName == EntryLineColorProperty.PropertyName)
+            {
+                EntryLine.Color = EntryLineColor;
+            }
+
+            if (propertyName == SeparatorHeightProperty.PropertyName)
+            {
+                EntryLine.HeightRequest = EntryLineHeight;
             }
         }
 
@@ -372,7 +413,15 @@ namespace Xamarin.CustomControls
         private void ShowHideListbox(bool show)
         {
             if (show)
+            {
                 SuggestedItemsRepeaterView.ItemsSource = _availableSuggestions;
+
+                OnSuggestionOpen?.Invoke(this, new EventArgs());
+            }
+            else
+            {
+                OnSuggestionClose?.Invoke(this, new EventArgs());
+            }
 
             SuggestedItemsContainer.IsVisible = show;
         }

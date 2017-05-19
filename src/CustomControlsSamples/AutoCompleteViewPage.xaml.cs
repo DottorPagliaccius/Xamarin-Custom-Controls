@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 
 namespace CustomControlsSamples
 {
@@ -20,6 +21,11 @@ namespace CustomControlsSamples
             base.OnAppearing();
 
             await _viewModel.LoadData();
+        }
+
+        private void Handle_OnSuggestionOpen(object sender, EventArgs e)
+        {
+
         }
     }
 }
