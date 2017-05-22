@@ -416,12 +416,12 @@ namespace Xamarin.CustomControls
             {
                 SuggestedItemsRepeaterView.ItemsSource = _availableSuggestions;
 
-                if (!SuggestedItemsRepeaterView.IsVisible)
+                if (!SuggestedItemsContainer.IsVisible)
                     OnSuggestionOpen?.Invoke(this, new EventArgs());
             }
             else
             {
-                if (SuggestedItemsRepeaterView.IsVisible)
+                if (SuggestedItemsContainer.IsVisible)
                     OnSuggestionClose?.Invoke(this, new EventArgs());
             }
 
