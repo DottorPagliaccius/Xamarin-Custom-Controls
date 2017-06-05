@@ -28,7 +28,6 @@ namespace Xamarin.CustomControls
 
         public static readonly BindableProperty SuggestionBackgroundColorProperty = BindableProperty.Create(nameof(SuggestionBackgroundColor), typeof(Color), typeof(AutoCompleteView), Color.White);
         public static readonly BindableProperty SuggestionBorderColorProperty = BindableProperty.Create(nameof(SuggestionBorderColor), typeof(Color), typeof(AutoCompleteView), Color.Silver);
-        public static readonly BindableProperty SuggestionBorderSizeProperty = BindableProperty.Create(nameof(SuggestionBorderSize), typeof(Thickness), typeof(AutoCompleteView), new Thickness(1));
 
         public static readonly BindableProperty TextColorProperty = BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(AutoCompleteView), Color.Black);
         public static readonly BindableProperty PlaceholderTextColorProperty = BindableProperty.Create(nameof(PlaceholderTextColor), typeof(Color), typeof(AutoCompleteView), Color.Silver);
@@ -82,12 +81,6 @@ namespace Xamarin.CustomControls
         {
             get { return (Color)GetValue(SuggestionBorderColorProperty); }
             set { SetValue(SuggestionBorderColorProperty, value); }
-        }
-
-        public Thickness SuggestionBorderSize
-        {
-            get { return (Thickness)GetValue(SuggestionBorderSizeProperty); }
-            set { SetValue(SuggestionBorderSizeProperty, value); }
         }
 
         public double FontSize
@@ -244,12 +237,7 @@ namespace Xamarin.CustomControls
 
             if (propertyName == SuggestionBorderColorProperty.PropertyName)
             {
-                SuggestedItemsContainer.BackgroundColor = SuggestionBorderColor;
-            }
-
-            if (propertyName == SuggestionBorderSizeProperty.PropertyName)
-            {
-                SuggestedItemsContainer.Padding = SuggestionBorderSize;
+                SuggestedItemsOuterContainer.OutlineColor = SuggestionBorderColor;
             }
 
             if (propertyName == EmptyTextProperty.PropertyName)

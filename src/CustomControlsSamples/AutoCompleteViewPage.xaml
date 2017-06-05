@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CustomControlsSamples.AutoCompleteViewPage" xmlns:autocomplete="clr-namespace:Xamarin.CustomControls;assembly=Xamarin.CustomControls.AutoCompleteView">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout Padding="10,20">
+        <ScrollView x:Name="MainScroll">
+            <StackLayout Padding="10,170">
                 <Label Text="AutoCompleteView View" FontSize="20" HorizontalTextAlignment="Center" HorizontalOptions="Center" FontAttributes="Bold" />
                 <Label Text="{Binding SelectedValue}" TextColor="Red" FontAttributes="Bold" Margin="0,15,0,20" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
-                <autocomplete:AutoCompleteView OnSuggestionOpen="Handle_OnSuggestionOpen" OpenOnFocus="true" SearchMember="RandomProperty4" SuggestionBorderColor="Silver" ShowSeparator="false" SelectedItem="{Binding SelectedItem}" SuggestionBorderSize="1" MaxResults="3" EmptyText="No element found" SuggestionBackgroundColor="#f7f7f7" Placeholder="Write something..." PlaceholderTextColor="Silver" SelectedItemCommand="{Binding SelectedItemCommand}" ItemsSource="{Binding Items}">
+                <autocomplete:AutoCompleteView OnSuggestionOpen="Handle_OnSuggestionOpen" OpenOnFocus="true" SearchMember="RandomProperty4" SuggestionBorderColor="Silver" ShowSeparator="false" SelectedItem="{Binding SelectedItem}" MaxResults="3" EmptyText="No element found" SuggestionBackgroundColor="#f7f7f7" Placeholder="Write something..." PlaceholderTextColor="Silver" SelectedItemCommand="{Binding SelectedItemCommand}" ItemsSource="{Binding Items}">
                     <autocomplete:AutoCompleteView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>

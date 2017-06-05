@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace CustomControlsSamples
@@ -23,9 +24,11 @@ namespace CustomControlsSamples
             await _viewModel.LoadData();
         }
 
-        private void Handle_OnSuggestionOpen(object sender, EventArgs e)
+        private async void Handle_OnSuggestionOpen(object sender, EventArgs e)
         {
+            await Task.Delay(1000);
 
+            await MainScroll.ScrollToAsync((Element)sender, ScrollToPosition.Start, true);
         }
     }
 }

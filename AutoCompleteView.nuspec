@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Xamarin.CustomControls.AutoCompleteView</id>
-    <version>1.0.8</version>
+    <version>1.0.9</version>
     <title>AutoCompleteView control for Xamarin.Forms</title>
     <authors>DottorPagliaccius</authors>
     <owners>DottorPagliaccius</owners>
@@ -13,6 +13,7 @@
     <description>AutoCompleteView custom control for Xamarin.Forms</description>
 	<summary>AutoCompleteView custom control for Xamarin.Forms</summary>
     <releaseNotes>
+    1.0.9 - added ability to scroll to avoid keyboard overlapping
     1.0.6/7/8 - Bugfix	
     1.0.5 - Added events on opening/closing of the suggestions panel
     1.0.4 - add entry line feature
