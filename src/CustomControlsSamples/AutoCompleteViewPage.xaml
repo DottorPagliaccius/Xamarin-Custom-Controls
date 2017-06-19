@@ -3,9 +3,12 @@
     <ContentPage.Content>
         <ScrollView x:Name="MainScroll">
             <StackLayout Padding="10,170">
+                <StackLayout x:Name="SuggestionsContainer" BackgroundColor="Yellow">
+                    
+                </StackLayout>
                 <Label Text="AutoCompleteView View" FontSize="20" HorizontalTextAlignment="Center" HorizontalOptions="Center" FontAttributes="Bold" />
                 <Label Text="{Binding SelectedValue}" TextColor="Red" FontAttributes="Bold" Margin="0,15,0,20" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
-                <autocomplete:AutoCompleteView SuggestionPlacement="Top" OnSuggestionOpen="Handle_OnSuggestionOpen" OpenOnFocus="true" SearchMember="RandomProperty4" SuggestionBorderColor="Silver" ShowSeparator="false" SelectedItem="{Binding SelectedItem}" MaxResults="3" EmptyText="No element found" SuggestionBackgroundColor="#f7f7f7" Placeholder="Write something..." PlaceholderTextColor="Silver" SelectedItemCommand="{Binding SelectedItemCommand}" ItemsSource="{Binding Items}">
+                <autocomplete:AutoCompleteView OptionalSuggestionsPanelContainer="{x:Reference Name=SuggestionsContainer}" SuggestionPlacement="Top" OnSuggestionOpen="Handle_OnSuggestionOpen" OpenOnFocus="true" SearchMember="RandomProperty4" SuggestionBorderColor="Silver" ShowSeparator="false" SelectedItem="{Binding SelectedItem}" MaxResults="3" EmptyText="No element found" SuggestionBackgroundColor="#f7f7f7" Placeholder="Write something..." PlaceholderTextColor="Silver" SelectedItemCommand="{Binding SelectedItemCommand}" ItemsSource="{Binding Items}">
                     <autocomplete:AutoCompleteView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>

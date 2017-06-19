@@ -17,6 +17,7 @@ namespace Xamarin.CustomControls
 
     public partial class AutoCompleteView : ContentView
     {
+        private Layout<View> _optionalSuggestionsPanelContainer;
         private SuggestionPlacement _suggestionPlacement = SuggestionPlacement.Bottom;
 
         private PropertyInfo _searchMemberCachePropertyInfo;
@@ -145,7 +146,13 @@ namespace Xamarin.CustomControls
         public SuggestionPlacement SuggestionPlacement
         {
             get { return _suggestionPlacement; }
-            set { _suggestionPlacement = value; OnPropertyChanged(); PlaceSuggestionPanel(); }
+            set
+            {
+                _suggestionPlacement = value;
+
+                OnPropertyChanged();
+                PlaceSuggestionPanel();
+            }
         }
 
         public bool ShowEntryLine
@@ -171,6 +178,21 @@ namespace Xamarin.CustomControls
         {
             get { return (double)GetValue(EntryLineHeightProperty); }
             set { SetValue(EntryLineHeightProperty, value); }
+        }
+
+        public Layout<View> OptionalSuggestionsPanelContainer
+        {
+            get { return _optionalSuggestionsPanelContainer; }
+            set
+            {
+                _optionalSuggestionsPanelContainer = value;
+
+                if (value == null)
+                    return;
+
+                OnPropertyChanged();
+                PlaceSuggestionPanel();
+            }
         }
 
         public AutoCompleteView()
@@ -414,27 +436,48 @@ namespace Xamarin.CustomControls
 
         private void PlaceSuggestionPanel()
         {
-            SuggestedItemsContainerTop.IsVisible = false;
-            SuggestedItemsContainerBottom.IsVisible = false;
+            if (OptionalSuggestionsPanelContainer == null)
+            {
+                SuggestedItemsContainerTop.IsVisible = false;
+                SuggestedItemsContainerBottom.IsVisible = false;
 
-            if (SuggestionPlacement == SuggestionPlacement.Bottom)
+                if (SuggestionPlacement == SuggestionPlacement.Bottom)
+                {
+                    if (SuggestedItemsContainerTop.Children.Any())
+                    {
+                        var suggestionPanel = SuggestedItemsContainerTop.Children.First();
+
+                        SuggestedItemsContainerTop.Children.Remove(suggestionPanel);
+                        SuggestedItemsContainerBottom.Children.Add(suggestionPanel);
+                    }
+                }
+                else
+                {
+                    if (SuggestedItemsContainerBottom.Children.Any())
+                    {
+                        var suggestionPanel = SuggestedItemsContainerBottom.Children.First();
+
+                        SuggestedItemsContainerBottom.Children.Remove(suggestionPanel);
+                        SuggestedItemsContainerTop.Children.Add(suggestionPanel);
+                    }
+                }
+            }
+            else
             {
                 if (SuggestedItemsContainerTop.Children.Any())
                 {
                     var suggestionPanel = SuggestedItemsContainerTop.Children.First();
 
                     SuggestedItemsContainerTop.Children.Remove(suggestionPanel);
-                    SuggestedItemsContainerBottom.Children.Add(suggestionPanel);
+                    OptionalSuggestionsPanelContainer.Children.Add(suggestionPanel);
                 }
-            }
-            else
-            {
+
                 if (SuggestedItemsContainerBottom.Children.Any())
                 {
                     var suggestionPanel = SuggestedItemsContainerBottom.Children.First();
 
                     SuggestedItemsContainerBottom.Children.Remove(suggestionPanel);
-                    SuggestedItemsContainerTop.Children.Add(suggestionPanel);
+                    OptionalSuggestionsPanelContainer.Children.Add(suggestionPanel);
                 }
             }
         }
