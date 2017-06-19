@@ -148,7 +148,7 @@ namespace Xamarin.CustomControls
         private void BuildEmptyText()
         {
             if (EmptyTextTemplate == null)
-                Children.Add(new Label { Text = EmptyText });
+                Children.Add(new Label { Text = EmptyText, Margin = new Thickness(2) });
             else
             {
                 var content = EmptyTextTemplate.CreateContent();

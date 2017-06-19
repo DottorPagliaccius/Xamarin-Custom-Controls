@@ -9,8 +9,16 @@ using Xamarin.Forms;
 
 namespace Xamarin.CustomControls
 {
+    public enum SuggestionPlacement
+    {
+        Bottom,
+        Top
+    }
+
     public partial class AutoCompleteView : ContentView
     {
+        private SuggestionPlacement _suggestionPlacement = SuggestionPlacement.Bottom;
+
         private PropertyInfo _searchMemberCachePropertyInfo;
 
         private ObservableCollection<object> _availableSuggestions;
@@ -134,6 +142,12 @@ namespace Xamarin.CustomControls
         public bool OpenOnFocus { get; set; }
         public int MaxResults { get; set; }
 
+        public SuggestionPlacement SuggestionPlacement
+        {
+            get { return _suggestionPlacement; }
+            set { _suggestionPlacement = value; OnPropertyChanged(); PlaceSuggestionPanel(); }
+        }
+
         public bool ShowEntryLine
         {
             get
@@ -232,7 +246,7 @@ namespace Xamarin.CustomControls
 
             if (propertyName == SuggestionBackgroundColorProperty.PropertyName)
             {
-                SuggestedItemsInnerContainer.BackgroundColor = SuggestionBackgroundColor;
+                SuggestedItemsOuterContainer.BackgroundColor = SuggestionBackgroundColor;
             }
 
             if (propertyName == SuggestionBorderColorProperty.PropertyName)
@@ -398,22 +412,57 @@ namespace Xamarin.CustomControls
             return property.GetValue(selectedItem).ToString();
         }
 
+        private void PlaceSuggestionPanel()
+        {
+            SuggestedItemsContainerTop.IsVisible = false;
+            SuggestedItemsContainerBottom.IsVisible = false;
+
+            if (SuggestionPlacement == SuggestionPlacement.Bottom)
+            {
+                if (SuggestedItemsContainerTop.Children.Any())
+                {
+                    var suggestionPanel = SuggestedItemsContainerTop.Children.First();
+
+                    SuggestedItemsContainerTop.Children.Remove(suggestionPanel);
+                    SuggestedItemsContainerBottom.Children.Add(suggestionPanel);
+                }
+            }
+            else
+            {
+                if (SuggestedItemsContainerBottom.Children.Any())
+                {
+                    var suggestionPanel = SuggestedItemsContainerBottom.Children.First();
+
+                    SuggestedItemsContainerBottom.Children.Remove(suggestionPanel);
+                    SuggestedItemsContainerTop.Children.Add(suggestionPanel);
+                }
+            }
+        }
+
         private void ShowHideListbox(bool show)
         {
             if (show)
             {
                 SuggestedItemsRepeaterView.ItemsSource = _availableSuggestions;
 
-                if (!SuggestedItemsContainer.IsVisible)
+                if (!SuggestedItemsContainerTop.IsVisible && !SuggestedItemsContainerBottom.IsVisible)
                     OnSuggestionOpen?.Invoke(this, new EventArgs());
             }
             else
             {
-                if (SuggestedItemsContainer.IsVisible)
+                if (SuggestedItemsContainerTop.IsVisible || SuggestedItemsContainerBottom.IsVisible)
+                {
+                    MainEntry.Unfocus();
+                    Unfocus();
+
                     OnSuggestionClose?.Invoke(this, new EventArgs());
+                }
             }
 
-            SuggestedItemsContainer.IsVisible = show;
+            if (SuggestionPlacement == SuggestionPlacement.Top)
+                SuggestedItemsContainerTop.IsVisible = show;
+            else
+                SuggestedItemsContainerBottom.IsVisible = show;
         }
     }
 }

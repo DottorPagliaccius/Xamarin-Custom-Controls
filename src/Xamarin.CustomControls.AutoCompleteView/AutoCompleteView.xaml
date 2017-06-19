@@ -3,19 +3,14 @@
     <ContentView.Content>
         <ScrollView>
             <StackLayout Spacing="0">
+                <StackLayout x:Name="SuggestedItemsContainerTop" IsVisible="false" BackgroundColor="Transparent" Margin="0,0,0,-1">
+                    
+                </StackLayout>
                 <Entry x:Name="MainEntry" TextChanged="SearchText_TextChanged" Focused="SearchText_Focused" Unfocused="SearchText_Unfocused" TextColor="Silver" />
 		    	<BoxView x:Name="EntryLine" HeightRequest="1" Color="Black" HorizontalOptions="Fill" IsVisible="false" />
-                <StackLayout x:Name="SuggestedItemsContainer" IsVisible="false" BackgroundColor="Transparent" Margin="4,0">
-                    <StackLayout.HeightRequest>
-                         <OnPlatform x:TypeArguments="x:Double">
-                            <OnPlatform.Android>150</OnPlatform.Android>
-                            <OnPlatform.iOS>250</OnPlatform.iOS>
-                        </OnPlatform>
-                    </StackLayout.HeightRequest>
-                    <Frame x:Name="SuggestedItemsOuterContainer" BackgroundColor="Transparent" HasShadow="false" OutlineColor="Silver" Padding="0">
-                        <StackLayout x:Name="SuggestedItemsInnerContainer" BackgroundColor="White">
-                            <local:RepeaterView x:Name="SuggestedItemsRepeaterView" ShowSeparator="true" SeparatorColor="Silver" SeparatorHeight="1" />
-                        </StackLayout>
+                <StackLayout x:Name="SuggestedItemsContainerBottom" IsVisible="false" BackgroundColor="Transparent" Margin="0,-1,0,0">
+                    <Frame x:Name="SuggestedItemsOuterContainer" BackgroundColor="White" HasShadow="false" OutlineColor="Silver" Padding="0">
+                        <local:RepeaterView x:Name="SuggestedItemsRepeaterView" ShowSeparator="true" SeparatorColor="Silver" SeparatorHeight="1" />
                     </Frame>
                 </StackLayout>
             </StackLayout>

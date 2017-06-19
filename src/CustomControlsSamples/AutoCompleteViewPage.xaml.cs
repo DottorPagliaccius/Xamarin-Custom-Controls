@@ -28,7 +28,7 @@ namespace CustomControlsSamples
         {
             await Task.Delay(1000);
 
-            await MainScroll.ScrollToAsync((Element)sender, ScrollToPosition.Start, true);
+            await MainScroll.ScrollToAsync((Element)sender, ScrollToPosition.End, true);
         }
     }
 }

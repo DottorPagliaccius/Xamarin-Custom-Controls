@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using Xamarin.Forms;
 
 namespace Xamarin.CustomControls
@@ -152,10 +151,10 @@ namespace Xamarin.CustomControls
             set { SetValue(TextProperty, value); }
         }
 
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public bool IsOpen
         {
             get { return AccordionItemButton.IsPressed; }
+            set { AccordionItemButton.IsPressed = value; if (value) OpenPanel(); else ClosePanel(); }
         }
 
         public View ItemContent
@@ -187,14 +186,14 @@ namespace Xamarin.CustomControls
             InitializeComponent();
 
             AccordionItemButton.Command = new Command(() =>
-          {
-              if (AccordionItemButton.IsPressed)
-                  OpenPanel();
-              else
-                  ClosePanel();
+            {
+                if (AccordionItemButton.IsPressed)
+                    OpenPanel();
+                else
+                    ClosePanel();
 
-              OnClick?.Invoke(this, new AccordionItemClickEventArgs(this));
-          });
+                OnClick?.Invoke(this, new AccordionItemClickEventArgs(this));
+            });
 
             AccordionItemButton.BorderColor = BorderColor;
             AccordionItemButton.TextColor = TextColor;

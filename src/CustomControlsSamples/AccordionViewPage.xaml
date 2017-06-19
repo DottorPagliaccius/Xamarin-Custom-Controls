@@ -4,9 +4,9 @@
         <ScrollView>
             <StackLayout Padding="10,20">
                 <Label Text="Accordion View" FontSize="20" HorizontalTextAlignment="Center" HorizontalOptions="Center" FontAttributes="Bold" />
-                <accordion:AccordionView KeepOnlyOneItemOpen="true" Spacing="0">
+                <accordion:AccordionView KeepOnlyOneItemOpen="false" Spacing="0">
                     <accordion:AccordionView.Children>
-                        <accordion:AccordionItemView Text="Element #1" ActiveTextColor="White" TextColor="White" ButtonBackgroundColor="#0067B7" ButtonActiveBackgroundColor="#0067B7" TextPosition="Left" RightImage="arrowRight" RotateImages="true">
+                        <accordion:AccordionItemView Text="Element #1" IsOpen="true" ActiveTextColor="White" TextColor="White" ButtonBackgroundColor="#0067B7" ButtonActiveBackgroundColor="#0067B7" TextPosition="Left" RightImage="arrowRight" RotateImages="true">
                             <accordion:AccordionItemView.ItemContent>
                                 <StackLayout Padding="0.5,0,0.5,0.5" BackgroundColor="Black">
                                     <StackLayout Padding="5,15" BackgroundColor="Silver" Orientation="Horizontal">
