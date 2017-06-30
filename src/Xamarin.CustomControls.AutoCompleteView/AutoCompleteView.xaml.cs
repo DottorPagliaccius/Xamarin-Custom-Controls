@@ -386,7 +386,7 @@ namespace Xamarin.CustomControls
                 filteredSuggestions = filteredSuggestions.Where(x => property.GetValue(x).ToString().IndexOf(text, StringComparison.OrdinalIgnoreCase) >= 0).OrderByDescending(x => property.GetValue(x).ToString());
             }
 
-            _availableSuggestions = new ObservableCollection<object>(filteredSuggestions.Take(MaxResults));
+            _availableSuggestions = new ObservableCollection<object>(MaxResults > 0 ? filteredSuggestions.Take(MaxResults) : filteredSuggestions);
 
             ShowHideListbox(openSuggestionPanel);
         }
