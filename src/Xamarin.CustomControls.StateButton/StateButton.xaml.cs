@@ -31,7 +31,9 @@ namespace Xamarin.CustomControls
         public static readonly BindableProperty BorderColorProperty = BindableProperty.Create(nameof(BorderColor), typeof(Color), typeof(StateButton), Color.Black);
         public static readonly BindableProperty ActiveBorderColorProperty = BindableProperty.Create(nameof(ActiveBorderColor), typeof(Color), typeof(StateButton), Color.Black);
 
+        public static readonly BindableProperty InnerPaddingProperty = BindableProperty.Create(nameof(InnerPadding), typeof(Thickness), typeof(StateButton), new Thickness(0));
         public static readonly BindableProperty BorderProperty = BindableProperty.Create(nameof(Border), typeof(Thickness), typeof(StateButton), new Thickness(1));
+
         public static readonly BindableProperty TextProperty = BindableProperty.Create(nameof(Text), typeof(string), typeof(StateButton), string.Empty);
         public static readonly BindableProperty TextPositionProperty = BindableProperty.Create(nameof(TextPosition), typeof(TextPosition), typeof(StateButton), TextPosition.Center);
         public static readonly BindableProperty FontAttributesProperty = BindableProperty.Create(nameof(FontAttributes), typeof(FontAttributes), typeof(StateButton), FontAttributes.None);
@@ -105,6 +107,12 @@ namespace Xamarin.CustomControls
             set { SetValue(BorderProperty, value); }
         }
 
+        public Thickness InnerPadding
+        {
+            get { return (Thickness)GetValue(InnerPaddingProperty); }
+            set { SetValue(InnerPaddingProperty, value); }
+        }
+
         public FontAttributes FontAttributes
         {
             get { return (FontAttributes)GetValue(FontAttributesProperty); }
@@ -169,6 +177,8 @@ namespace Xamarin.CustomControls
                     Clicked?.Invoke(this, new EventArgs());
                 })
             });
+
+            Padding = 0;
 
             MainGrid.BackgroundColor = _inactiveBackgroundColor = Color.White;
         }
@@ -290,6 +300,11 @@ namespace Xamarin.CustomControls
                         RightImageControl.Source = ActiveRightImage;
 
                     RightImageControlContainer.IsVisible = true;
+                }
+
+                if (propertyName == InnerPaddingProperty.PropertyName)
+                {
+                    MainGrid.Padding = InnerPadding;
                 }
             }
         }

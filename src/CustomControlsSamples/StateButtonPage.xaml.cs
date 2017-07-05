@@ -14,6 +14,8 @@ namespace CustomControlsSamples
             InitializeComponent();
 
             BindingContext = this;
+
+            TestButton.InnerPadding = new Thickness(10, 0);
         }
     }
 }

@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Xamarin.CustomControls.AccordionView</id>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <title>Accordion control for Xamarin.Forms</title>
     <authors>DottorPagliaccius</authors>
     <owners>DottorPagliaccius</owners>
@@ -13,8 +13,9 @@
     <description>Accordion custom control for Xamarin.Forms</description>
 	<summary>Accordion custom control for Xamarin.Forms</summary>
     <releaseNotes>
-	1.0.2: added IsOpen property setter on AccordionItemView
-	1.0.1: added animation to opening panel</releaseNotes>
+	1.0.3 - added InnerPadding property	 
+	1.0.2 - added IsOpen property setter on AccordionItemView
+	1.0.1 - added animation to opening panel</releaseNotes>
     <tags>xamarin, pcl, xam.pcl, control, customcontrol, accordion, listview, android, xamarin.forms, ios, monoandroid, monodroid, monotouch</tags>    
     <dependencies>
         <dependency id="Xamarin.Forms" version="2.3.2.127" />

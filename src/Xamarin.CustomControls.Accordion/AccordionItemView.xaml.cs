@@ -43,6 +43,7 @@ namespace Xamarin.CustomControls
         public static readonly BindableProperty ActiveBorderColorProperty = BindableProperty.Create(nameof(ActiveBorderColor), typeof(Color), typeof(AccordionItemView), Color.Black);
 
         public static readonly BindableProperty BorderProperty = BindableProperty.Create(nameof(Border), typeof(Thickness), typeof(AccordionItemView), new Thickness(1));
+        public static readonly BindableProperty InnerPaddingProperty = BindableProperty.Create(nameof(InnerPadding), typeof(Thickness), typeof(StateButton), new Thickness(0));
         public static readonly BindableProperty TextProperty = BindableProperty.Create(nameof(Text), typeof(string), typeof(AccordionItemView), string.Empty);
         public static readonly BindableProperty TextPositionProperty = BindableProperty.Create(nameof(TextPosition), typeof(TextPosition), typeof(AccordionItemView), TextPosition.Center);
         public static readonly BindableProperty FontAttributesProperty = BindableProperty.Create(nameof(FontAttributes), typeof(FontAttributes), typeof(AccordionItemView), FontAttributes.None);
@@ -94,6 +95,12 @@ namespace Xamarin.CustomControls
         {
             get { return (Color)GetValue(ActiveBorderColorProperty); }
             set { SetValue(ActiveBorderColorProperty, value); }
+        }
+
+        public Thickness InnerPadding
+        {
+            get { return (Thickness)GetValue(InnerPaddingProperty); }
+            set { SetValue(InnerPaddingProperty, value); }
         }
 
         public Thickness Border
@@ -184,6 +191,8 @@ namespace Xamarin.CustomControls
         public AccordionItemView()
         {
             InitializeComponent();
+
+            Padding = 0;
 
             AccordionItemButton.Command = new Command(() =>
             {
@@ -299,6 +308,11 @@ namespace Xamarin.CustomControls
             if (propertyName == ActiveRightImageProperty.PropertyName)
             {
                 AccordionItemButton.ActiveRightImage = ActiveRightImage;
+            }
+
+            if (propertyName == InnerPaddingProperty.PropertyName)
+            {
+                AccordionItemButton.InnerPadding = InnerPadding;
             }
         }
     }
