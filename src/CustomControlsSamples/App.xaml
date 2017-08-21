@@ -1,7 +1,20 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	 x:Class="CustomControlsSamples.App">
+<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CustomControlsSamples.App" xmlns:statebutton="clr-namespace:Xamarin.CustomControls;assembly=Xamarin.CustomControls.StateButton" xmlns:accordion="clr-namespace:Xamarin.CustomControls;assembly=Xamarin.CustomControls.AccordionView" xmlns:progressbar="clr-namespace:Xamarin.CustomControls;assembly=Xamarin.CustomControls.ProgressBarView">
 	<Application.Resources>
-		<!-- Application resource dictionary -->
+          <ResourceDictionary>
+            
+        		<Style TargetType="accordion:AccordionItemView">
+                    <Setter Property="TextColor" Value="Red" />
+                </Style>    
+
+                <Style TargetType="statebutton:StateButton">
+                    <Setter Property="TextColor" Value="Purple" />
+                </Style>
+
+                 <Style TargetType="progressbar:ProgressBarView">
+                    <Setter Property="Color" Value="Navy" />
+                </Style>
+       
+            </ResourceDictionary>
 	</Application.Resources>
 </Application>

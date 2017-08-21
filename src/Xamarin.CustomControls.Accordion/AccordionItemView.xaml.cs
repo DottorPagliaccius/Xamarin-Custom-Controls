@@ -230,6 +230,9 @@ namespace Xamarin.CustomControls
         {
             base.OnPropertyChanged(propertyName);
 
+            if (AccordionItemButton == null)
+                return;
+
             if (propertyName == ButtonBackgroundColorProperty.PropertyName)
             {
                 AccordionItemButton.BackgroundColor = ButtonBackgroundColor;

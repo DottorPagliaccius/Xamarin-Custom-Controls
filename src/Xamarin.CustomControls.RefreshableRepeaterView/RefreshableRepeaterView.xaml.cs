@@ -134,6 +134,9 @@ namespace Xamarin.CustomControls
         {
             base.OnPropertyChanged(propertyName);
 
+            if (MainRepeater == null)
+                return;
+
             if (propertyName == ItemsSourceProperty.PropertyName)
             {
                 MainRepeater.ItemsSource = ItemsSource;

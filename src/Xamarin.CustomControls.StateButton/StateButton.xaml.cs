@@ -181,131 +181,133 @@ namespace Xamarin.CustomControls
             Padding = 0;
 
             MainGrid.BackgroundColor = _inactiveBackgroundColor = Color.White;
+
+            IsPressedChanged(this, IsPressed);
         }
 
         protected override void OnPropertyChanged(string propertyName = null)
         {
             base.OnPropertyChanged(propertyName);
 
-            if (!_disablePropertyChangedEvent)
+            if (_disablePropertyChangedEvent)
+                return;
+
+            if (MainGrid != null && propertyName == BackgroundColorProperty.PropertyName)
             {
-                if (propertyName == BackgroundColorProperty.PropertyName)
+                MainGrid.BackgroundColor = _inactiveBackgroundColor = BackgroundColor;
+            }
+
+            if (MainGrid != null && propertyName == ActiveBackgroundColorProperty.PropertyName)
+            {
+                if (IsPressed)
+                    MainGrid.BackgroundColor = ActiveBackgroundColor;
+            }
+
+            if (TextLabel != null && propertyName == TextColorProperty.PropertyName)
+            {
+                if (!IsPressed)
+                    TextLabel.TextColor = TextColor;
+            }
+
+            if (TextLabel != null && propertyName == ActiveTextColorProperty.PropertyName)
+            {
+                if (IsPressed)
+                    TextLabel.TextColor = ActiveTextColor;
+            }
+
+            if (TextLabel != null && propertyName == TextProperty.PropertyName)
+            {
+                TextLabel.Text = Text;
+            }
+
+            if (TextLabel != null && propertyName == TextPositionProperty.PropertyName)
+            {
+                switch (TextPosition)
                 {
-                    MainGrid.BackgroundColor = _inactiveBackgroundColor = BackgroundColor;
+                    default:
+
+                        TextLabel.HorizontalOptions = LayoutOptions.Center;
+                        break;
+
+                    case TextPosition.Left:
+
+                        TextLabel.HorizontalOptions = LayoutOptions.Start;
+                        break;
+
+                    case TextPosition.Right:
+
+                        TextLabel.HorizontalOptions = LayoutOptions.End;
+                        break;
                 }
+            }
 
-                if (propertyName == ActiveBackgroundColorProperty.PropertyName)
-                {
-                    if (IsPressed)
-                        MainGrid.BackgroundColor = ActiveBackgroundColor;
-                }
+            if (TextLabel != null && propertyName == FontSizeProperty.PropertyName)
+            {
+                TextLabel.FontSize = FontSize;
+            }
 
-                if (propertyName == TextColorProperty.PropertyName)
-                {
-                    if (!IsPressed)
-                        TextLabel.TextColor = TextColor;
-                }
+            if (TextLabel != null && propertyName == FontAttributesProperty.PropertyName)
+            {
+                TextLabel.FontAttributes = FontAttributes;
+            }
 
-                if (propertyName == ActiveTextColorProperty.PropertyName)
-                {
-                    if (IsPressed)
-                        TextLabel.TextColor = ActiveTextColor;
-                }
+            if (TextLabel != null && propertyName == FontFamilyProperty.PropertyName)
+            {
+                TextLabel.FontFamily = FontFamily;
+            }
 
-                if (propertyName == TextProperty.PropertyName)
-                {
-                    TextLabel.Text = Text;
-                }
+            if (MainPanel != null && propertyName == BorderColorProperty.PropertyName)
+            {
+                if (!IsPressed)
+                    MainPanel.BackgroundColor = BorderColor;
+            }
 
-                if (propertyName == TextPositionProperty.PropertyName)
-                {
-                    switch (TextPosition)
-                    {
-                        default:
+            if (MainPanel != null && propertyName == BorderProperty.PropertyName)
+            {
+                MainPanel.Padding = Border;
+            }
 
-                            TextLabel.HorizontalOptions = LayoutOptions.Center;
-                            break;
+            if (MainPanel != null && propertyName == ActiveBorderColorProperty.PropertyName)
+            {
+                if (IsPressed)
+                    MainPanel.BackgroundColor = ActiveBorderColor;
+            }
 
-                        case TextPosition.Left:
+            if (LeftImageControlContainer != null && propertyName == LeftImageProperty.PropertyName)
+            {
+                if (!IsPressed)
+                    LeftImageControl.Source = LeftImage;
 
-                            TextLabel.HorizontalOptions = LayoutOptions.Start;
-                            break;
+                LeftImageControlContainer.IsVisible = true;
+            }
 
-                        case TextPosition.Right:
+            if (RightImageControlContainer != null && propertyName == RightImageProperty.PropertyName)
+            {
+                if (!IsPressed)
+                    RightImageControl.Source = RightImage;
 
-                            TextLabel.HorizontalOptions = LayoutOptions.End;
-                            break;
-                    }
-                }
+                RightImageControlContainer.IsVisible = true;
+            }
 
-                if (propertyName == FontSizeProperty.PropertyName)
-                {
-                    TextLabel.FontSize = FontSize;
-                }
+            if (LeftImageControlContainer != null && propertyName == ActiveLeftImageProperty.PropertyName)
+            {
+                if (IsPressed)
+                    LeftImageControl.Source = ActiveLeftImage;
 
-                if (propertyName == FontAttributesProperty.PropertyName)
-                {
-                    TextLabel.FontAttributes = FontAttributes;
-                }
+                LeftImageControlContainer.IsVisible = true;
+            }
 
-                if (propertyName == FontFamilyProperty.PropertyName)
-                {
-                    TextLabel.FontFamily = FontFamily;
-                }
+            if (RightImageControlContainer != null && propertyName == ActiveRightImageProperty.PropertyName)
+            {
+                if (IsPressed)
+                    RightImageControl.Source = ActiveRightImage;
 
-                if (propertyName == BorderColorProperty.PropertyName)
-                {
-                    if (!IsPressed)
-                        MainPanel.BackgroundColor = BorderColor;
-                }
+                RightImageControlContainer.IsVisible = true;
+            }
 
-                if (propertyName == BorderProperty.PropertyName)
-                {
-                    MainPanel.Padding = Border;
-                }
-
-                if (propertyName == ActiveBorderColorProperty.PropertyName)
-                {
-                    if (IsPressed)
-                        MainPanel.BackgroundColor = ActiveBorderColor;
-                }
-
-                if (propertyName == LeftImageProperty.PropertyName)
-                {
-                    if (!IsPressed)
-                        LeftImageControl.Source = LeftImage;
-
-                    LeftImageControlContainer.IsVisible = true;
-                }
-
-                if (propertyName == RightImageProperty.PropertyName)
-                {
-                    if (!IsPressed)
-                        RightImageControl.Source = RightImage;
-
-                    RightImageControlContainer.IsVisible = true;
-                }
-
-                if (propertyName == ActiveLeftImageProperty.PropertyName)
-                {
-                    if (IsPressed)
-                        LeftImageControl.Source = ActiveLeftImage;
-
-                    LeftImageControlContainer.IsVisible = true;
-                }
-
-                if (propertyName == ActiveRightImageProperty.PropertyName)
-                {
-                    if (IsPressed)
-                        RightImageControl.Source = ActiveRightImage;
-
-                    RightImageControlContainer.IsVisible = true;
-                }
-
-                if (propertyName == InnerPaddingProperty.PropertyName)
-                {
-                    MainGrid.Padding = InnerPadding;
-                }
+            if (MainGrid != null && propertyName == InnerPaddingProperty.PropertyName)
+            {
+                MainGrid.Padding = InnerPadding;
             }
         }
 

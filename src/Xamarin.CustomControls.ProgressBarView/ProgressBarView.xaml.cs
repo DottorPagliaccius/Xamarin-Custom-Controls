@@ -131,7 +131,10 @@ namespace Xamarin.CustomControls
         {
             base.OnPropertyChanged(propertyName);
 
-            if (propertyName == ColorProperty.PropertyName && _coloredBoxView != null)
+            if (_coloredBoxView == null)
+                return;
+
+            if (propertyName == ColorProperty.PropertyName)
             {
                 _coloredBoxView.Color = Color;
             }
