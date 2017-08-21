@@ -282,7 +282,7 @@ namespace Xamarin.CustomControls
 
             if (propertyName == BorderProperty.PropertyName)
             {
-                AccordionItemButton.Padding = Border;
+                AccordionItemButton.Border = Border;
             }
 
             if (propertyName == ActiveBorderColorProperty.PropertyName)

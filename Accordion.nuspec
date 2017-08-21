@@ -19,7 +19,7 @@
     <tags>xamarin, pcl, xam.pcl, control, customcontrol, accordion, listview, android, xamarin.forms, ios, monoandroid, monodroid, monotouch</tags>    
     <dependencies>
         <dependency id="Xamarin.Forms" version="2.3.2.127" />
-        <dependency id="Xamarin.CustomControls.StateButton" version="1.0.3" />
+        <dependency id="Xamarin.CustomControls.StateButton" version=“1.0.4” />
     </dependencies>
   </metadata>
   <files> 
