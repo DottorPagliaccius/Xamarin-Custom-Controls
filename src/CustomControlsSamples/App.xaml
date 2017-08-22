@@ -5,6 +5,9 @@
             
         		<Style TargetType="accordion:AccordionItemView">
                     <Setter Property="TextColor" Value="Red" />
+                    <Setter Property="ActiveBorderColor" Value="Purple" />
+                    <Setter Property="BorderColor" Value="Red" />
+                    <Setter Property="Border" Value="1" />
                 </Style>    
 
                 <Style TargetType="statebutton:StateButton">

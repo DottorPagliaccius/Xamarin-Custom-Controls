@@ -204,9 +204,20 @@ namespace Xamarin.CustomControls
                 OnClick?.Invoke(this, new AccordionItemClickEventArgs(this));
             });
 
-            AccordionItemButton.BorderColor = BorderColor;
-            AccordionItemButton.TextColor = TextColor;
             AccordionItemButton.BackgroundColor = ButtonBackgroundColor;
+            AccordionItemButton.ActiveBackgroundColor = ButtonActiveBackgroundColor;
+            AccordionItemButton.Border = Border;
+            AccordionItemButton.BorderColor = BorderColor;
+            AccordionItemButton.ActiveBorderColor = ActiveBorderColor;
+            AccordionItemButton.TextColor = TextColor;
+            AccordionItemButton.ActiveTextColor = ActiveTextColor;
+            AccordionItemButton.TextPosition = TextPosition;
+            AccordionItemButton.FontSize = FontSize;
+            AccordionItemButton.LeftImage = LeftImage;
+            AccordionItemButton.ActiveLeftImage = ActiveLeftImage;
+            AccordionItemButton.RightImage = RightImage;
+            AccordionItemButton.ActiveRightImage = ActiveRightImage;
+            AccordionItemButton.InnerPadding = InnerPadding;
         }
 
         public void OpenPanel()
@@ -223,7 +234,6 @@ namespace Xamarin.CustomControls
 
             ContentPanel.IsVisible = false;
             ContentPanel.Opacity = 0;
-
         }
 
         protected override void OnPropertyChanged(string propertyName = null)
