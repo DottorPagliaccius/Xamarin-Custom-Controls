@@ -42,38 +42,38 @@ namespace Xamarin.CustomControls
 
         public ICollection ItemsSource
         {
-            get { return (ICollection)GetValue(ItemsSourceProperty); }
-            set { SetValue(ItemsSourceProperty, value); }
+            get => (ICollection)GetValue(ItemsSourceProperty);
+            set => SetValue(ItemsSourceProperty, value);
         }
 
         public DataTemplate ItemTemplate
         {
-            get { return (DataTemplate)GetValue(ItemTemplateProperty); }
-            set { SetValue(ItemTemplateProperty, value); }
+            get => (DataTemplate)GetValue(ItemTemplateProperty);
+            set => SetValue(ItemTemplateProperty, value);
         }
 
         public DataTemplate SeparatorTemplate
         {
-            get { return (DataTemplate)GetValue(SeparatorTemplateProperty); }
-            set { SetValue(SeparatorTemplateProperty, value); }
+            get => (DataTemplate)GetValue(SeparatorTemplateProperty);
+            set => SetValue(SeparatorTemplateProperty, value);
         }
 
         public DataTemplate EmptyTextTemplate
         {
-            get { return (DataTemplate)GetValue(EmptyTextTemplateProperty); }
-            set { SetValue(EmptyTextTemplateProperty, value); }
+            get => (DataTemplate)GetValue(EmptyTextTemplateProperty);
+            set => SetValue(EmptyTextTemplateProperty, value);
         }
 
         public string EmptyText
         {
-            get { return (string)GetValue(EmptyTextProperty); }
-            set { SetValue(EmptyTextProperty, value); }
+            get => (string)GetValue(EmptyTextProperty);
+            set => SetValue(EmptyTextProperty, value);
         }
 
         public ICommand SelectedItemCommand
         {
-            get { return (ICommand)GetValue(SelectedItemCommandProperty); }
-            set { SetValue(SelectedItemCommandProperty, value); }
+            get => (ICommand)GetValue(SelectedItemCommandProperty);
+            set => SetValue(SelectedItemCommandProperty, value);
         }
 
         public Color SeparatorColor
@@ -84,11 +84,16 @@ namespace Xamarin.CustomControls
 
         public double SeparatorHeight
         {
-            get { return (double)GetValue(SeparatorHeightProperty); }
-            set { SetValue(SeparatorHeightProperty, value); }
+            get => (double)GetValue(SeparatorHeightProperty);
+            set => SetValue(SeparatorHeightProperty, value);
         }
 
         public bool ShowSeparator { get; set; }
+
+        public bool IsEmpty
+        {
+            get => ItemsSource.Count == 0 && (EmptyTextTemplate != null || !string.IsNullOrEmpty(EmptyText));
+        }
 
         public RepeaterView()
         {
@@ -122,9 +127,7 @@ namespace Xamarin.CustomControls
 
             if (oldValue != null)
             {
-                var observable = oldValue as INotifyCollectionChanged;
-
-                if (observable != null)
+                if (oldValue is INotifyCollectionChanged observable)
                 {
                     observable.CollectionChanged -= repeater.CollectionChanged;
                 }
@@ -134,9 +137,7 @@ namespace Xamarin.CustomControls
             {
                 repeater.UpdateItems();
 
-                var observable = repeater.ItemsSource as INotifyCollectionChanged;
-
-                if (observable != null)
+                if (repeater.ItemsSource is INotifyCollectionChanged observable)
                 {
                     observable.CollectionChanged += repeater.CollectionChanged;
                 }
@@ -145,7 +146,7 @@ namespace Xamarin.CustomControls
 
         private void UpdateItems()
         {
-            if (ItemsSource.Count == 0 && (EmptyTextTemplate != null || !string.IsNullOrEmpty(EmptyText)))
+            if (IsEmpty)
             {
                 BuildEmptyText();
             }
@@ -281,7 +282,7 @@ namespace Xamarin.CustomControls
 
                 case NotifyCollectionChangedAction.Reset:
 
-                    BuildItems(ItemsSource);
+                    UpdateItems();
                     break;
             }
 

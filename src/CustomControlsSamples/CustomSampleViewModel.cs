@@ -60,6 +60,21 @@ namespace CustomControlsSamples
             }
         }
 
+        public async Task LoadNullData(bool isReloading = false)
+        {
+            IsBusy = true;
+
+            if (isReloading)
+                _loadingCount++;
+
+            if (isReloading)
+                await Task.Delay(5000);
+
+            Items.ReplaceRange(new List<RandomObject>());
+
+            IsBusy = false;
+        }
+
         private void Select(RandomObject selectedItem)
         {
             SelectedValue = $"Selected item {Items.IndexOf(selectedItem)}: {selectedItem.RandomProperty1} => {selectedItem.RandomProperty2} {selectedItem.RandomProperty3} eats {selectedItem.RandomProperty4}";
