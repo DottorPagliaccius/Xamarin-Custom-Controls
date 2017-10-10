@@ -1,0 +1,11 @@
+﻿{
+  "dependencies": {
+    "Xamarin.CustomControls.StateButton": "1.0.8",
+    "Xamarin.Forms": "2.4.0.282",
+    "NETStandard.Library": "1.6.0",
+    "Microsoft.NETCore.Portable.Compatibility": "1.0.1"
+  },
+  "frameworks": {
+    "netstandard1.0": {}
+  }
+}

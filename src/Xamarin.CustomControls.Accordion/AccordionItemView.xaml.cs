@@ -213,6 +213,7 @@ namespace Xamarin.CustomControls
             AccordionItemButton.ActiveTextColor = ActiveTextColor;
             AccordionItemButton.TextPosition = TextPosition;
             AccordionItemButton.FontSize = FontSize;
+            AccordionItemButton.FontFamily = FontFamily;
             AccordionItemButton.LeftImage = LeftImage;
             AccordionItemButton.ActiveLeftImage = ActiveLeftImage;
             AccordionItemButton.RightImage = RightImage;
