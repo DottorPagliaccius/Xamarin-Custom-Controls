@@ -2,7 +2,7 @@
 <package>
 	<metadata>
 		<id>Xamarin.CustomControls.StateButton</id>
-		<version>1.0.5</version>
+		<version>1.0.7</version>
 		<title>StateButton control for Xamarin.Forms</title>
 		<authors>DottorPagliaccius</authors>
 		<owners>DottorPagliaccius</owners>
@@ -13,6 +13,7 @@
 		<description>StateButton custom control for Xamarin.Forms</description>
 		<summary>StateButton custom control for Xamarin.Forms</summary>
 		<releaseNotes>
+      1.0.6/7 - converted to dotnetstandard 
       1.0.5 - fixed Style bug     
       1.0.4 - added InnerPadding property	 
       1.0.3 - bugfix

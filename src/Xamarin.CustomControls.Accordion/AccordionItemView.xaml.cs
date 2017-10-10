@@ -218,6 +218,7 @@ namespace Xamarin.CustomControls
             AccordionItemButton.RightImage = RightImage;
             AccordionItemButton.ActiveRightImage = ActiveRightImage;
             AccordionItemButton.InnerPadding = InnerPadding;
+            AccordionItemButton.FontFamily = FontFamily;
         }
 
         public void OpenPanel()

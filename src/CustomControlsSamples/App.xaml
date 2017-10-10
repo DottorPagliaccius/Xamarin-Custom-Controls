@@ -5,6 +5,7 @@
             
         		<Style TargetType="accordion:AccordionItemView">
                     <Setter Property="TextColor" Value="Red" />
+                    <Setter Property="FontFamily" Value="MarkerFelt-Thin" />
                     <Setter Property="ActiveBorderColor" Value="Purple" />
                     <Setter Property="BorderColor" Value="Red" />
                     <Setter Property="Border" Value="1" />
@@ -17,7 +18,7 @@
                  <Style TargetType="progressbar:ProgressBarView">
                     <Setter Property="Color" Value="Navy" />
                 </Style>
-       
+        
             </ResourceDictionary>
 	</Application.Resources>
 </Application>

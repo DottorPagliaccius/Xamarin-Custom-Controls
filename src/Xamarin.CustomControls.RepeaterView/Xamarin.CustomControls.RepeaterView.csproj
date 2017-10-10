@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<RootNamespace>Xamarin.CustomControls</RootNamespace>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<DebugType>
+		</DebugType>
+	</PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<PackageId>Xamarin.CustomControls.RepeaterView</PackageId>
+		<PackageVersion>1.2.0</PackageVersion>
+		<Authors>DottorPagliaccius</Authors>
+		<Description>RepeaterView custom control for Xamarin.Forms</Description>
+		<PackageLicenseUrl>https://github.com/DottorPagliaccius/Xamarin-Custom-Controls/blob/master/LICENSE</PackageLicenseUrl>
+		<PackageProjectUrl>https://github.com/DottorPagliaccius/Xamarin-Custom-Controls</PackageProjectUrl>
+		<PackageIconUrl>https://raw.githubusercontent.com/DottorPagliaccius/Xamarin-Custom-Controls/master/art/RepeaterViewIcon.png</PackageIconUrl>
+		<PackageReleaseNotes>1.2.0 - converted to dotnetstandard 2.0</PackageReleaseNotes>
+		<PackageTags>xamarin;pcl;xam.pcl;control;customcontrol;button;repeater;repeaterview;listview;android;xamarin.forms;ios;monoandroid;monodroid;monotouch</PackageTags>
+		<PackOnBuild>true</PackOnBuild>
+		<Title>RepeaterView</Title>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Xamarin.Forms" Version="2.4.0.282" />
+	</ItemGroup>
+</Project>

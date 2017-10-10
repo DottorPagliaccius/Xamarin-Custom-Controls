@@ -1,7 +1,9 @@
 ﻿{
   "dependencies": {
     "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
-    "NETStandard.Library": "2.0.0",
+    "NETStandard.Library": "2.0.1",
+    "Refractored.MvvmHelpers": "1.3.0",
+    "Refractored.XamForms.PullToRefresh": "2.0.0.13",
     "Xamarin.Forms": "2.4.0.282"
   },
   "frameworks": {
