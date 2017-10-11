@@ -15,7 +15,8 @@
 		<releaseNotes>1.0.6 - fixed FontFamily in style bug, added support for dotnetstandard 1.0</releaseNotes>
 		<tags>xamarin, pcl, xam.pcl, control, customcontrol, accordion, listview, android, xamarin.forms, ios, monoandroid, monodroid, monotouch</tags>
 		<dependencies>
-			<dependency id="Xamarin.Forms" version="2.3.2.127" />
+			<dependency id="Xamarin.Forms" version="2.4.0.282" />
+			<dependency id="NETStandard.Library" version="1.6.1" />
 			<dependency id="Xamarin.CustomControls.StateButton" version="1.0.8" />
 		</dependencies>
 	</metadata>

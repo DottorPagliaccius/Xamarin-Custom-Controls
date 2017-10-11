@@ -24,7 +24,7 @@ namespace CustomControlsSamples
         {
             base.OnAppearing();
 
-            await _viewModel.LoadNullData();
+            await _viewModel.LoadData();
         }
     }
 }

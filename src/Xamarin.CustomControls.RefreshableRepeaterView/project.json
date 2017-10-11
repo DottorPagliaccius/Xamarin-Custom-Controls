@@ -2,7 +2,8 @@
   "dependencies": {
     "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
     "NETStandard.Library": "2.0.1",
-    "Xamarin.CustomControls.StateButton": "1.0.8",
+    "Refractored.XamForms.PullToRefresh": "2.0.0.13",
+    "Xamarin.CustomControls.RepeaterView": "1.2.2",
     "Xamarin.Forms": "2.4.0.282"
   },
   "frameworks": {
