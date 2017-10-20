@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using System.Linq;
+using Xamarin.Forms;
 
 namespace CustomControlsSamples
 {
@@ -25,6 +27,13 @@ namespace CustomControlsSamples
             base.OnAppearing();
 
             await _viewModel.LoadData();
+        }
+
+        private void Handle_Tapped(object sender, EventArgs e)
+        {
+            var control = (Image)sender;
+
+            _viewModel.LeftPanelSelectCommand.Execute(((TapGestureRecognizer)control.GestureRecognizers.Single()).CommandParameter);
         }
     }
 }

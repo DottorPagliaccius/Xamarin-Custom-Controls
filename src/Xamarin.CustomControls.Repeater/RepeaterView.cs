@@ -30,6 +30,7 @@ namespace Xamarin.CustomControls
         public event DataUpdateEventHandler OnDataUpdate;
 
         public static readonly BindableProperty ItemTemplateProperty = BindableProperty.Create(nameof(ItemTemplate), typeof(DataTemplate), typeof(RepeaterView), default(DataTemplate));
+        public static readonly BindableProperty PanLeftItemTemplateProperty = BindableProperty.Create(nameof(PanLeftItemTemplate), typeof(DataTemplate), typeof(RepeaterView), default(DataTemplate));
         public static readonly BindableProperty SeparatorTemplateProperty = BindableProperty.Create(nameof(SeparatorTemplate), typeof(DataTemplate), typeof(RepeaterView), default(DataTemplate));
         public static readonly BindableProperty EmptyTextTemplateProperty = BindableProperty.Create(nameof(EmptyTextTemplate), typeof(DataTemplate), typeof(RepeaterView), default(DataTemplate));
         public static readonly BindableProperty EmptyTextProperty = BindableProperty.Create(nameof(EmptyText), typeof(string), typeof(RepeaterView), string.Empty);
@@ -37,6 +38,7 @@ namespace Xamarin.CustomControls
         public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create(nameof(ItemsSource), typeof(ICollection), typeof(RepeaterView), new List<object>(), BindingMode.TwoWay, null, propertyChanged: (bindable, oldValue, newValue) => { ItemsChanged(bindable, (ICollection)oldValue, (ICollection)newValue); });
 
         public static readonly BindableProperty SelectedItemCommandProperty = BindableProperty.Create(nameof(SelectedItemCommand), typeof(ICommand), typeof(RepeaterView), default(ICommand));
+
         public static readonly BindableProperty SeparatorColorProperty = BindableProperty.Create(nameof(SeparatorColor), typeof(Color), typeof(RepeaterView), Color.Default);
         public static readonly BindableProperty SeparatorHeightProperty = BindableProperty.Create(nameof(SeparatorHeight), typeof(double), typeof(RepeaterView), 1.5d);
 
@@ -50,6 +52,12 @@ namespace Xamarin.CustomControls
         {
             get => (DataTemplate)GetValue(ItemTemplateProperty);
             set => SetValue(ItemTemplateProperty, value);
+        }
+
+        public DataTemplate PanLeftItemTemplate
+        {
+            get => (DataTemplate)GetValue(PanLeftItemTemplateProperty);
+            set => SetValue(PanLeftItemTemplateProperty, value);
         }
 
         public DataTemplate SeparatorTemplate
@@ -111,7 +119,11 @@ namespace Xamarin.CustomControls
 
                 foreach (var view in Children)
                 {
+                    if (view.GestureRecognizers.Any())
+                        view.GestureRecognizers.Clear();
+
                     BindSelectedItemCommand(view);
+                    BindLeftPanel(view);
                 }
             }
 
@@ -163,7 +175,7 @@ namespace Xamarin.CustomControls
                 var content = SeparatorTemplate.CreateContent();
                 if (!(content is View) && !(content is ViewCell))
                 {
-                    throw new InvalidViewException("Templated control must be a View or a ViewCell");
+                    throw new InvalidViewException($"Templated control must be a View or a ViewCell ({nameof(SeparatorTemplate)})");
                 }
 
                 return (content is View) ? content as View : ((ViewCell)content).View;
@@ -185,7 +197,7 @@ namespace Xamarin.CustomControls
                 var content = EmptyTextTemplate.CreateContent();
                 if (!(content is View) && !(content is ViewCell))
                 {
-                    throw new InvalidViewException("Templated control must be a View or a ViewCell");
+                    throw new InvalidViewException($"Templated control must be a View or a ViewCell ({nameof(EmptyTextTemplate)})");
                 }
 
                 var view = (content is View) ? content as View : ((ViewCell)content).View;
@@ -209,40 +221,124 @@ namespace Xamarin.CustomControls
             var content = ItemTemplate.CreateContent();
             if (!(content is View) && !(content is ViewCell))
             {
-                throw new InvalidViewException("Templated control must be a View or a ViewCell");
+                throw new InvalidViewException($"Templated control must be a View or a ViewCell ({nameof(ItemTemplate)})");
             }
 
             var view = content is View ? content as View : ((ViewCell)content).View;
 
             view.BindingContext = item;
 
+            if (view.GestureRecognizers.Any())
+                view.GestureRecognizers.Clear();
+
             if (SelectedItemCommand != null && SelectedItemCommand.CanExecute(item))
+            {
                 BindSelectedItemCommand(view);
+            }
+
+            View finalView;
+            if (PanLeftItemTemplate != null)
+            {
+                var leftView = BuildLeftPanelItems();
+                leftView.WidthRequest = 0;
+                leftView.IsVisible = false;
+                leftView.BindingContext = item;
+
+                finalView = new StackLayout { Spacing = 0, Orientation = StackOrientation.Horizontal };
+
+                ((StackLayout)finalView).Children.Add(leftView);
+                ((StackLayout)finalView).Children.Add(view);
+
+                BindLeftPanel(finalView);
+            }
+            else
+                finalView = view;
 
             if (ShowSeparator && ItemsSource.Cast<object>().Last() != item)
             {
                 var container = new StackLayout { Spacing = 0 };
 
-                container.Children.Add(view);
+                container.Children.Add(finalView);
                 container.Children.Add(BuildSeparator());
 
                 return container;
             }
 
-            return view;
+            return finalView;
         }
 
         private void BindSelectedItemCommand(View view)
         {
-            if (!SelectedItemCommand.CanExecute(view.BindingContext))
-                return;
-
             var tapGestureRecognizer = new TapGestureRecognizer { Command = SelectedItemCommand, CommandParameter = view.BindingContext };
 
-            if (view.GestureRecognizers.Any())
-                view.GestureRecognizers.Clear();
-
             view.GestureRecognizers.Add(tapGestureRecognizer);
+        }
+
+        private double _startingWidth = 0;
+
+        private void BindLeftPanel(View view)
+        {
+            var panGestureRecognizer = new PanGestureRecognizer { };
+
+            panGestureRecognizer.PanUpdated += (object sender, PanUpdatedEventArgs e) =>
+            {
+                var container = (StackLayout)sender;
+                var currentView = container.Children[0];
+
+                switch (e.StatusType)
+                {
+                    case GestureStatus.Started:
+
+                        currentView.IsVisible = true;
+
+                        _startingWidth = currentView.WidthRequest;
+                        break;
+
+                    case GestureStatus.Running:
+
+                        currentView.WidthRequest = _startingWidth + e.TotalX;
+
+                        System.Diagnostics.Debug.WriteLine($"TotalX: {e.TotalX} - LeftPanelWidth: {currentView.Width}");
+                        break;
+
+                    case GestureStatus.Completed:
+
+                        if (currentView.WidthRequest > 0)
+                        {
+                            currentView.Animate("open", (arg) => currentView.WidthRequest = arg, currentView.WidthRequest, container.Width / 4, length: 750, easing: Easing.CubicInOut);
+                        }
+                        else
+                        {
+                            currentView.Animate("open", (arg) => currentView.WidthRequest = arg, currentView.WidthRequest, 0, length: 750, easing: Easing.CubicInOut);
+                        }
+
+                        _startingWidth = 0;
+
+                        System.Diagnostics.Debug.WriteLine(string.Empty);
+                        System.Diagnostics.Debug.WriteLine($"COMPLETED TotalX: {e.TotalX} - LeftPanelWidth: {currentView.Width} - panelWidth: {container.Children[1].Width}");
+                        System.Diagnostics.Debug.WriteLine(string.Empty);
+                        break;
+
+                    case GestureStatus.Canceled:
+
+                        currentView.WidthRequest = 0;
+                        currentView.IsVisible = false;
+                        break;
+                }
+            };
+
+            view.GestureRecognizers.Add(panGestureRecognizer);
+        }
+
+        private View BuildLeftPanelItems()
+        {
+            var content = PanLeftItemTemplate.CreateContent();
+            if (!(content is View) && !(content is ViewCell))
+            {
+                throw new InvalidViewException($"Templated control must be a View or a ViewCell ({nameof(PanLeftItemTemplate)})");
+            }
+
+            return (content is View) ? content as View : ((ViewCell)content).View;
         }
 
         private void CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)

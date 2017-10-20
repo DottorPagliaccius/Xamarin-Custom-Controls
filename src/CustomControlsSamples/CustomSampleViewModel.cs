@@ -23,10 +23,12 @@ namespace CustomControlsSamples
         private ICommand _selectedItemCommand;
         private ICommand _reloadItemCommand;
         private ICommand _setRandomSelectedItemCommand;
+        private ICommand _leftPanelSelectCommand;
 
         public ICommand SelectedItemCommand => _selectedItemCommand ?? (_selectedItemCommand = new Command((selectedItem) => Select((RandomObject)selectedItem)));
         public ICommand ReloadItemCommand => _reloadItemCommand ?? (_reloadItemCommand = new Command(async () => await LoadData(true)));
         public ICommand SetRandomSelectedItemCommand => _setRandomSelectedItemCommand ?? (_setRandomSelectedItemCommand = new Command(SetRandomSelectedItem));
+        public ICommand LeftPanelSelectCommand => _leftPanelSelectCommand ?? (_leftPanelSelectCommand = new Command((value) => LeftPanelSelect((string)value)));
 
         public ObservableRangeCollection<RandomObject> Items { get; } = new ObservableRangeCollection<RandomObject>();
 
@@ -90,6 +92,14 @@ namespace CustomControlsSamples
             SelectedItem = new RandomObject { RandomProperty1 = randomItem.RandomProperty1, RandomProperty2 = randomItem.RandomProperty2, RandomProperty3 = randomItem.RandomProperty3, RandomProperty4 = randomItem.RandomProperty4 };
 
             OnPropertyChanged(nameof(SelectedItem));
+        }
+
+
+        private void LeftPanelSelect(string value)
+        {
+            SelectedValue = $"SelectedLeftItem {value}";
+
+            OnPropertyChanged(nameof(SelectedValue));
         }
     }
 }

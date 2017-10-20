@@ -5,11 +5,13 @@
             <StackLayout Padding="10,20">
                 <Label Text="Repeater View" FontSize="20" HorizontalTextAlignment="Center" HorizontalOptions="Center" FontAttributes="Bold" />
                 <Label Text="{Binding SelectedValue}" TextColor="Red" FontAttributes="Bold" Margin="0,15,0,20" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
-                <repeater:RepeaterView x:Name="MainRepeater" EmptyText="No elements" ShowSeparator="true" SeparatorHeight="2" SeparatorColor="Silver" SelectedItemCommand="{Binding SelectedItemCommand}" ItemsSource="{Binding Items}">
+                <repeater:RepeaterView x:Name="MainRepeater" EmptyText="No elements" ShowSeparator="true" SeparatorHeight="2" SeparatorColor="Silver"
+
+                    ItemsSource="{Binding Items}">
                     <repeater:RepeaterView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <StackLayout Orientation="Horizontal">
+                                <StackLayout Orientation="Horizontal" HeightRequest="40">
                                     <Label Text="{Binding RandomProperty1}" TextColor="Blue" />
                                     <Label Text="{Binding RandomProperty2}" TextColor="Red" FontSize="12" />
                                     <Label Text="{Binding RandomProperty3}" TextColor="Green" />
@@ -18,8 +20,22 @@
                             </ViewCell>
                         </DataTemplate>
                     </repeater:RepeaterView.ItemTemplate>
+                    <repeater:RepeaterView.PanLeftItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid BackgroundColor="Lime" HeightRequest="40">
+                                   <Image Source="star1" Aspect="AspectFit">
+                                        <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="Handle_Tapped" CommandParameter="{Binding RandomProperty4}" />
+                                        </Image.GestureRecognizers>
+                                        </Image>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </repeater:RepeaterView.PanLeftItemTemplate>
                 </repeater:RepeaterView>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
+  <!--  SelectedItemCommand="{Binding SelectedItemCommand}" -->
