@@ -41,9 +41,9 @@ namespace CustomControlsSamples
             await Navigation.PushAsync(new StateButtonPage());
         }
 
-        private async void SegmentedViewClick(object sender, EventArgs e)
+        private async void AccordionRepeaterViewClick(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new SegmentedViewPage());
+            await Navigation.PushAsync(new AccordionRepeaterViewPage());
         }
 
         private async void AccordionViewClick(object sender, EventArgs e)

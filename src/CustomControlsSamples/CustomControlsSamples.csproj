@@ -52,6 +52,9 @@
     <EmbeddedResource Include="AccordionViewPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="AccordionRepeaterViewPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -86,6 +89,9 @@
     <Compile Include="SegmentedViewModel.cs" />
     <Compile Include="AccordionViewPage.xaml.cs">
       <DependentUpon>AccordionViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AccordionRepeaterViewPage.xaml.cs">
+      <DependentUpon>AccordionRepeaterViewPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

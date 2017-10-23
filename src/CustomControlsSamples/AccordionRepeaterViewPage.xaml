@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CustomControlsSamples.AccordionRepeaterViewPage" xmlns:accordion="clr-namespace:Xamarin.CustomControls;assembly=Xamarin.CustomControls.AccordionView">
+	<ContentPage.Content>
+         <StackLayout Padding="10,20">
+                <Label Text="Accordion View Reloaded" FontSize="20" HorizontalTextAlignment="Center" HorizontalOptions="Center" FontAttributes="Bold" />
+                <accordion:AccordionRepeaterView KeepOnlyOneItemOpen="True" ItemsSource="{Binding Items}">
+                <accordion:AccordionRepeaterView.AccordionItemTemplate>
+                        <DataTemplate>
+                         <accordion:AccordionItemView Text="{Binding RandomProperty1}" ActiveTextColor="Blue" TextColor="White" ButtonBackgroundColor="#0067B7" ButtonActiveBackgroundColor="#0067B7" TextPosition="Left" RightImage="arrowRight" RotateImages="true">
+                            <accordion:AccordionItemView.ItemContent>
+                                <StackLayout Padding="0.5,0,0.5,0.5" BackgroundColor="Black">
+                                    <StackLayout Padding="5,15" BackgroundColor="Silver" Orientation="Horizontal">
+                                        <Image Source="star1.png" HeightRequest="40" />
+                                        <Label Text="{Binding RandomProperty2}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                                        <Image Source="star1.png" HeightRequest="40" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </accordion:AccordionItemView.ItemContent>
+                        </accordion:AccordionItemView>
+                            </DataTemplate>
+                </accordion:AccordionRepeaterView.AccordionItemTemplate>
+            </accordion:AccordionRepeaterView>
+            </StackLayout>
+	</ContentPage.Content>
+</ContentPage>

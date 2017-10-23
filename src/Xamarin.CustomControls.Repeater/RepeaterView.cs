@@ -163,7 +163,7 @@ namespace Xamarin.CustomControls
                 BuildEmptyText();
             }
             else
-                BuildItems(ItemsSource);
+                BuildItems();
 
             OnDataUpdate?.Invoke(this, new EventArgs());
         }
@@ -206,11 +206,11 @@ namespace Xamarin.CustomControls
             }
         }
 
-        public void BuildItems(ICollection sourceItems)
+        public void BuildItems()
         {
             Children.Clear();
 
-            foreach (object item in sourceItems)
+            foreach (object item in ItemsSource)
             {
                 Children.Add(GetItemView(item));
             }
