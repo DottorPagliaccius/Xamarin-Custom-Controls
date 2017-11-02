@@ -2,8 +2,8 @@
 <package>
 	<metadata>
 		<id>Xamarin.CustomControls.BadgeButton</id>
-		<version>1.0.0</version>
-		<title>StateButton control for Xamarin.Forms</title>
+		<version>1.0.1</version>
+		<title>BadgeButton control for Xamarin.Forms</title>
 		<authors>DottorPagliaccius</authors>
 		<owners>DottorPagliaccius</owners>
 		<licenseUrl>https://github.com/DottorPagliaccius/Xamarin-Custom-Controls/blob/master/LICENSE</licenseUrl>
@@ -12,7 +12,7 @@
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<description>BadgeButton custom control for Xamarin.Forms</description>
 		<summary>BadgeButton custom control for Xamarin.Forms</summary>
-		<releaseNotes>
+		<releaseNotes>1.0.1 - added font size property 
 		</releaseNotes>
 		<tags>xamarin, pcl, xam.pcl, control, customcontrol, button, badgebutton, badge, android, xamarin.forms, ios, monoandroid, monodroid, monotouch</tags>
 		<dependencies>

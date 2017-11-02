@@ -99,6 +99,7 @@ namespace Xamarin.CustomControls
             BadgeFrame.BackgroundColor = BadgeBackgroundColor;
             BadgeTextLabel.Text = BadgeText;
             BadgeTextLabel.TextColor = BadgeTextColor;
+            BadgeTextLabel.FontSize = BadgeFontSize;
             BadgeIconImage.Source = ImageSource;
         }
 
@@ -128,11 +129,15 @@ namespace Xamarin.CustomControls
                 BadgeTextLabel.TextColor = BadgeTextColor;
             }
 
+            if (BadgeTextLabel != null && propertyName == BadgeFontSizeProperty.PropertyName)
+            {
+                BadgeTextLabel.FontSize = BadgeFontSize;
+            }
+
             if (BadgeIconImage != null && propertyName == ImageSourceProperty.PropertyName)
             {
                 BadgeIconImage.Source = ImageSource;
             }
         }
-
     }
 }
