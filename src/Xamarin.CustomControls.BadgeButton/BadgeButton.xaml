@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Xamarin.CustomControls.BadgeButton">
+	<ContentView.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+           
+            <Image x:Name="BadgeIconImage" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="7" />
+            <Frame x:Name="BadgeFrame" Grid.Row="0" Grid.Column="1" CornerRadius="12" Padding="12,4" HasShadow="false" OutlineColor="White">
+                <Label x:Name="BadgeTextLabel" FontSize="12" FontAttributes="Bold" />
+            </Frame>
+        </Grid>
+	</ContentView.Content>
+</ContentView>

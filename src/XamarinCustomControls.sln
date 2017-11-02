@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.CustomControls.Stat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.CustomControls.AccordionView", "Xamarin.CustomControls.Accordion\Xamarin.CustomControls.AccordionView.csproj", "{26F3E1BB-FA1E-462A-9FC2-40766401568C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.CustomControls.BadgeButton", "Xamarin.CustomControls.BadgeButton\Xamarin.CustomControls.BadgeButton.csproj", "{1C8718EF-E051-440F-B85B-798691F492D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -165,5 +167,17 @@ Global
 		{26F3E1BB-FA1E-462A-9FC2-40766401568C}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{26F3E1BB-FA1E-462A-9FC2-40766401568C}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{26F3E1BB-FA1E-462A-9FC2-40766401568C}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{1C8718EF-E051-440F-B85B-798691F492D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C8718EF-E051-440F-B85B-798691F492D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C8718EF-E051-440F-B85B-798691F492D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C8718EF-E051-440F-B85B-798691F492D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C8718EF-E051-440F-B85B-798691F492D7}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{1C8718EF-E051-440F-B85B-798691F492D7}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{1C8718EF-E051-440F-B85B-798691F492D7}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{1C8718EF-E051-440F-B85B-798691F492D7}.Release|iPhone.Build.0 = Release|Any CPU
+		{1C8718EF-E051-440F-B85B-798691F492D7}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{1C8718EF-E051-440F-B85B-798691F492D7}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{1C8718EF-E051-440F-B85B-798691F492D7}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{1C8718EF-E051-440F-B85B-798691F492D7}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal

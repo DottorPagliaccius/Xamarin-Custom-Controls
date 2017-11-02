@@ -9,8 +9,9 @@
                 <Button Text="ProgressBarView" Clicked="ProgressBarViewClick" />
                 <Button Text="WrapRepeaterView" Clicked="WrapRepeaterViewClick" />
                 <Button Text="StateButton" Clicked="StateButtonClick" />
-               	 <Button  Text="AccordionRepeaterView" Clicked="AccordionRepeaterViewClick"/>
+               	<Button  Text="AccordionRepeaterView" Clicked="AccordionRepeaterViewClick"/>
                 <Button  Text="AccordionView" Clicked="AccordionViewClick"/>
+                <Button  Text="BadgeButton" Clicked="BadgeButtonClick"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

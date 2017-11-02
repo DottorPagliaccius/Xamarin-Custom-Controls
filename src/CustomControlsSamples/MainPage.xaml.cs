@@ -50,5 +50,10 @@ namespace CustomControlsSamples
         {
             await Navigation.PushAsync(new AccordionViewPage());
         }
+
+        private async void BadgeButtonClick(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new BadgeButtonPage());
+        }
     }
 }

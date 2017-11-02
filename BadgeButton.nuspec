@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package>
+	<metadata>
+		<id>Xamarin.CustomControls.BadgeButton</id>
+		<version>1.0.0</version>
+		<title>StateButton control for Xamarin.Forms</title>
+		<authors>DottorPagliaccius</authors>
+		<owners>DottorPagliaccius</owners>
+		<licenseUrl>https://github.com/DottorPagliaccius/Xamarin-Custom-Controls/blob/master/LICENSE</licenseUrl>
+		<projectUrl>https://github.com/DottorPagliaccius/Xamarin-Custom-Controls</projectUrl>
+		<iconUrl>https://raw.githubusercontent.com/DottorPagliaccius/Xamarin-Custom-Controls/master/art/BadgeButtonIcon.png</iconUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>BadgeButton custom control for Xamarin.Forms</description>
+		<summary>BadgeButton custom control for Xamarin.Forms</summary>
+		<releaseNotes>
+		</releaseNotes>
+		<tags>xamarin, pcl, xam.pcl, control, customcontrol, button, badgebutton, badge, android, xamarin.forms, ios, monoandroid, monodroid, monotouch</tags>
+		<dependencies>
+			<dependency id="Xamarin.Forms" version="2.3.2.127" />
+		</dependencies>
+	</metadata>
+	<files>
+		<file src="src/Xamarin.CustomControls.BadgeButton/bin/Release/Xamarin.CustomControls.BadgeButton.*" target="lib\netstandard1.0" />
+	</files>
+</package>
