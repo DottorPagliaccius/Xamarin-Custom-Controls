@@ -2,7 +2,7 @@
 <package>
 	<metadata>
 		<id>Xamarin.CustomControls.BadgeButton</id>
-		<version>1.0.1</version>
+		<version>1.0.4</version>
 		<title>BadgeButton control for Xamarin.Forms</title>
 		<authors>DottorPagliaccius</authors>
 		<owners>DottorPagliaccius</owners>
@@ -12,7 +12,7 @@
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<description>BadgeButton custom control for Xamarin.Forms</description>
 		<summary>BadgeButton custom control for Xamarin.Forms</summary>
-		<releaseNotes>1.0.1 - added font size property 
+		<releaseNotes>1.0.4 - fixed ImageSource property type
 		</releaseNotes>
 		<tags>xamarin, pcl, xam.pcl, control, customcontrol, button, badgebutton, badge, android, xamarin.forms, ios, monoandroid, monodroid, monotouch</tags>
 		<dependencies>
@@ -20,6 +20,6 @@
 		</dependencies>
 	</metadata>
 	<files>
-		<file src="src/Xamarin.CustomControls.BadgeButton/bin/Release/Xamarin.CustomControls.BadgeButton.*" target="lib\netstandard1.0" />
+		<file src="src/Xamarin.CustomControls.BadgeButton/bin/Release/netstandard1.0/Xamarin.CustomControls.BadgeButton.*" target="lib\netstandard1.0" />
 	</files>
 </package>

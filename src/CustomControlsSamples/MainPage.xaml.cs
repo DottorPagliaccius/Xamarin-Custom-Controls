@@ -55,5 +55,10 @@ namespace CustomControlsSamples
         {
             await Navigation.PushAsync(new BadgeButtonPage());
         }
+
+        private async void CasualButtonClick(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new CasualControlPage());
+        }
     }
 }

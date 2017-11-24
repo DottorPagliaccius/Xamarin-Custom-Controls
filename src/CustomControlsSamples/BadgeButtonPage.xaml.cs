@@ -20,7 +20,10 @@ namespace CustomControlsSamples
         {
             var value = int.Parse(BadgeText1);
 
-            BadgeText1 = (++value).ToString();
+            if (value < 10)
+                BadgeText1 = (++value).ToString();
+            else
+                BadgeText1 = "0";
 
             OnPropertyChanged(nameof(BadgeText1));
         }

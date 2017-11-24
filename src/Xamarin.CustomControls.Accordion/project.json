@@ -3,7 +3,7 @@
     "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
     "NETStandard.Library": "2.0.1",
     "Xamarin.CustomControls.StateButton": "1.0.8",
-    "Xamarin.Forms": "2.4.0.38779"
+    "Xamarin.Forms": "2.5.0.91635"
   },
   "frameworks": {
     "netstandard1.0": {}

@@ -12,6 +12,7 @@
                	<Button  Text="AccordionRepeaterView" Clicked="AccordionRepeaterViewClick"/>
                 <Button  Text="AccordionView" Clicked="AccordionViewClick"/>
                 <Button  Text="BadgeButton" Clicked="BadgeButtonClick"/>
+                <Button  Text="CasualButton" Clicked="CasualButtonClick"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

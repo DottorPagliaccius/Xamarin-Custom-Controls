@@ -4,7 +4,7 @@
     "NETStandard.Library": "2.0.1",
     "Refractored.XamForms.PullToRefresh": "2.0.0.13",
     "Xamarin.CustomControls.RepeaterView": "1.2.2",
-    "Xamarin.Forms": "2.4.0.38779"
+    "Xamarin.Forms": "2.5.0.91635"
   },
   "frameworks": {
     "netstandard1.0": {}

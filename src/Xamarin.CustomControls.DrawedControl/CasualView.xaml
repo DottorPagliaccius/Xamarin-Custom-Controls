@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Xamarin.CustomControls.CasualView">
+	<ContentView.Content>
+         <skia:SKCanvasView x:Name="Canvas" PaintSurface="OnCanvasViewPaintSurface" >
+        <skia:SKCanvasView.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnCanvasViewTapped" />
+        </skia:SKCanvasView.GestureRecognizers>
+    </skia:SKCanvasView>
+	</ContentView.Content>
+</ContentView>

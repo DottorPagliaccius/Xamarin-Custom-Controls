@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -14,7 +13,7 @@ namespace Xamarin.CustomControls
         public static readonly BindableProperty CommandProperty = BindableProperty.Create(nameof(Command), typeof(ICommand), typeof(BadgeButton));
         public static readonly BindableProperty CommandParameterProperty = BindableProperty.Create(nameof(CommandParameter), typeof(object), typeof(BadgeButton));
 
-        public static readonly BindableProperty ImageSourceProperty = BindableProperty.Create(nameof(ImageSource), typeof(FileImageSource), typeof(BadgeButton), default(FileImageSource));
+        public static readonly BindableProperty ImageSourceProperty = BindableProperty.Create(nameof(ImageSource), typeof(ImageSource), typeof(BadgeButton), default(FileImageSource));
         public static readonly BindableProperty BadgeTextColorProperty = BindableProperty.Create(nameof(BadgeTextColor), typeof(Color), typeof(BadgeButton), Color.White);
         public static readonly BindableProperty BadgeBackgroundColorProperty = BindableProperty.Create(nameof(BadgeBackgroundColor), typeof(Color), typeof(BadgeButton), Color.Red);
 
@@ -45,9 +44,9 @@ namespace Xamarin.CustomControls
             set { SetValue(BadgeBackgroundColorProperty, value); }
         }
 
-        public FileImageSource ImageSource
+        public ImageSource ImageSource
         {
-            get { return (FileImageSource)GetValue(ImageSourceProperty); }
+            get { return (ImageSource)GetValue(ImageSourceProperty); }
             set { SetValue(ImageSourceProperty, value); }
         }
 
@@ -121,7 +120,7 @@ namespace Xamarin.CustomControls
                     BadgeFrame.IsVisible = parsedValue != 0;
                 }
                 else
-                    BadgeFrame.IsVisible = true;
+                    BadgeFrame.IsVisible = !string.IsNullOrEmpty(BadgeText);
             }
 
             if (BadgeTextLabel != null && propertyName == BadgeTextColorProperty.PropertyName)
