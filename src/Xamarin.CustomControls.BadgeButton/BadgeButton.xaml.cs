@@ -131,6 +131,29 @@ namespace Xamarin.CustomControls
             if (BadgeTextLabel != null && propertyName == BadgeFontSizeProperty.PropertyName)
             {
                 BadgeTextLabel.FontSize = BadgeFontSize;
+
+                if (BadgeFontSize <= 6)
+                {
+                    BadgeFrame.Padding = new Thickness(0, 2);
+                    BadgeFrame.CornerRadius = 2;
+                }
+
+                if (BadgeFontSize <= 8)
+                {
+                    BadgeFrame.Padding = new Thickness(0, 2);
+                    BadgeFrame.CornerRadius = 8;
+                }
+
+                if (BadgeFontSize <= 10)
+                {
+                    BadgeFrame.Padding = new Thickness(2, 2);
+                    BadgeFrame.CornerRadius = 10;
+                }
+
+                if (BadgeFontSize <= 12)
+                {
+                    BadgeFrame.Padding = new Thickness(8, 4);
+                }
             }
 
             if (BadgeIconImage != null && propertyName == ImageSourceProperty.PropertyName)

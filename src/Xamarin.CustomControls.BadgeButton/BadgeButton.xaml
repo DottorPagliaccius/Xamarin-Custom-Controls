@@ -11,7 +11,7 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
            
-            <Image x:Name="BadgeIconImage" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="8" />
+            <Image x:Name="BadgeIconImage" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="6" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
             <Frame x:Name="BadgeFrame" Grid.Row="0" Grid.Column="1" CornerRadius="12" Padding="10,4" HasShadow="false" OutlineColor="Transparent">
                 <Label x:Name="BadgeTextLabel" FontSize="12" FontAttributes="Bold" HorizontalOptions="Center" />
             </Frame>

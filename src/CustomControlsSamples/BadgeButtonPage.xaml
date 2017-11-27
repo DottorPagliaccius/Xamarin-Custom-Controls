@@ -4,6 +4,11 @@
         <StackLayout Padding="15">
             <badgeButton:BadgeButton HorizontalOptions="Center" WidthRequest="90" HeightRequest="80" ImageSource="star1" BadgeBackgroundColor="Red" BadgeText="{Binding BadgeText1}" Clicked="Handle_Clicked"></badgeButton:BadgeButton>
             <badgeButton:BadgeButton HorizontalOptions="Center" WidthRequest="90" HeightRequest="80" ImageSource="star2" BadgeBackgroundColor="Red" BadgeText="NEW" HideBadgeIfTextIsZero="false" ></badgeButton:BadgeButton>
+            <badgeButton:BadgeButton HorizontalOptions="Center" WidthRequest="90" HeightRequest="80" ImageSource="star1" BadgeBackgroundColor="Red" BadgeText="1" BadgeFontSize="6"></badgeButton:BadgeButton>
+            <badgeButton:BadgeButton HorizontalOptions="Center" WidthRequest="90" HeightRequest="80" ImageSource="star1" BadgeBackgroundColor="Red" BadgeText="2" BadgeFontSize="8"></badgeButton:BadgeButton>
+            <badgeButton:BadgeButton HorizontalOptions="Center" WidthRequest="90" HeightRequest="80" ImageSource="star1" BadgeBackgroundColor="Red" BadgeText="3" BadgeFontSize="10"></badgeButton:BadgeButton>
+            <badgeButton:BadgeButton HorizontalOptions="Center" WidthRequest="90" HeightRequest="80" ImageSource="star1" BadgeBackgroundColor="Red" BadgeText="4" BadgeFontSize="12"></badgeButton:BadgeButton>
+            <badgeButton:BadgeButton HorizontalOptions="Center" WidthRequest="90" HeightRequest="80" ImageSource="star1" BadgeBackgroundColor="Red" BadgeText="5" BadgeFontSize="14"></badgeButton:BadgeButton>
         </StackLayout>
 	</ContentPage.Content>
 </ContentPage>
