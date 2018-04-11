@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace CustomControlsSamples
 {
-    public partial class CasualControlPage : ContentPage
+    public partial class MapSelectorPage : ContentPage
     {
-        public CasualControlPage()
+        public MapSelectorPage()
         {
             InitializeComponent();
         }

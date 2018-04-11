@@ -29,7 +29,6 @@
   <ItemGroup>
     <EmbeddedResource Include="App.xaml" />
     <EmbeddedResource Include="RepeaterViewPage.xaml" />
-    <EmbeddedResource Include="RefreshableRepeaterViewPage.xaml" />
     <EmbeddedResource Include="MainPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>    
@@ -58,7 +57,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="CasualControlPage.xaml">
+    <EmbeddedResource Include="MapSelectorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -74,9 +73,6 @@
     <Compile Include="CustomSampleViewModel.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="RefreshableRepeaterViewPage.cs">
-      <DependentUpon>RefreshableRepeaterViewPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="AutoCompleteViewPage.xaml.cs">
       <DependentUpon>AutoCompleteViewPage.xaml</DependentUpon>
@@ -103,8 +99,8 @@
     <Compile Include="BadgeButtonPage.xaml.cs">
       <DependentUpon>BadgeButtonPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CasualControlPage.xaml.cs">
-      <DependentUpon>CasualControlPage.xaml</DependentUpon>
+    <Compile Include="MapSelectorPage.xaml.cs">
+      <DependentUpon>MapSelectorPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -118,10 +114,6 @@
     <ProjectReference Include="..\Xamarin.CustomControls.Repeater\Xamarin.CustomControls.RepeaterView.csproj">
       <Project>{73C8625C-82B0-484D-8EC0-32C984D73DB0}</Project>
       <Name>Xamarin.CustomControls.RepeaterView</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Xamarin.CustomControls.RefreshableRepeaterView\Xamarin.CustomControls.RefreshableRepeaterView.csproj">
-      <Project>{E190C04D-E37F-4D76-ACA2-75B2709BC48C}</Project>
-      <Name>Xamarin.CustomControls.RefreshableRepeaterView</Name>
     </ProjectReference>
     <ProjectReference Include="..\Xamarin.CustomControls.ProgressBarView\Xamarin.CustomControls.ProgressBarView.csproj">
       <Project>{F9C385C3-9CE7-43F8-A0DD-CAA6336C1A3D}</Project>
@@ -142,10 +134,6 @@
     <ProjectReference Include="..\Xamarin.CustomControls.BadgeButton\Xamarin.CustomControls.BadgeButton.csproj">
       <Project>{1C8718EF-E051-440F-B85B-798691F492D7}</Project>
       <Name>Xamarin.CustomControls.BadgeButton</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Xamarin.CustomControls.DrawedControl\Xamarin.CustomControls.SkiaControl.csproj">
-      <Project>{F31EC3EA-072E-48A8-BCDF-DE079C290B8C}</Project>
-      <Name>Xamarin.CustomControls.SkiaControl</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
