@@ -1,44 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5DFBDD88-6C72-4A4D-A7E6-882246DD5B88}</ProjectGuid>
-    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <OutputType>Library</OutputType>
-    <RootNamespace>Xamarin.CustomControls</RootNamespace>
-    <AssemblyName>Xamarin.CustomControls.StateButton</AssemblyName>
-    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StateButton.xaml.cs">
-      <DependentUpon>StateButton.xaml</DependentUpon>
-    </Compile>
+    <PackageReference Include="Xamarin.Forms" Version="3.0.0.482510" />
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="StateButton.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="project.json" />
-  </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <Import Project="..\packages\Xamarin.Forms.2.4.0.282\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.4.0.282\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />
 </Project>
