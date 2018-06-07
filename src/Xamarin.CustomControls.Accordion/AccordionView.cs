@@ -3,6 +3,7 @@ using Xamarin.Forms;
 
 namespace Xamarin.CustomControls
 {
+    [Preserve(AllMembers = true)]
     public class AccordionView : StackLayout
     {
         public class InvalidViewException : Exception

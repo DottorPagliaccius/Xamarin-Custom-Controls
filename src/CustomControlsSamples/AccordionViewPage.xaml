@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CustomControlsSamples.AccordionViewPage" xmlns:accordion="clr-namespace:Xamarin.CustomControls;assembly=Xamarin.CustomControls.AccordionView">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="10,20">
                 <Label Text="Accordion View" FontSize="20" HorizontalTextAlignment="Center" HorizontalOptions="Center" FontAttributes="Bold" />
-               
                 <accordion:AccordionView KeepOnlyOneItemOpen="false" Spacing="0">
                     <accordion:AccordionView.Children>
                         <accordion:AccordionItemView Text="Element #1" ActiveTextColor="Blue" TextColor="White" ButtonBackgroundColor="#0067B7" ButtonActiveBackgroundColor="#0067B7" TextPosition="Left" RightImage="arrowRight" RotateImages="true">
@@ -27,12 +26,12 @@
                                 </StackLayout>
                             </accordion:AccordionItemView.ItemContent>
                         </accordion:AccordionItemView>
-                        <accordion:AccordionItemView InnerPadding="10,0" Border="2,3,0,10" BorderColor="Purple" Text="Element #3" ActiveTextColor="White" TextColor="White" ButtonBackgroundColor="#0067B7" ButtonActiveBackgroundColor="#0067B7" TextPosition="Left" RightImage="arrowRight" RotateImages="true">
+                        <accordion:AccordionItemView InnerPadding="10,0" Border="2,3,0,10" BorderColor="Purple" Text="Element #3" ActiveTextColor="White" TextColor="White" ButtonBackgroundColor="#0067B7" ButtonActiveBackgroundColor="#0067B7" TextPosition="Left" RightImage="arrowRight"
+                            RotateImages="true">
                             <accordion:AccordionItemView.ItemContent>
                                 <StackLayout Padding="0.5,0,0.5,0.5" BackgroundColor="Black">
                                     <StackLayout Padding="5,15" BackgroundColor="Green">
                                         <Label Text="Content #3" HorizontalOptions="Center" TextColor="White" FontSize="20" />
-										<Button Text="Click here!" Clicked="Handle_Clicked" TextColor="Black" BackgroundColor="White" />
                                     </StackLayout>
                                 </StackLayout>
                             </accordion:AccordionItemView.ItemContent>

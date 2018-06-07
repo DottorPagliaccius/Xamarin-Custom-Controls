@@ -123,17 +123,17 @@
       <Project>{5DCDB5EF-94A2-4D0A-BBE9-52FFB2D72D8E}</Project>
       <Name>Xamarin.CustomControls.WrapRepeaterView</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Xamarin.CustomControls.StateButton\Xamarin.CustomControls.StateButton.csproj">
-      <Project>{5DFBDD88-6C72-4A4D-A7E6-882246DD5B88}</Project>
-      <Name>Xamarin.CustomControls.StateButton</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Xamarin.CustomControls.Accordion\Xamarin.CustomControls.AccordionView.csproj">
-      <Project>{26F3E1BB-FA1E-462A-9FC2-40766401568C}</Project>
-      <Name>Xamarin.CustomControls.AccordionView</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Xamarin.CustomControls.BadgeButton\Xamarin.CustomControls.BadgeButton.csproj">
       <Project>{1C8718EF-E051-440F-B85B-798691F492D7}</Project>
       <Name>Xamarin.CustomControls.BadgeButton</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xamarin.CustomControls.StateButton\Xamarin.CustomControls.StateButton.csproj">
+      <Project>{9CF4EBEE-85DE-4553-B09B-2516086B230B}</Project>
+      <Name>Xamarin.CustomControls.StateButton</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xamarin.CustomControls.Accordion\Xamarin.CustomControls.AccordionView.csproj">
+      <Project>{6CD94573-64AB-447B-999B-4EB635E5E7A9}</Project>
+      <Name>Xamarin.CustomControls.AccordionView</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

@@ -1,25 +1,25 @@
 <?xml version="1.0"?>
 <package>
-	<metadata>
-		<id>Xamarin.CustomControls.StateButton</id>
-		<version>1.0.8</version>
-		<title>StateButton control for Xamarin.Forms</title>
-		<authors>DottorPagliaccius</authors>
-		<owners>DottorPagliaccius</owners>
-		<licenseUrl>https://github.com/DottorPagliaccius/Xamarin-Custom-Controls/blob/master/LICENSE</licenseUrl>
-		<projectUrl>https://github.com/DottorPagliaccius/Xamarin-Custom-Controls</projectUrl>
-		<iconUrl>https://raw.githubusercontent.com/DottorPagliaccius/Xamarin-Custom-Controls/master/art/StateButtonIcon.png</iconUrl>
-		<requireLicenseAcceptance>false</requireLicenseAcceptance>
-		<description>StateButton custom control for Xamarin.Forms</description>
-		<summary>StateButton custom control for Xamarin.Forms</summary>
-		<releaseNotes>1.0.8 - fixed conversion to dotnetstandard 
+    <metadata>
+        <id>Xamarin.CustomControls.StateButton</id>
+        <version>1.0.9</version>
+        <title>StateButton control for Xamarin.Forms</title>
+        <authors>DottorPagliaccius</authors>
+        <owners>DottorPagliaccius</owners>
+        <licenseUrl>https://github.com/DottorPagliaccius/Xamarin-Custom-Controls/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/DottorPagliaccius/Xamarin-Custom-Controls</projectUrl>
+        <iconUrl>https://raw.githubusercontent.com/DottorPagliaccius/Xamarin-Custom-Controls/master/art/StateButtonIcon.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>StateButton custom control for Xamarin.Forms</description>
+        <summary>StateButton custom control for Xamarin.Forms</summary>
+        <releaseNotes>1.0.9 - fixed conversion to dotnetstandard  
     </releaseNotes>
-		<tags>xamarin, pcl, xam.pcl, control, customcontrol, button, statebutton, state, android, xamarin.forms, ios, monoandroid, monodroid, monotouch</tags>
-		<dependencies>
-			<dependency id="Xamarin.Forms" version="2.3.2.127" />
-		</dependencies>
-	</metadata>
-	<files>
-		<file src="src/Xamarin.CustomControls.StateButton/bin/Release/Xamarin.CustomControls.StateButton.*" target="lib\netstandard1.0" />
-	</files>
+        <tags>xamarin, pcl, xam.pcl, control, customcontrol, button, statebutton, state, android, xamarin.forms, ios, monoandroid, monodroid, monotouch</tags>
+        <dependencies>
+            <dependency id="Xamarin.Forms" version="3.0.0.530893" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="src/Xamarin.CustomControls.StateButton/bin/Release/Xamarin.CustomControls.StateButton.*" target="lib\netstandard1.0" />
+    </files>
 </package>

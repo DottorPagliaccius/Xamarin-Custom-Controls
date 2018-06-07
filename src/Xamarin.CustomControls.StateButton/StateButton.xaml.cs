@@ -21,7 +21,7 @@ namespace Xamarin.CustomControls
 
         private Color _inactiveBackgroundColor;
 
-        public static readonly BindableProperty IsPressedProperty = BindableProperty.Create(nameof(IsPressed), typeof(bool), typeof(StateButton), false, propertyChanged: async (bindable, oldValue, newValue) => await IsPressedChanged(bindable, newValue));
+        public static readonly BindableProperty IsPressedProperty = BindableProperty.Create(nameof(IsPressed), typeof(bool), typeof(StateButton), false, propertyChanged: async (bindable, oldValue, newValue) => await IsPressedChangedAsync(bindable, newValue));
         public static readonly BindableProperty TextColorProperty = BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(StateButton), Color.Black);
         public static readonly BindableProperty ActiveBackgroundColorProperty = BindableProperty.Create(nameof(ActiveBackgroundColor), typeof(Color), typeof(StateButton), Color.White);
         public static readonly BindableProperty ActiveTextColorProperty = BindableProperty.Create(nameof(ActiveTextColor), typeof(Color), typeof(StateButton), Color.Black);
@@ -182,7 +182,7 @@ namespace Xamarin.CustomControls
 
             MainGrid.BackgroundColor = _inactiveBackgroundColor = Color.White;
 
-            IsPressedChanged(this, IsPressed);
+            Init();
         }
 
         protected override void OnPropertyChanged(string propertyName = null)
@@ -311,7 +311,32 @@ namespace Xamarin.CustomControls
             }
         }
 
-        private static async Task IsPressedChanged(BindableObject bindable, object newValue)
+        private void Init()
+        {
+            try
+            {
+                _disablePropertyChangedEvent = true;
+
+                TextLabel.TextColor = TextColor;
+                MainGrid.BackgroundColor = _inactiveBackgroundColor;
+                MainPanel.BackgroundColor = BorderColor;
+
+                if (LeftImage != null)
+                    LeftImageControl.Source = LeftImage;
+
+                if (RightImage != null)
+                    RightImageControl.Source = RightImage;
+
+                LeftImageControlContainer.IsVisible = LeftImage != null;
+                RightImageControlContainer.IsVisible = RightImage != null;
+            }
+            finally
+            {
+                _disablePropertyChangedEvent = false;
+            }
+        }
+
+        private static async Task IsPressedChangedAsync(BindableObject bindable, object newValue)
         {
             var button = (StateButton)bindable;
             var value = (bool)newValue;

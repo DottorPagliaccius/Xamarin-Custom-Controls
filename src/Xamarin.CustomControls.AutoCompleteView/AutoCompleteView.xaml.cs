@@ -273,7 +273,7 @@ namespace Xamarin.CustomControls
 
             if (propertyName == SuggestionBorderColorProperty.PropertyName)
             {
-                SuggestedItemsOuterContainer.OutlineColor = SuggestionBorderColor;
+                SuggestedItemsOuterContainer.BorderColor = SuggestionBorderColor;
             }
 
             if (propertyName == EmptyTextProperty.PropertyName)
