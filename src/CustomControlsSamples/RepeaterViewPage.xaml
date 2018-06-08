@@ -6,7 +6,7 @@
                 <Label Text="Repeater View" FontSize="20" HorizontalTextAlignment="Center" HorizontalOptions="Center" FontAttributes="Bold" />
                 <Label Text="{Binding SelectedValue}" TextColor="Red" FontAttributes="Bold" Margin="0,15,0,20" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
                 <repeater:RepeaterView x:Name="MainRepeater" EmptyText="No elements" ShowSeparator="true" SeparatorHeight="2" SeparatorColor="Silver"
-
+                SelectedItemCommand="{Binding SelectedItemCommand}"
                     ItemsSource="{Binding Items}">
                     <repeater:RepeaterView.ItemTemplate>
                         <DataTemplate>
@@ -38,4 +38,3 @@
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
-  <!--  SelectedItemCommand="{Binding SelectedItemCommand}" -->

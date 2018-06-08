@@ -138,10 +138,6 @@
       <Project>{F9C385C3-9CE7-43F8-A0DD-CAA6336C1A3D}</Project>
       <Name>Xamarin.CustomControls.ProgressBarView</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XamarinCustomControls.WrapRepeaterView\Xamarin.CustomControls.WrapRepeaterView.csproj">
-      <Project>{5DCDB5EF-94A2-4D0A-BBE9-52FFB2D72D8E}</Project>
-      <Name>Xamarin.CustomControls.WrapRepeaterView</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Xamarin.CustomControls.Repeater\Xamarin.CustomControls.RepeaterView.csproj">
       <Project>{73C8625C-82B0-484D-8EC0-32C984D73DB0}</Project>
       <Name>Xamarin.CustomControls.RepeaterView</Name>
@@ -157,6 +153,10 @@
     <ProjectReference Include="..\Xamarin.CustomControls.Accordion\Xamarin.CustomControls.AccordionView.csproj">
       <Project>{6CD94573-64AB-447B-999B-4EB635E5E7A9}</Project>
       <Name>Xamarin.CustomControls.AccordionView</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XamarinCustomControls.WrapRepeaterView\Xamarin.CustomControls.WrapRepeaterView.csproj">
+      <Project>{5DCDB5EF-94A2-4D0A-BBE9-52FFB2D72D8E}</Project>
+      <Name>Xamarin.CustomControls.WrapRepeaterView</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
