@@ -3,7 +3,7 @@ Hi everybody, I finally find the time to bring some documentation to my *awesome
 
 
 ### Controls
-|Name|Useless Description|![Nuget](https://img.shields.io/nuget/v/Xam.Plugin.Media.svg?label=NuGet)|
+|Name|Useless Description|![Nuget](https://store-images.s-microsoft.com/image/apps.53276.9007199266443154.fbfda976-36bb-40e5-9276-b7514989bdbf.37ea27d4-7997-4adc-be49-1d3ff1d32d79?w=100&h=100&q=60|
 | ------------------- | :-----------: | :------------------: |
 |StateButton|A button with On/Off state|[Link](https://www.nuget.org/packages/Xamarin.CustomControls.StateButton/)
 |BadgeButton|A button that's nothing but a lot of talk and a badge|[Link](https://www.nuget.org/packages/Xamarin.CustomControls.StateButton/)
