@@ -1,10 +1,9 @@
 ﻿using System;
 using Xamarin.Forms;
-using Xamarin.CustomControls;
 
 namespace Xamarin.CustomControls
 {
-	[Preserve(AllMembers = true)]
+    [Preserve(AllMembers = true)]
     public class AccordionItemClickEventArgs : EventArgs
     {
         public AccordionItemClickEventArgs(AccordionItemView item)
@@ -17,7 +16,7 @@ namespace Xamarin.CustomControls
 
     public delegate void ClickEventHandler(object sender, AccordionItemClickEventArgs e);
 
-	[Preserve(AllMembers = true)]
+    [Preserve(AllMembers = true)]
     public partial class AccordionItemView : ContentView
     {
         public class InvalidViewException : Exception
@@ -57,6 +56,8 @@ namespace Xamarin.CustomControls
         public static readonly BindableProperty RightImageProperty = BindableProperty.Create(nameof(RightImage), typeof(FileImageSource), typeof(AccordionItemView), default(FileImageSource));
         public static readonly BindableProperty ActiveLeftImageProperty = BindableProperty.Create(nameof(ActiveLeftImage), typeof(FileImageSource), typeof(AccordionItemView), default(FileImageSource));
         public static readonly BindableProperty ActiveRightImageProperty = BindableProperty.Create(nameof(ActiveRightImage), typeof(FileImageSource), typeof(AccordionItemView), default(FileImageSource));
+
+        public static readonly BindableProperty RotateImagesProperty = BindableProperty.Create(nameof(RotateImages), typeof(bool), typeof(AccordionItemView), false);
 
         public Color TextColor
         {
@@ -175,8 +176,8 @@ namespace Xamarin.CustomControls
 
         public bool RotateImages
         {
-            get => AccordionItemButton.RotateImages;
-            set => AccordionItemButton.RotateImages = value;
+            get { return (bool)GetValue(RotateImagesProperty); }
+            set { SetValue(RotateImagesProperty, value); }
         }
 
         public AccordionItemView()
@@ -210,6 +211,7 @@ namespace Xamarin.CustomControls
             AccordionItemButton.RightImage = RightImage;
             AccordionItemButton.ActiveRightImage = ActiveRightImage;
             AccordionItemButton.InnerPadding = InnerPadding;
+            AccordionItemButton.RotateImages = false;
         }
 
         public void OpenPanel()
@@ -318,6 +320,11 @@ namespace Xamarin.CustomControls
             if (propertyName == InnerPaddingProperty.PropertyName)
             {
                 AccordionItemButton.InnerPadding = InnerPadding;
+            }
+
+            if (propertyName == RotateImagesProperty.PropertyName)
+            {
+                AccordionItemButton.RotateImages = RotateImages;
             }
         }
     }

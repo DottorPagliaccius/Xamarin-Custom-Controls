@@ -3,14 +3,14 @@
     <PropertyGroup>
         <TargetFramework>netstandard1.0</TargetFramework>
         <PackOnBuild>true</PackOnBuild>
-        <PackageVersion>1.1.5</PackageVersion>
+        <PackageVersion>1.1.6</PackageVersion>
         <Authors>DottorPagliaccius</Authors>
         <DevelopmentDependency>true</DevelopmentDependency>
         <PackageIconUrl>https://raw.githubusercontent.com/DottorPagliaccius/Xamarin-Custom-Controls/master/art/AccordionViewIcon.png</PackageIconUrl>
         <PackageLicenseUrl>https://github.com/DottorPagliaccius/Xamarin-Custom-Controls/blob/master/LICENSE</PackageLicenseUrl>
         <Owners>DottorPagliaccius</Owners>
         <PackageProjectUrl>https://github.com/DottorPagliaccius/Xamarin-Custom-Controls</PackageProjectUrl>
-        <PackageReleaseNotes>1.1.5 fix .net standards migration</PackageReleaseNotes>
+        <PackageReleaseNotes>1.1.6 RotateImages property is now bindable</PackageReleaseNotes>
         <Summary>Accordion custom control for Xamarin.Forms</Summary>
         <PackageTags>xamarin, pcl, xam.pcl, control, customcontrol, accordion, listview, android, xamarin.forms, ios, monoandroid, monodroid, monotouch</PackageTags>
         <Title>Accordion control for Xamarin.Forms</Title>
@@ -30,6 +30,6 @@
     <ItemGroup>
         <PackageReference Include="NuGet.Build.Packaging" Version="0.2.2" />
         <PackageReference Include="Xamarin.CustomControls.StateButton" Version="1.1.0" />
-        <PackageReference Include="Xamarin.Forms" Version="3.0.0.550146" />
+        <PackageReference Include="Xamarin.Forms" Version="3.1.0.637273" />
     </ItemGroup>
 </Project>
