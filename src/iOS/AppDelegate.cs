@@ -9,6 +9,8 @@ namespace CustomControlsSamples.iOS
     {
         public override bool FinishedLaunching(UIApplication uiApplication, NSDictionary launchOptions)
         {
+            Rg.Plugins.Popup.Popup.Init();
+
             Xamarin.Forms.Forms.Init();
 
             LoadApplication(new App());

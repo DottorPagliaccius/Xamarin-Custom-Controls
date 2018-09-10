@@ -15,6 +15,8 @@ namespace CustomControlsSamples.Droid
 
             base.OnCreate(savedInstanceState);
 
+            Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
+
             Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
             PullToRefreshLayoutRenderer.Init();

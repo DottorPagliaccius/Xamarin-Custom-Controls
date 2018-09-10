@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.CustomControls.Acco
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.CustomControls.StateButton", "Xamarin.CustomControls.StateButton\Xamarin.CustomControls.StateButton.csproj", "{9CF4EBEE-85DE-4553-B09B-2516086B230B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.CustomControls.LottieLoader", "Xamarin.CustomControls.LottieLoader\Xamarin.CustomControls.LottieLoader.csproj", "{194FE671-0014-4018-8E4C-D78F71E6601C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -165,5 +167,17 @@ Global
 		{9CF4EBEE-85DE-4553-B09B-2516086B230B}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{9CF4EBEE-85DE-4553-B09B-2516086B230B}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{9CF4EBEE-85DE-4553-B09B-2516086B230B}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{194FE671-0014-4018-8E4C-D78F71E6601C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{194FE671-0014-4018-8E4C-D78F71E6601C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{194FE671-0014-4018-8E4C-D78F71E6601C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{194FE671-0014-4018-8E4C-D78F71E6601C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{194FE671-0014-4018-8E4C-D78F71E6601C}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{194FE671-0014-4018-8E4C-D78F71E6601C}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{194FE671-0014-4018-8E4C-D78F71E6601C}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{194FE671-0014-4018-8E4C-D78F71E6601C}.Release|iPhone.Build.0 = Release|Any CPU
+		{194FE671-0014-4018-8E4C-D78F71E6601C}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{194FE671-0014-4018-8E4C-D78F71E6601C}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{194FE671-0014-4018-8E4C-D78F71E6601C}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{194FE671-0014-4018-8E4C-D78F71E6601C}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal
