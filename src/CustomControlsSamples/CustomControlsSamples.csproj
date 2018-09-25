@@ -1,141 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E88F99D0-05B9-4485-8387-B8B9DF39C3D3}</ProjectGuid>
-    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <OutputType>Library</OutputType>
-    <RootNamespace>CustomControlsSamples</RootNamespace>
-    <AssemblyName>CustomControlsSamples</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <ItemGroup>
-    <EmbeddedResource Include="App.xaml" />
-    <EmbeddedResource Include="RepeaterViewPage.xaml" />
-    <EmbeddedResource Include="MainPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>    
-    <EmbeddedResource Include="AutoCompleteViewPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProgressBarViewPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WrapRepeaterViewPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="StateButtonPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SegmentedViewPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AccordionViewPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AccordionRepeaterViewPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BadgeButtonPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MapSelectorPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
+    <Compile Remove="SegmentedViewPage.xaml.cs" />
+    <Compile Remove="SegmentedViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="RepeaterViewPage.xaml.cs">
-      <DependentUpon>RepeaterViewPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CustomSampleViewModel.cs" />
-    <Compile Include="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="AutoCompleteViewPage.xaml.cs">
-      <DependentUpon>AutoCompleteViewPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ProgressBarViewPage.xaml.cs">
+    <Compile Update="ProgressBarViewPage.xaml.cs">
       <DependentUpon>ProgressBarViewPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WrapRepeaterViewPage.xaml.cs">
-      <DependentUpon>WrapRepeaterViewPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="StateButtonPage.xaml.cs">
-      <DependentUpon>StateButtonPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="SegmentedViewPage.xaml.cs">
-      <DependentUpon>SegmentedViewPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="SegmentedViewModel.cs" />
-    <Compile Include="AccordionViewPage.xaml.cs">
-      <DependentUpon>AccordionViewPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="AccordionRepeaterViewPage.xaml.cs">
-      <DependentUpon>AccordionRepeaterViewPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="BadgeButtonPage.xaml.cs">
-      <DependentUpon>BadgeButtonPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MapSelectorPage.xaml.cs">
-      <DependentUpon>MapSelectorPage.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="project.json" />
+    <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
+    <PackageReference Include="Refractored.MvvmHelpers" Version="1.3.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Xamarin.CustomControls.AutoCompleteView\Xamarin.CustomControls.AutoCompleteView.csproj">
-      <Project>{89A36162-37C8-4FB4-85BA-518039CB6907}</Project>
-      <Name>Xamarin.CustomControls.AutoCompleteView</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Xamarin.CustomControls.Repeater\Xamarin.CustomControls.RepeaterView.csproj">
-      <Project>{73C8625C-82B0-484D-8EC0-32C984D73DB0}</Project>
-      <Name>Xamarin.CustomControls.RepeaterView</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Xamarin.CustomControls.ProgressBarView\Xamarin.CustomControls.ProgressBarView.csproj">
-      <Project>{F9C385C3-9CE7-43F8-A0DD-CAA6336C1A3D}</Project>
-      <Name>Xamarin.CustomControls.ProgressBarView</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Xamarin.CustomControls.BadgeButton\Xamarin.CustomControls.BadgeButton.csproj">
-      <Project>{1C8718EF-E051-440F-B85B-798691F492D7}</Project>
-      <Name>Xamarin.CustomControls.BadgeButton</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Xamarin.CustomControls.StateButton\Xamarin.CustomControls.StateButton.csproj">
-      <Project>{9CF4EBEE-85DE-4553-B09B-2516086B230B}</Project>
-      <Name>Xamarin.CustomControls.StateButton</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Xamarin.CustomControls.Accordion\Xamarin.CustomControls.AccordionView.csproj">
-      <Project>{6CD94573-64AB-447B-999B-4EB635E5E7A9}</Project>
-      <Name>Xamarin.CustomControls.AccordionView</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\XamarinCustomControls.WrapRepeaterView\Xamarin.CustomControls.WrapRepeaterView.csproj">
-      <Project>{5DCDB5EF-94A2-4D0A-BBE9-52FFB2D72D8E}</Project>
-      <Name>Xamarin.CustomControls.WrapRepeaterView</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\Xamarin.CustomControls.Accordion\Xamarin.CustomControls.AccordionView.csproj" />
+    <ProjectReference Include="..\Xamarin.CustomControls.AutoCompleteView\Xamarin.CustomControls.AutoCompleteView.csproj" />
+    <ProjectReference Include="..\Xamarin.CustomControls.BadgeButton\Xamarin.CustomControls.BadgeButton.csproj" />
+    <ProjectReference Include="..\Xamarin.CustomControls.LottieLoader\Xamarin.CustomControls.LottieLoader.csproj" />
+    <ProjectReference Include="..\Xamarin.CustomControls.ProgressBarView\Xamarin.CustomControls.ProgressBarView.csproj" />
+    <ProjectReference Include="..\Xamarin.CustomControls.Repeater\Xamarin.CustomControls.RepeaterView.csproj" />
+    <ProjectReference Include="..\Xamarin.CustomControls.SegmentedView\Xamarin.CustomControls.SegmentedView.csproj" />
+    <ProjectReference Include="..\Xamarin.CustomControls.StateButton\Xamarin.CustomControls.StateButton.csproj" />
+    <ProjectReference Include="..\XamarinCustomControls.WrapRepeaterView\Xamarin.CustomControls.WrapRepeaterView.csproj" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <Import Project="..\packages\Xamarin.Forms.2.4.0.38779\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.4.0.38779\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />
+  <ItemGroup>
+    <EmbeddedResource Remove="SegmentedViewPage.xaml" />
+  </ItemGroup>
 </Project>

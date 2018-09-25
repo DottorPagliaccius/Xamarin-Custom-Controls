@@ -34,7 +34,9 @@ namespace Xamarin.CustomControls.LottieLoader
             _navigation = navigation;
             _jsonAnimationFile = jsonAnimationFile;
 
-            SetAnimation(animation);
+            if (animation != null)
+                SetAnimation(animation);
+
             SetContent();
 
             if (autoShow)
@@ -56,7 +58,7 @@ namespace Xamarin.CustomControls.LottieLoader
 
         private void SetAnimation(BaseAnimation animation)
         {
-            Animation = animation ?? throw new ArgumentNullException(nameof(animation));
+            Animation = animation;
         }
 
         private void SetContent()

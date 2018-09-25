@@ -138,10 +138,6 @@
     <Compile Include="AppDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CustomControlsSamples\CustomControlsSamples.csproj">
-      <Project>{E88F99D0-05B9-4485-8387-B8B9DF39C3D3}</Project>
-      <Name>CustomControlsSamples</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Xamarin.CustomControls.AutoCompleteView\Xamarin.CustomControls.AutoCompleteView.csproj">
       <Project>{89A36162-37C8-4FB4-85BA-518039CB6907}</Project>
       <Name>Xamarin.CustomControls.AutoCompleteView</Name>
@@ -169,6 +165,10 @@
     <ProjectReference Include="..\XamarinCustomControls.WrapRepeaterView\Xamarin.CustomControls.WrapRepeaterView.csproj">
       <Project>{5DCDB5EF-94A2-4D0A-BBE9-52FFB2D72D8E}</Project>
       <Name>Xamarin.CustomControls.WrapRepeaterView</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CustomControlsSamples\CustomControlsSamples.csproj">
+      <Project>{F0A64F66-C6BD-4F9E-92FB-B03D576342BC}</Project>
+      <Name>CustomControlsSamples</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
