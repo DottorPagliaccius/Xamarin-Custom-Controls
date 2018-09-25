@@ -1,44 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F9C385C3-9CE7-43F8-A0DD-CAA6336C1A3D}</ProjectGuid>
-    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <OutputType>Library</OutputType>
-    <RootNamespace>Xamarin.CustomControls.ProgressBarView</RootNamespace>
-    <AssemblyName>Xamarin.CustomControls.ProgressBarView</AssemblyName>
-    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ProgressBarView.xaml.cs">
-      <DependentUpon>ProgressBarView.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="ProgressBarView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="project.json" />
-  </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <Import Project="..\packages\Xamarin.Forms.2.4.0.282\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.4.0.282\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <PackOnBuild>true</PackOnBuild>
+        <PackageVersion>1.0.2</PackageVersion>
+        <Authors>DottorPagliaccius</Authors>
+        <DevelopmentDependency>true</DevelopmentDependency>
+        <PackageIconUrl>https://raw.githubusercontent.com/DottorPagliaccius/Xamarin-Custom-Controls/master/art/ProgressBarViewIcon.png</PackageIconUrl>
+        <PackageLicenseUrl>https://github.com/DottorPagliaccius/Xamarin-Custom-Controls/blob/master/LICENSE</PackageLicenseUrl>
+        <Owners>DottorPagliaccius</Owners>
+        <PackageProjectUrl>https://github.com/DottorPagliaccius/Xamarin-Custom-Controls</PackageProjectUrl>
+        <PackageReleaseNotes>
+        </PackageReleaseNotes>
+        <Summary>ProgressBarView custom control for Xamarin.Forms</Summary>
+        <PackageTags>xamarin, pcl, xam.pcl, control, customcontrol, progress, progressbar, progressbarview, android, xamarin.forms, ios, monoandroid, monodroid, monotouch</PackageTags>
+        <Title>ProgressBarView for Xamarin.Forms</Title>
+        <Description>ProgressBarView custom control for Xamarin.Forms</Description>
+        <PackageId>Xamarin.CustomControls.ProgressBarView</PackageId>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Xamarin.Forms" Version="3.2.0.839982" />
+        <PackageReference Include="NuGet.Build.Packaging" Version="0.2.2" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="ProgressBarView.xaml" />
+    </ItemGroup>
 </Project>

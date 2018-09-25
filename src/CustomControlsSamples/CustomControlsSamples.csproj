@@ -1,35 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="SegmentedViewPage.xaml.cs" />
-    <Compile Remove="SegmentedViewModel.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="ProgressBarViewPage.xaml.cs">
-      <DependentUpon>ProgressBarViewPage.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
-    <PackageReference Include="Refractored.MvvmHelpers" Version="1.3.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Xamarin.CustomControls.Accordion\Xamarin.CustomControls.AccordionView.csproj" />
-    <ProjectReference Include="..\Xamarin.CustomControls.AutoCompleteView\Xamarin.CustomControls.AutoCompleteView.csproj" />
-    <ProjectReference Include="..\Xamarin.CustomControls.BadgeButton\Xamarin.CustomControls.BadgeButton.csproj" />
-    <ProjectReference Include="..\Xamarin.CustomControls.LottieLoader\Xamarin.CustomControls.LottieLoader.csproj" />
-    <ProjectReference Include="..\Xamarin.CustomControls.ProgressBarView\Xamarin.CustomControls.ProgressBarView.csproj" />
-    <ProjectReference Include="..\Xamarin.CustomControls.Repeater\Xamarin.CustomControls.RepeaterView.csproj" />
-    <ProjectReference Include="..\Xamarin.CustomControls.SegmentedView\Xamarin.CustomControls.SegmentedView.csproj" />
-    <ProjectReference Include="..\Xamarin.CustomControls.StateButton\Xamarin.CustomControls.StateButton.csproj" />
-    <ProjectReference Include="..\XamarinCustomControls.WrapRepeaterView\Xamarin.CustomControls.WrapRepeaterView.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Remove="SegmentedViewPage.xaml" />
-  </ItemGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Xamarin.Forms" Version="3.2.0.839982" />
+        <PackageReference Include="Refractored.MvvmHelpers" Version="1.3.0" />
+        <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+        <PackageReference Include="Xamarin.CustomControls.RepeaterView" Version="1.2.2" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Xamarin.CustomControls.Accordion\Xamarin.CustomControls.AccordionView.csproj" />
+        <ProjectReference Include="..\Xamarin.CustomControls.AutoCompleteView\Xamarin.CustomControls.AutoCompleteView.csproj" />
+        <ProjectReference Include="..\Xamarin.CustomControls.BadgeButton\Xamarin.CustomControls.BadgeButton.csproj" />
+        <ProjectReference Include="..\Xamarin.CustomControls.LottieLoader\Xamarin.CustomControls.LottieLoader.csproj" />
+        <ProjectReference Include="..\Xamarin.CustomControls.ProgressBarView\Xamarin.CustomControls.ProgressBarView.csproj" />
+        <ProjectReference Include="..\XamarinCustomControls.WrapRepeaterView\Xamarin.CustomControls.WrapRepeaterView.csproj" />
+        <ProjectReference Include="..\Xamarin.CustomControls.StateButton\Xamarin.CustomControls.StateButton.csproj" />
+    </ItemGroup>
 </Project>

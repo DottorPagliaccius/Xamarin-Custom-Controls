@@ -20,7 +20,7 @@
                             </ViewCell>
                         </DataTemplate>
                     </repeater:RepeaterView.ItemTemplate>
-                    <repeater:RepeaterView.PanLeftItemTemplate>
+                   <!-- <repeater:RepeaterView.PanLeftItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <Grid BackgroundColor="Lime" HeightRequest="40">
@@ -32,7 +32,7 @@
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>
-                    </repeater:RepeaterView.PanLeftItemTemplate>
+                    </repeater:RepeaterView.PanLeftItemTemplate>-->
                 </repeater:RepeaterView>
             </StackLayout>
         </ScrollView>

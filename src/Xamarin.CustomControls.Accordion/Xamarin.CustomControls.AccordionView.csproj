@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>netstandard1.0</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>
         <PackOnBuild>true</PackOnBuild>
         <PackageVersion>1.1.6</PackageVersion>
         <Authors>DottorPagliaccius</Authors>
@@ -21,6 +21,7 @@
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
         <DebugType>
         </DebugType>
+        <ExternalConsole>false</ExternalConsole>
     </PropertyGroup>
     <ItemGroup>
         <Compile Update="AccordionItemView.xaml.cs">
@@ -28,8 +29,8 @@
         </Compile>
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="NuGet.Build.Packaging" Version="0.2.2" />
         <PackageReference Include="Xamarin.CustomControls.StateButton" Version="1.1.0" />
-        <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
+        <PackageReference Include="Xamarin.Forms" Version="3.2.0.839982" />
+        <PackageReference Include="NuGet.Build.Packaging" Version="0.2.2" />
     </ItemGroup>
 </Project>
