@@ -4,14 +4,13 @@
         <ScrollView>
             <StackLayout Spacing="10" Margin="0,50">
                 <Button Text="RepeaterView" Clicked="RepeaterViewClick" />
-                <Button Text="AutoCompleteView" Clicked="AutoCompleteViewClick" />
                 <Button Text="ProgressBarView" Clicked="ProgressBarViewClick" />
                 <Button Text="WrapRepeaterView" Clicked="WrapRepeaterViewClick" />
                 <Button Text="StateButton" Clicked="StateButtonClick" />
-               	<Button  Text="AccordionRepeaterView" Clicked="AccordionRepeaterViewClick"/>
-                <Button  Text="AccordionView" Clicked="AccordionViewClick"/>
-                <Button  Text="BadgeButton" Clicked="BadgeButtonClick"/>
-                <Button  Text="LottieLoader" Clicked="LoaderButtonClick"/>
+               	<Button Text="AccordionRepeaterView" Clicked="AccordionRepeaterViewClick"/>
+                <Button Text="AccordionView" Clicked="AccordionViewClick"/>
+                <Button Text="BadgeButton" Clicked="BadgeButtonClick"/>
+                <Button Text="LottieLoader" Clicked="LoaderButtonClick"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

@@ -19,10 +19,11 @@
         <PackageId>Xamarin.CustomControls.ProgressBarView</PackageId>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Xamarin.Forms" Version="3.2.0.839982" />
-        <PackageReference Include="NuGet.Build.Packaging" Version="0.2.2" />
+        <None Include="ProgressBarView.xaml">
+          <Generator>MSBuild:Compile</Generator>
+        </None>
     </ItemGroup>
     <ItemGroup>
-        <None Include="ProgressBarView.xaml" />
+      <PackageReference Include="Xamarin.Forms" Version="3.2.0.871581" />
     </ItemGroup>
 </Project>

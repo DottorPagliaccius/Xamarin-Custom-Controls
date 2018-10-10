@@ -16,10 +16,10 @@ namespace CustomControlsSamples
             await Navigation.PushAsync(new RepeaterViewPage());
         }
 
-        private async void AutoCompleteViewClick(object sender, EventArgs e)
+       /* private async void AutoCompleteViewClick(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AutoCompleteViewPage());
-        }
+        }*/
 
         private async void ProgressBarViewClick(object sender, EventArgs e)
         {
