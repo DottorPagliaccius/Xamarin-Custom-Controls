@@ -6,7 +6,7 @@ using Rg.Plugins.Popup.Extensions;
 using Rg.Plugins.Popup.Pages;
 using Xamarin.Forms;
 
-namespace Xamarin.CustomControls.LottieLoader
+namespace Xamarin.CustomControls
 {
     public class LottieLoader : PopupPage, IDisposable
     {
