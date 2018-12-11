@@ -218,7 +218,7 @@ namespace Xamarin.CustomControls
 
         private View GetItemView(object item)
         {
-            var content = ItemTemplate.CreateContent();
+            var content = CreateItemContent(ItemTemplate, item);
             if (!(content is View) && !(content is ViewCell))
             {
                 throw new InvalidViewException($"Templated control must be a View or a ViewCell ({nameof(ItemTemplate)})");
@@ -383,6 +383,19 @@ namespace Xamarin.CustomControls
             }
 
             OnDataUpdate?.Invoke(this, new EventArgs());
+        }
+
+        private static object CreateItemContent(DataTemplate dataTemplate, object item)
+        {
+            if (dataTemplate is DataTemplateSelector dts)
+            {
+                var template = dts.SelectTemplate(item, null);
+                template.SetValue(BindingContextProperty, item);
+                return template.CreateContent();
+            }
+            
+            dataTemplate.SetValue(BindingContextProperty, item);
+            return dataTemplate.CreateContent();
         }
     }
 }
