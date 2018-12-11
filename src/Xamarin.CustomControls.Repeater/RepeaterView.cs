@@ -86,8 +86,8 @@ namespace Xamarin.CustomControls
 
         public Color SeparatorColor
         {
-            get { return (Color)GetValue(SeparatorColorProperty); }
-            set { SetValue(SeparatorColorProperty, value); }
+            get => (Color)GetValue(SeparatorColorProperty);
+            set => SetValue(SeparatorColorProperty, value);
         }
 
         public double SeparatorHeight
@@ -98,10 +98,7 @@ namespace Xamarin.CustomControls
 
         public bool ShowSeparator { get; set; }
 
-        public bool IsEmpty
-        {
-            get => ItemsSource.Count == 0 && (EmptyTextTemplate != null || !string.IsNullOrEmpty(EmptyText));
-        }
+        public bool IsEmpty => ItemsSource.Count == 0 && (EmptyTextTemplate != null || !string.IsNullOrEmpty(EmptyText));
 
         public RepeaterView()
         {
@@ -178,7 +175,7 @@ namespace Xamarin.CustomControls
                     throw new InvalidViewException($"Templated control must be a View or a ViewCell ({nameof(SeparatorTemplate)})");
                 }
 
-                return (content is View) ? content as View : ((ViewCell)content).View;
+                return content as View ?? ((ViewCell)content).View;
             }
             else
             {
@@ -200,7 +197,7 @@ namespace Xamarin.CustomControls
                     throw new InvalidViewException($"Templated control must be a View or a ViewCell ({nameof(EmptyTextTemplate)})");
                 }
 
-                var view = (content is View) ? content as View : ((ViewCell)content).View;
+                var view = content as View ?? ((ViewCell)content).View;
 
                 Children.Add(view);
             }
@@ -218,13 +215,13 @@ namespace Xamarin.CustomControls
 
         private View GetItemView(object item)
         {
-            var content = ItemTemplate.CreateContent();
+            var content = CreateItemContent(ItemTemplate, item);
             if (!(content is View) && !(content is ViewCell))
             {
                 throw new InvalidViewException($"Templated control must be a View or a ViewCell ({nameof(ItemTemplate)})");
             }
 
-            var view = content is View ? content as View : ((ViewCell)content).View;
+            var view = content as View ?? ((ViewCell)content).View;
 
             view.BindingContext = item;
 
@@ -338,7 +335,7 @@ namespace Xamarin.CustomControls
                 throw new InvalidViewException($"Templated control must be a View or a ViewCell ({nameof(PanLeftItemTemplate)})");
             }
 
-            return (content is View) ? content as View : ((ViewCell)content).View;
+            return content as View ?? ((ViewCell)content).View;
         }
 
         private void CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
@@ -383,6 +380,19 @@ namespace Xamarin.CustomControls
             }
 
             OnDataUpdate?.Invoke(this, new EventArgs());
+        }
+
+        private static object CreateItemContent(DataTemplate dataTemplate, object item)
+        {
+            if (dataTemplate is DataTemplateSelector dts)
+            {
+                var template = dts.SelectTemplate(item, null);
+                template.SetValue(BindingContextProperty, item);
+                return template.CreateContent();
+            }
+            
+            dataTemplate.SetValue(BindingContextProperty, item);
+            return dataTemplate.CreateContent();
         }
     }
 }
