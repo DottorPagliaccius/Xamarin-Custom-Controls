@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <PackOnBuild>true</PackOnBuild>
+        <PackageVersion>1.0.0</PackageVersion>
+        <Authors>DottorPagliaccius</Authors>
+        <DevelopmentDependency>true</DevelopmentDependency>
+        <PackageIconUrl>https://raw.githubusercontent.com/DottorPagliaccius/Xamarin-Custom-Controls/master/art/GifLoaderIcon.png</PackageIconUrl>
+        <PackageLicenseUrl>https://github.com/DottorPagliaccius/Xamarin-Custom-Controls/blob/master/LICENSE</PackageLicenseUrl>
+        <Owners>DottorPagliaccius</Owners>
+        <PackageProjectUrl>https://github.com/DottorPagliaccius/Xamarin-Custom-Controls</PackageProjectUrl>
+        <Summary>GifLoader control for Xamarin.Forms</Summary>
+        <PackageTags>xamarin, pcl, xam.pcl, control, customcontrol, gif, loader, android, xamarin.forms, ios, monoandroid, monodroid, monotouch</PackageTags>
+        <Title>GifLoader control for Xamarin.Forms</Title>
+        <Description>A Loader made with gif image for Xamarin.Forms</Description>
+        <PackageId>Xamarin.CustomControls.GifLoader</PackageId>
+        <RootNamespace>Xamarin.CustomControls</RootNamespace>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Rg.Plugins.Popup" Version="1.1.5.188" />
+        <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.4.859" />
+        <PackageReference Include="Xamarin.Forms" Version="3.5.0.169047" />
+    </ItemGroup>
+</Project>

@@ -10,13 +10,15 @@
         <PackageLicenseUrl>https://github.com/DottorPagliaccius/Xamarin-Custom-Controls/blob/master/LICENSE</PackageLicenseUrl>
         <Owners>DottorPagliaccius</Owners>
         <PackageProjectUrl>https://github.com/DottorPagliaccius/Xamarin-Custom-Controls</PackageProjectUrl>
-        <PackageReleaseNotes>
-        </PackageReleaseNotes>
+        <PackageReleaseNotes>update to .net standard 2.0</PackageReleaseNotes>
         <Summary>ProgressBarView custom control for Xamarin.Forms</Summary>
         <PackageTags>xamarin, pcl, xam.pcl, control, customcontrol, progress, progressbar, progressbarview, android, xamarin.forms, ios, monoandroid, monodroid, monotouch</PackageTags>
         <Title>ProgressBarView for Xamarin.Forms</Title>
         <Description>ProgressBarView custom control for Xamarin.Forms</Description>
         <PackageId>Xamarin.CustomControls.ProgressBarView</PackageId>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+      <DebugType></DebugType>
     </PropertyGroup>
     <ItemGroup>
         <None Include="ProgressBarView.xaml">
@@ -24,6 +26,6 @@
         </None>
     </ItemGroup>
     <ItemGroup>
-      <PackageReference Include="Xamarin.Forms" Version="3.2.0.871581" />
+      <PackageReference Include="Xamarin.Forms" Version="3.5.0.169047" />
     </ItemGroup>
 </Project>

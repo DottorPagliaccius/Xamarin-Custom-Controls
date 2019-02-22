@@ -1,4 +1,5 @@
-﻿using Foundation;
+﻿using FFImageLoading.Forms.Platform;
+using Foundation;
 using Refractored.XamForms.PullToRefresh.iOS;
 using UIKit;
 
@@ -10,7 +11,7 @@ namespace CustomControlsSamples.iOS
         public override bool FinishedLaunching(UIApplication uiApplication, NSDictionary launchOptions)
         {
             Rg.Plugins.Popup.Popup.Init();
-
+            CachedImageRenderer.Init();
             Xamarin.Forms.Forms.Init();
 
             LoadApplication(new App());

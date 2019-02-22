@@ -80,7 +80,14 @@ namespace Xamarin.CustomControls
 
         public void Close()
         {
-            _navigation.PopPopupAsync();
+            try
+            {
+                _navigation.PopPopupAsync();
+            }
+            catch //shitty and I hope temporary way to prevent occasional "There is not page in PopupStack" errors
+            {
+
+            }
         }
 
         protected virtual void Dispose(bool disposing)

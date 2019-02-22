@@ -11,6 +11,7 @@
                 <Button Text="AccordionView" Clicked="AccordionViewClick"/>
                 <Button Text="BadgeButton" Clicked="BadgeButtonClick"/>
                 <Button Text="LottieLoader" Clicked="LoaderButtonClick"/>
+                <Button Text="LottieLoader" Clicked="GifLoaderButtonClick"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

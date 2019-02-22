@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.CustomControls.Lott
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomControlsSamples", "CustomControlsSamples\CustomControlsSamples.csproj", "{F0A64F66-C6BD-4F9E-92FB-B03D576342BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.CustomControls.GifLoader", "Xamarin.CustomControls.GifLoader\Xamarin.CustomControls.GifLoader.csproj", "{68FD46CD-D064-4F9B-8E1D-2A11598B5B4F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -165,5 +167,17 @@ Global
 		{F0A64F66-C6BD-4F9E-92FB-B03D576342BC}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{F0A64F66-C6BD-4F9E-92FB-B03D576342BC}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{F0A64F66-C6BD-4F9E-92FB-B03D576342BC}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{68FD46CD-D064-4F9B-8E1D-2A11598B5B4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68FD46CD-D064-4F9B-8E1D-2A11598B5B4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68FD46CD-D064-4F9B-8E1D-2A11598B5B4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68FD46CD-D064-4F9B-8E1D-2A11598B5B4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68FD46CD-D064-4F9B-8E1D-2A11598B5B4F}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{68FD46CD-D064-4F9B-8E1D-2A11598B5B4F}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{68FD46CD-D064-4F9B-8E1D-2A11598B5B4F}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{68FD46CD-D064-4F9B-8E1D-2A11598B5B4F}.Release|iPhone.Build.0 = Release|Any CPU
+		{68FD46CD-D064-4F9B-8E1D-2A11598B5B4F}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{68FD46CD-D064-4F9B-8E1D-2A11598B5B4F}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{68FD46CD-D064-4F9B-8E1D-2A11598B5B4F}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{68FD46CD-D064-4F9B-8E1D-2A11598B5B4F}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal

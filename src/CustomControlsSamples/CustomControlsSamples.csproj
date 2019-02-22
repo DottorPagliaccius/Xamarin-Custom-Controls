@@ -4,16 +4,17 @@
         <TargetFramework>netstandard2.0</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
-      <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+      <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
       <PackageReference Include="Refractored.MvvmHelpers" Version="1.3.0" />
       <PackageReference Include="Xamarin.CustomControls.AccordionView" Version="1.1.6" />
       <PackageReference Include="Xamarin.CustomControls.BadgeButton" Version="1.0.5" />
       <PackageReference Include="Xamarin.CustomControls.ProgressBarView" Version="1.0.1" />
       <PackageReference Include="Xamarin.CustomControls.RepeaterView" Version="1.2.2" />
       <PackageReference Include="Xamarin.CustomControls.WrapRepeaterView" Version="1.0.1" />
-      <PackageReference Include="Xamarin.Forms" Version="3.2.0.871581" />
+      <PackageReference Include="Xamarin.Forms" Version="3.5.0.169047" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\Xamarin.CustomControls.LottieLoader\Xamarin.CustomControls.LottieLoader.csproj" />
+      <ProjectReference Include="..\Xamarin.CustomControls.GifLoader\Xamarin.CustomControls.GifLoader.csproj" />
     </ItemGroup>
 </Project>

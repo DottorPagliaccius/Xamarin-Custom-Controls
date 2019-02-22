@@ -16,10 +16,10 @@ namespace CustomControlsSamples
             await Navigation.PushAsync(new RepeaterViewPage());
         }
 
-       /* private async void AutoCompleteViewClick(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new AutoCompleteViewPage());
-        }*/
+        /* private async void AutoCompleteViewClick(object sender, EventArgs e)
+         {
+             await Navigation.PushAsync(new AutoCompleteViewPage());
+         }*/
 
         private async void ProgressBarViewClick(object sender, EventArgs e)
         {
@@ -54,6 +54,11 @@ namespace CustomControlsSamples
         private async void LoaderButtonClick(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new LottieLoaderPage());
+        }
+
+        private async void GifLoaderButtonClick(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new GifLoaderPage());
         }
     }
 }

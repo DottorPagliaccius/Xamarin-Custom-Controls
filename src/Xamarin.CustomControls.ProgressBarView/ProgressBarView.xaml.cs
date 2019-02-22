@@ -159,24 +159,28 @@ namespace Xamarin.CustomControls
             Container.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(progress, GridUnitType.Star) });
 
             if (_coloredBoxView == null)
+            {
                 _coloredBoxView = new BoxView
                 {
                     Color = Color,
                     HorizontalOptions = new LayoutOptions(LayoutAlignment.Fill, false),
                     VerticalOptions = new LayoutOptions(LayoutAlignment.Fill, false)
                 };
+            }
 
             if (progress != 100)
             {
                 Container.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(100 - progress, GridUnitType.Star) });
 
                 if (_otherBox == null)
+                {
                     _otherBox = new BoxView
                     {
                         Color = Color.Transparent,
                         HorizontalOptions = new LayoutOptions(LayoutAlignment.Fill, false),
                         VerticalOptions = new LayoutOptions(LayoutAlignment.Fill, false)
                     };
+                }
 
                 Container.Children.Add(_coloredBoxView, 0, 0);
                 Container.Children.Add(_otherBox, 1, 0);
