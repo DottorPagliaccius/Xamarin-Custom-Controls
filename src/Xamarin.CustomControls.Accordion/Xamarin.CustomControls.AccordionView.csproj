@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
+        <TargetFramework>netstandard2.1</TargetFramework>
         <PackOnBuild>true</PackOnBuild>
-        <PackageVersion>1.1.6</PackageVersion>
+        <PackageVersion>1.1.7</PackageVersion>
         <Authors>DottorPagliaccius</Authors>
         <DevelopmentDependency>true</DevelopmentDependency>
         <PackageIconUrl>https://raw.githubusercontent.com/DottorPagliaccius/Xamarin-Custom-Controls/master/art/AccordionViewIcon.png</PackageIconUrl>
         <PackageLicenseUrl>https://github.com/DottorPagliaccius/Xamarin-Custom-Controls/blob/master/LICENSE</PackageLicenseUrl>
         <Owners>DottorPagliaccius</Owners>
         <PackageProjectUrl>https://github.com/DottorPagliaccius/Xamarin-Custom-Controls</PackageProjectUrl>
-        <PackageReleaseNotes>1.1.6 RotateImages property is now bindable</PackageReleaseNotes>
         <Summary>Accordion custom control for Xamarin.Forms</Summary>
         <PackageTags>xamarin, pcl, xam.pcl, control, customcontrol, accordion, listview, android, xamarin.forms, ios, monoandroid, monodroid, monotouch</PackageTags>
         <Title>Accordion control for Xamarin.Forms</Title>
@@ -22,6 +21,10 @@
         <DebugType>
         </DebugType>
         <ExternalConsole>false</ExternalConsole>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+      <LangVersion>latest</LangVersion>
     </PropertyGroup>
     <ItemGroup>
         <Compile Update="AccordionItemView.xaml.cs">
@@ -29,8 +32,8 @@
         </Compile>
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Xamarin.CustomControls.StateButton" Version="1.1.0" />
-        <PackageReference Include="Xamarin.Forms" Version="3.5.0.169047" />
+        <PackageReference Include="Xamarin.CustomControls.StateButton" Version="1.1.1" />
+        <PackageReference Include="Xamarin.Forms" Version="4.6.0.800" />
         <PackageReference Include="NuGet.Build.Packaging" Version="0.2.2" />
     </ItemGroup>
 </Project>
